@@ -1,0 +1,164 @@
+const fs = require('fs');
+const path = require('path');
+
+/**
+ * ZAITEX HYDRATOR (v2.0 - Stable)
+ */
+
+// Detect if we are in a subfolder structure or root
+let projectRoot = process.cwd();
+if (fs.existsSync(path.join(projectRoot, 'zaitex-web'))) {
+  projectRoot = path.join(projectRoot, 'zaitex-web');
+}
+
+const DNA_PATH = path.join(process.cwd(), 'design_dna.json');
+const CSS_PATH = path.join(projectRoot, 'app', 'globals.css');
+
+// 1. Helper: Hex to HSL
+function hexToHsl(hex) {
+  let c = hex.substring(1).split('');
+  if (c.length === 3) c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+  c = '0x' + c.join('');
+  let r = (c >> 16) & 255;
+  let g = (c >> 8) & 255;
+  let b = c & 255;
+  r /= 255; g /= 255; b /= 255;
+  let cmin = Math.min(r, g, b), cmax = Math.max(r, g, b), delta = cmax - cmin, h = 0, s = 0, l = 0;
+  if (delta === 0) h = 0;
+  else if (cmax === r) h = ((g - b) / delta) % 6;
+  else if (cmax === g) h = (b - r) / delta + 2;
+  else h = (r - g) / delta + 4;
+  h = Math.round(h * 60);
+  if (h < 0) h += 360;
+  l = (cmax + cmin) / 2;
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+  return `${h} ${(s * 100).toFixed(1)}% ${(l * 100).toFixed(1)}%`;
+}
+
+function hydrate() {
+  console.log('💧 Zaitex Hydration v2.0: Starting...');
+  console.log(`📂 Project Root: ${projectRoot}`);
+  console.log(`🎨 DNA Path: ${DNA_PATH}`);
+
+  if (!fs.existsSync(DNA_PATH)) {
+    console.error('❌ Error: design_dna.json not found.');
+    process.exit(1);
+  }
+
+  let dna;
+  try {
+    dna = JSON.parse(fs.readFileSync(DNA_PATH, 'utf8'));
+  } catch (e) {
+    console.error('❌ Error: Invalid JSON in design_dna.json');
+    process.exit(1);
+  }
+
+  const vars = dna.theme_injection?.root_vars || {};
+  const background = hexToHsl(vars['--background'] || '#ffffff');
+  const foreground = hexToHsl(vars['--foreground'] || '#0a0a0a');
+  const primary = hexToHsl(vars['--primary'] || '#18181b');
+  const primaryFg = hexToHsl(vars['--primary-foreground'] || '#ffffff');
+  const border = hexToHsl(vars['--border'] || '#e5e7eb');
+  const radius = vars['--radius'] || '0.5rem';
+
+  // Safe CSS Generation (Avoiding @apply for base layers to prevent build errors)
+  const cssContent = `@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Zaitex Animations */
+  --animate-grain: grain 8s steps(10) infinite;
+  --animate-border-beam: border-beam calc(var(--duration)*1s) infinite linear;
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
+  }
+
+  @keyframes border-beam {
+    100% { offset-distance: 100%; }
+  }
+}
+
+@layer base {
+  :root {
+    --background: ${background};
+    --foreground: ${foreground};
+    --card: ${background};
+    --card-foreground: ${foreground};
+    --popover: ${background};
+    --popover-foreground: ${foreground};
+    --primary: ${primary};
+    --primary-foreground: ${primaryFg};
+    --secondary: ${background};
+    --secondary-foreground: ${foreground};
+    --muted: ${background};
+    --muted-foreground: ${foreground};
+    --accent: ${background};
+    --accent-foreground: ${foreground};
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: ${border};
+    --input: ${border};
+    --ring: ${primary};
+    --radius: ${radius};
+  }
+  .dark {
+    --background: ${background};
+    --foreground: ${foreground};
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}`;
+
+  // Ensure directory exists
+  const dir = path.dirname(CSS_PATH);
+  if (!fs.existsSync(dir)) {
+    console.error(`❌ Error: Directory not found: ${dir}`);
+    process.exit(1);
+  }
+
+  fs.writeFileSync(CSS_PATH, cssContent);
+  console.log(`✅ Zaitex Hydration: app / globals.css updated successfully with new DNA.`);
+}
+
+hydrate();
