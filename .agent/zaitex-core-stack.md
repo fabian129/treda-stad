@@ -7,10 +7,15 @@ This document defines the mandatory environment configuration for any project us
 To support the standard "Monospace DNA" visual effects (Glassmorphism, 3D Grids, Digital Rain), the following packages **MUST** be installed during initialization:
 
 ```bash
+# Core UI & Motion
 npm install framer-motion lenis lucide-react class-variance-authority clsx tailwind-merge
-# 3D & Visual Effects Core
-npm install three @react-three/fiber
+
+# 3D Experience (Three.js + Drei Helpers)
+npm install three @react-three/fiber @react-three/drei
 npm install -D @types/three
+
+# Advanced Scrolly-telling (GSAP)
+npm install gsap @gsap/react
 ```
 
 ## 🛡️ Robust Component Patterns

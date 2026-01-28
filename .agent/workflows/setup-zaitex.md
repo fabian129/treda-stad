@@ -16,7 +16,7 @@ npx create-next-app@latest . --typescript --tailwind --eslint
 // turbo
 Install the mandatory dependencies for visual effects and animations.
 ```bash
-npm install framer-motion lenis lucide-react class-variance-authority clsx tailwind-merge three @react-three/fiber
+npm install framer-motion lenis lucide-react class-variance-authority clsx tailwind-merge three @react-three/fiber @react-three/drei gsap @gsap/react
 npm install -D @types/three
 ```
 
