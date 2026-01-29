@@ -12,8 +12,6 @@ export const metadata: Metadata = {
   description: "We engineer digital products. Design-led development.",
 };
 
-import SmoothScroll from "@/components/SmoothScroll";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={jetbrainsMono.variable}>
       <body className="antialiased font-mono">
-        <SmoothScroll>{children}</SmoothScroll>
+        {children}
       </body>
     </html>
   );
