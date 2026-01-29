@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, Grid } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { GlassPrism } from "@/components/zaitex/glass-prism";
 
 export default function WorkPage() {
     const projects = [
@@ -122,21 +123,26 @@ export default function WorkPage() {
                 </div>
             </nav>
 
-            {/* 2. Top & Bottom Blur Masks (Seamless Gradient Fade) */}
+            {/* 2. Top & Bottom Blur Masks (Pure Glass / No Color) */}
             <div
-                className="fixed top-0 left-0 right-0 h-30 z-40 pointer-events-none backdrop-blur-xl bg-[#FAFAFA]/10"
+                className="fixed top-0 left-0 right-0 h-10 z-40 pointer-events-none backdrop-blur-xl"
                 style={{
-                    maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)'
+                    maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
                 }}
             />
+            {/* 3D Prism Accent - Top */}
+            <GlassPrism position="top" className="fixed top-[-4rem] h-32 z-50 opacity-60 mix-blend-overlay" />
+
             <div
-                className="fixed bottom-0 left-0 right-0 h-20 z-40 pointer-events-none backdrop-blur-xl bg-[#FAFAFA]/5"
+                className="fixed bottom-0 left-0 right-0 h-10 z-40 pointer-events-none backdrop-blur-xl"
                 style={{
-                    maskImage: 'linear-gradient(to top, black 20%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to top, black 20%, transparent 100%)'
+                    maskImage: 'linear-gradient(to top, black 50%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to top, black 50%, transparent 100%)'
                 }}
             />
+            {/* 3D Prism Accent - Bottom */}
+            <GlassPrism position="bottom" className="fixed bottom-[-4rem] h-32 z-50 opacity-60 mix-blend-overlay" />
 
             {/* 3. The Artboard (Content Grid) */}
             <main className="relative pt-32 pb-32 px-4 md:px-6 z-10">
