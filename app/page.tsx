@@ -1,6 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
+
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Shield, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -205,12 +205,5 @@ export default function Home() {
       </section>
 
     </div >
-=======
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
-    </main>
->>>>>>> b561f6b6c2cf87fc4c720a41aa25596c8f9bfd12
   );
 }
