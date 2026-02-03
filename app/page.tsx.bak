@@ -1,0 +1,313 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, Star, CheckCircle, Shield, Clock, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/Navbar";
+import { OrganicBlob } from "@/components/decorations/OrganicBlob";
+import { CleaningPattern } from "@/components/decorations/CleaningPattern";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-background font-sans text-foreground overflow-x-hidden">
+
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 px-6 overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <CleaningPattern />
+        <OrganicBlob className="top-[-10%] right-[-10%] w-[600px] h-[600px]" variant="primary" />
+
+        <div className="mx-auto max-w-[1240px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Left: Text Content */}
+            <div className="text-center lg:text-left">
+              {/* Trust Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border/50 shadow-sm mb-8 mx-auto lg:mx-0"
+              >
+                <div className="flex -space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-[#E0F2F1] border-2 border-white flex items-center justify-center text-xs font-bold text-primary">
+                    JD
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-[#F3E5F5] border-2 border-white flex items-center justify-center text-xs font-bold text-purple-700">
+                    KL
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-[#E3F2FD] border-2 border-white flex items-center justify-center text-xs font-bold text-blue-700">
+                    MS
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-primary/20 border-2 border-white flex items-center justify-center text-[10px] font-bold text-primary backdrop-blur-sm">
+                    +500
+                  </div>
+                </div>
+                <span className="text-sm font-medium text-secondary">
+                  Över 500+ nöjda kunder i Malmö
+                </span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-foreground mb-6"
+              >
+                Rent hem,<br />
+                <span className="text-secondary/80">utan stress.</span>
+              </motion.h1>
+
+              {/* Subtext */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg md:text-xl text-secondary max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+              >
+                Vi ger dig tid tillbaka. Professionell hemstädning skräddarsydd för ditt hem och ditt schema. Njut av känslan av ett nystädat hem.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              >
+                <Button size="lg" className="w-full sm:w-auto px-8 h-14 text-base">
+                  Få Offert Direkt
+                </Button>
+                <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 h-14 text-base bg-transparent border-secondary/20 text-foreground hover:bg-white/50">
+                  Se Våra Tjänster
+                </Button>
+              </motion.div>
+
+              {/* Trust Pillars */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="mt-12 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3 text-sm font-medium text-secondary/80"
+              >
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span>Nöjd-Kund-Garanti</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span>Ansvarsförsäkring</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span>RUT-avdrag direkt</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right: Hero Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative hidden lg:block"
+            >
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] max-h-[700px]">
+                <img
+                  src="/images/hero.png"
+                  alt="Happy family in clean living room"
+                  className="w-full h-full object-cover object-center"
+                />
+
+                {/* Floating Badge */}
+                <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg max-w-[200px]">
+                  <div className="flex items-center gap-1 mb-1 text-primary">
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
+                  <p className="text-xs font-medium text-secondary leading-tight">
+                    "Fantastiskt skönt att komma hem till ett nystädat hus!"
+                  </p>
+                </div>
+              </div>
+
+              {/* Decorative Blob/Gradient behind */}
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/10 blur-[100px] rounded-full" />
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 md:py-32 px-6">
+        <div className="mx-auto max-w-[1240px]">
+          <div className="mb-16 md:flex items-end justify-between">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Våra Tjänster</h2>
+              <p className="text-secondary text-lg max-w-md">Enklare vardag börjar här. Välj det upplägg som passar dig bäst.</p>
+            </div>
+            <Button variant="link" className="hidden md:flex text-lg font-medium text-secondary hover:text-foreground">
+              Se alla tjänster <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="group p-8 rounded-2xl bg-card shadow-leasio hover:translate-y-[-4px] transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-[#E8F5E9] flex items-center justify-center mb-6 text-primary">
+                <Sparkles className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Hemstädning</h3>
+              <p className="text-secondary leading-relaxed mb-6">
+                Regelbunden städning varje eller varannan vecka. Vi ser till att ditt hem alltid är skinande rent och inbjudande.
+              </p>
+              <ul className="space-y-3 mb-8 text-sm text-secondary/80">
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Dammning av alla ytor</li>
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Dammsugning & våttorkning</li>
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Rengöring av kök & bad</li>
+              </ul>
+              <div className="font-bold text-lg">Från 249 kr/h</div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group p-8 rounded-2xl bg-card shadow-leasio hover:translate-y-[-4px] transition-all duration-300 relative border-2 border-primary/20">
+              <div className="absolute top-4 right-4 bg-primary text-[#02292E] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                Populärast
+              </div>
+              <div className="w-12 h-12 rounded-full bg-[#E8F5E9] flex items-center justify-center mb-6 text-primary">
+                <Star className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Storstädning</h3>
+              <p className="text-secondary leading-relaxed mb-6">
+                En riktig genomkörare för ditt hem. Perfekt inför visning, fester eller när du bara vill börja om på nytt.
+              </p>
+              <ul className="space-y-3 mb-8 text-sm text-secondary/80">
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Fönsterputs ingår</li>
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Rengöring bakom vitvaror</li>
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Ugnsrengöring</li>
+              </ul>
+              <div className="font-bold text-lg">Fast Pris</div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group p-8 rounded-2xl bg-card shadow-leasio hover:translate-y-[-4px] transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-[#E8F5E9] flex items-center justify-center mb-6 text-primary">
+                <Clock className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Flyttstädning</h3>
+              <p className="text-secondary leading-relaxed mb-6">
+                Vi tar hand om hela städningen vid flytten så du kan fokusera på ditt nya hem. Godkänd garanti.
+              </p>
+              <ul className="space-y-3 mb-8 text-sm text-secondary/80">
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> 7 dagars garanti</li>
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Nyckelhantering</li>
+                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> Besiktningsprotokoll</li>
+              </ul>
+              <div className="font-bold text-lg">Offert inom 1h</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust / Cleaner Section */}
+      <section className="py-24 px-6 bg-[#F8FAFC]">
+        <div className="mx-auto max-w-[1240px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative order-2 md:order-1">
+              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-leasio max-w-md mx-auto relative z-10">
+                <img src="/images/cleaner.png" alt="Anna, Treda Städ" className="w-full h-full object-cover" />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute top-10 -left-10 w-24 h-24 bg-[#E8F5E9] rounded-full blur-xl -z-0" />
+              <div className="absolute bottom-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-xl -z-0" />
+            </div>
+
+            <div className="order-1 md:order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border/50 text-xs font-medium uppercase tracking-wider text-secondary mb-6">
+                <Shield className="w-4 h-4" />
+                Trygghet i fokus
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Vi är ansiktet utåt.</h2>
+              <div className="space-y-6 text-lg text-secondary leading-relaxed">
+                <p>
+                  Att släppa in någon i sitt hem handlar om förtroende. Därför är alla våra medarbetare
+                  noggrant rekryterade, bakgrundskontrollerade och utbildade i vår städmetodik.
+                </p>
+                <p>
+                  Vi bär alltid uniform, legitimation och ett leende. Vi tror att glada medarbetare
+                  ger ett bättre resultat.
+                </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
+                  <h4 className="font-bold text-foreground">Kollektivavtal</h4>
+                  <p className="text-sm text-secondary">Självklart för oss.</p>
+                </div>
+                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
+                  <h4 className="font-bold text-foreground">Utbildad Personal</h4>
+                  <p className="text-sm text-secondary">Certifierade städare.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature / Filler Section (Creative CTA) */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        {/* Peach Blob Background */}
+        <OrganicBlob className="top-0 left-0 w-full h-full opacity-30" variant="secondary" />
+
+        <div className="mx-auto max-w-[1000px] text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-foreground">
+            Mer tid för det <br />
+            <span className="text-primary">du älskar.</span>
+          </h2>
+          <p className="text-xl text-secondary max-w-2xl mx-auto mb-12">
+            Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
+          </p>
+
+          <div className="p-10 bg-white/80 backdrop-blur-md rounded-3xl shadow-lg border border-white/50 inline-block">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="text-left">
+                <h4 className="text-2xl font-bold mb-2">Boka Prova-På Städning</h4>
+                <p className="text-secondary">Ingen bindningstid. 20% rabatt första gången.</p>
+              </div>
+              <Button size="lg" className="h-14 px-8 text-lg shadow-xl shadow-primary/20">
+                Boka Nu
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-6 bg-[#02292E] text-white">
+        <div className="mx-auto max-w-[1000px] text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">Redo för ett renare hem?</h2>
+          <p className="text-white/80 text-xl max-w-2xl mx-auto mb-12">
+            Boka din första städning idag och få 20% rabatt.
+            Ingen bindningstid, bara skinande rent.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button size="lg" className="h-16 px-10 text-lg bg-primary text-[#02292E] hover:bg-primary/90">
+              Boka Nu
+            </Button>
+            <Button variant="outline" size="lg" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10 bg-transparent">
+              Ring Oss: 08-123 45 67
+            </Button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
