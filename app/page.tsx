@@ -24,8 +24,8 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/joyful-girl-touching-her-father-nose-home.jpg"
-            alt="Joyful girl with her father in a clean home"
+            src="/images/woman-digital-disconnecting-home-by-reading-book.jpg"
+            alt="Woman reading book in a clean home"
             fill
             priority
             unoptimized
