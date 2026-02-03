@@ -142,7 +142,7 @@ export function InteractiveTimeline() {
             </div>
 
             {/* 3D Carousel Area - Allowed to breathe (no overflow-hidden on container, just on perspective wrapper if needed) */}
-            <div className="relative h-[650px] w-full flex justify-center items-center perspective-[1200px]">
+            <div className="relative h-[800px] w-full flex justify-center items-center perspective-[1200px]">
                 <AnimatePresence initial={false}>
                     {timelineData.map((item, index) => {
                         const distance = index - activeIndex;
@@ -155,7 +155,7 @@ export function InteractiveTimeline() {
                             <motion.div
                                 key={item.id}
                                 className={cn(
-                                    "absolute w-[360px] md:w-[420px] aspect-[4/5] bg-white rounded-3xl shadow-2xl overflow-hidden cursor-pointer border border-stone-100",
+                                    "absolute w-[400px] md:w-[500px] aspect-[4/5] bg-white rounded-3xl shadow-2xl overflow-hidden cursor-pointer border border-stone-100",
                                     isActive ? "z-20 cursor-default" : "z-10 cursor-pointer"
                                 )}
                                 initial={{ opacity: 0, scale: 0.8 }}
