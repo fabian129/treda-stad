@@ -58,7 +58,7 @@ export function InteractiveTimeline() {
     return (
         <div className="w-full max-w-6xl mx-auto py-24 px-4">
             {/* Timeline Track Container */}
-            <div className="relative mb-24">
+            <div className="relative mb-20">
                 {/* The Ruler Track */}
                 <motion.div
                     className="absolute top-12 left-0 w-full h-px bg-primary flex justify-between items-end overflow-hidden"
