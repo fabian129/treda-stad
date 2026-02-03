@@ -65,7 +65,21 @@ npm run build
 
 # Deploy to Vercel
 npx vercel
+
+# DNA Management
+npm run hydrate      # Sync design_dna.json → globals.css
+npm run dna:lock     # Lock DNA and sync CSS
+npm run dna:unlock   # Message to edit DNA freely
 ```
+
+---
+
+## 🎨 DNA Lock Workflow
+
+1. **ITERATE** — Build Hero + section, tweak DNA until perfect
+2. **LOCK** — Run `npm run dna:lock`, commit changes
+3. **EXTEND** — Build rest of site using locked DNA
+4. **UNLOCK** — Edit `.agent/design/design_dna.json`, re-run hydrate
 
 ---
 

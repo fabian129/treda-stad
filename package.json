@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "hydrate": "node scripts/hydrate.js",
+    "dna:lock": "node scripts/hydrate.js && echo DNA Locked Successfully",
+    "dna:unlock": "echo DNA unlocked - edit .agent/design/design_dna.json freely"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

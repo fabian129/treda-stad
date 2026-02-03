@@ -2,19 +2,38 @@ const fs = require('fs');
 const path = require('path');
 
 /**
- * ZAITEX HYDRATOR (v2.0 - Stable)
+ * ZAITEX HYDRATOR (v3.0 - Enhanced)
+ * 
+ * This script reads design_dna.json and generates globals.css
+ * Run via: npm run hydrate
  */
 
-// Detect if we are in a subfolder structure or root
+// Detect project root
 let projectRoot = process.cwd();
 if (fs.existsSync(path.join(projectRoot, 'zaitex-web'))) {
   projectRoot = path.join(projectRoot, 'zaitex-web');
 }
 
-const DNA_PATH = path.join(process.cwd(), 'design_dna.json');
-const CSS_PATH = path.join(projectRoot, 'app', 'globals.css');
+// DNA file locations (check multiple paths for flexibility)
+const DNA_PATHS = [
+  path.join(process.cwd(), '.agent', 'design', 'design_dna.json'),  // New location
+  path.join(process.cwd(), 'design_dna.json'),                       // Legacy location
+];
 
-// 1. Helper: Hex to HSL
+const CSS_PATH = path.join(projectRoot, 'app', 'globals.css');
+const BACKUP_PATH = path.join(projectRoot, 'app', 'globals.css.backup');
+
+// Find DNA file
+function findDnaFile() {
+  for (const dnaPath of DNA_PATHS) {
+    if (fs.existsSync(dnaPath)) {
+      return dnaPath;
+    }
+  }
+  return null;
+}
+
+// Hex to HSL converter
 function hexToHsl(hex) {
   let c = hex.substring(1).split('');
   if (c.length === 3) c = [c[0], c[0], c[1], c[1], c[2], c[2]];
@@ -36,32 +55,63 @@ function hexToHsl(hex) {
 }
 
 function hydrate() {
-  console.log('💧 Zaitex Hydration v2.0: Starting...');
+  console.log('');
+  console.log('💧 ZAITEX HYDRATOR v3.0');
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log(`📂 Project Root: ${projectRoot}`);
-  console.log(`🎨 DNA Path: ${DNA_PATH}`);
 
-  if (!fs.existsSync(DNA_PATH)) {
+  // Find DNA file
+  const dnaPath = findDnaFile();
+  if (!dnaPath) {
+    console.error('');
     console.error('❌ Error: design_dna.json not found.');
+    console.error('   Looked in:');
+    DNA_PATHS.forEach(p => console.error(`   - ${p}`));
+    console.error('');
+    console.error('💡 Tip: Copy a template from .agent/core/design-templates/');
     process.exit(1);
   }
+  console.log(`🎨 DNA Found: ${dnaPath}`);
 
+  // Parse DNA
   let dna;
   try {
-    dna = JSON.parse(fs.readFileSync(DNA_PATH, 'utf8'));
+    dna = JSON.parse(fs.readFileSync(dnaPath, 'utf8'));
   } catch (e) {
     console.error('❌ Error: Invalid JSON in design_dna.json');
+    console.error(e.message);
     process.exit(1);
   }
 
+  // Extract values with defaults
   const vars = dna.theme_injection?.root_vars || {};
   const background = hexToHsl(vars['--background'] || '#ffffff');
   const foreground = hexToHsl(vars['--foreground'] || '#0a0a0a');
   const primary = hexToHsl(vars['--primary'] || '#18181b');
   const primaryFg = hexToHsl(vars['--primary-foreground'] || '#ffffff');
+  const secondary = hexToHsl(vars['--secondary'] || '#71717a');
+  const secondaryFg = hexToHsl(vars['--secondary-foreground'] || '#fafafa');
+  const muted = hexToHsl(vars['--muted'] || '#f4f4f5');
+  const mutedFg = hexToHsl(vars['--muted-foreground'] || '#71717a');
+  const accent = hexToHsl(vars['--accent'] || '#18181b');
+  const accentFg = hexToHsl(vars['--accent-foreground'] || '#fafafa');
   const border = hexToHsl(vars['--border'] || '#e5e7eb');
   const radius = vars['--radius'] || '0.5rem';
 
-  // Safe CSS Generation (Avoiding @apply for base layers to prevent build errors)
+  console.log('');
+  console.log('📊 Extracted Values:');
+  console.log(`   Primary: ${vars['--primary'] || '#18181b'} → ${primary}`);
+  console.log(`   Background: ${vars['--background'] || '#ffffff'} → ${background}`);
+  console.log(`   Radius: ${radius}`);
+
+  // Backup existing CSS
+  if (fs.existsSync(CSS_PATH)) {
+    fs.copyFileSync(CSS_PATH, BACKUP_PATH);
+    console.log('');
+    console.log(`💾 Backup created: ${BACKUP_PATH}`);
+  }
+
+  // Generate CSS
   const cssContent = `@import "tailwindcss";
 
 @theme {
@@ -121,22 +171,18 @@ function hydrate() {
     --popover-foreground: ${foreground};
     --primary: ${primary};
     --primary-foreground: ${primaryFg};
-    --secondary: ${background};
-    --secondary-foreground: ${foreground};
-    --muted: ${background};
-    --muted-foreground: ${foreground};
-    --accent: ${background};
-    --accent-foreground: ${foreground};
+    --secondary: ${secondary};
+    --secondary-foreground: ${secondaryFg};
+    --muted: ${muted};
+    --muted-foreground: ${mutedFg};
+    --accent: ${accent};
+    --accent-foreground: ${accentFg};
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: ${border};
     --input: ${border};
     --ring: ${primary};
     --radius: ${radius};
-  }
-  .dark {
-    --background: ${background};
-    --foreground: ${foreground};
   }
 }
 
@@ -157,8 +203,14 @@ function hydrate() {
     process.exit(1);
   }
 
+  // Write CSS
   fs.writeFileSync(CSS_PATH, cssContent);
-  console.log(`✅ Zaitex Hydration: app / globals.css updated successfully with new DNA.`);
+
+  console.log('');
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('✅ HYDRATION COMPLETE');
+  console.log(`   ${CSS_PATH} updated with DNA values`);
+  console.log('');
 }
 
 hydrate();

@@ -1,75 +1,83 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-dm-sans);
-  --font-heading: var(--font-dm-sans);
-
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Zaitex Animations */
+  --animate-grain: grain 8s steps(10) infinite;
+  --animate-border-beam: border-beam calc(var(--duration)*1s) infinite linear;
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    20% { transform: translate(-15%, 5%); }
+    30% { transform: translate(7%, -25%); }
+    40% { transform: translate(-5%, 25%); }
+    50% { transform: translate(-15%, 10%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(3%, 35%); }
+    90% { transform: translate(-10%, 10%); }
+  }
+
+  @keyframes border-beam {
+    100% { offset-distance: 100%; }
+  }
 }
 
 @layer base {
   :root {
-    /* Warm Stone-50 Background */
     --background: 60 9.1% 97.8%;
-    /* Slate-900 Foreground */
-    --foreground: 222.2 47.4% 11.2%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-
-    /* Emerald-500 Primary (User Accent #50C878) - Buttons/Icons */
-    --primary: 140 52% 55%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Stone-600 Secondary (Darker Grey for readable subtext) */
+    --foreground: 24 9.8% 10.0%;
+    --card: 60 9.1% 97.8%;
+    --card-foreground: 24 9.8% 10.0%;
+    --popover: 60 9.1% 97.8%;
+    --popover-foreground: 24 9.8% 10.0%;
+    --primary: 142 70.6% 45.3%;
+    --primary-foreground: 0 0.0% 100.0%;
     --secondary: 25 5.3% 44.7%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Stone-200 Border */
-    --border: 60 4.8% 95.9%;
-    --input: 60 4.8% 95.9%;
-    --ring: 140 52% 55%;
-
+    --secondary-foreground: 24 9.8% 10.0%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 142 70.6% 45.3%;
+    --accent-foreground: 0 0.0% 100.0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 20 5.9% 90.0%;
+    --input: 20 5.9% 90.0%;
+    --ring: 142 70.6% 45.3%;
     --radius: 1.5rem;
-    /* 24px rounded corners */
   }
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
-
   body {
-    @apply bg-background text-foreground font-sans;
-    background-image: url('/images/paper-texture.png');
-    background-repeat: repeat;
-    background-size: 400px;
-    /* Adjust size for subtle grain */
-    background-blend-mode: multiply;
-    /* Blend with Stone-50 base */
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading tracking-tight;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }

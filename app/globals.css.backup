@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-dm-sans);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+@layer base {
+  :root {
+    /* Warm Stone-50 Background */
+    --background: 60 9.1% 97.8%;
+    /* Slate-900 Foreground */
+    --foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    /* Emerald-500 Primary (User Accent #50C878) - Buttons/Icons */
+    --primary: 140 52% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Stone-600 Secondary (Darker Grey for readable subtext) */
+    --secondary: 25 5.3% 44.7%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Stone-200 Border */
+    --border: 60 4.8% 95.9%;
+    --input: 60 4.8% 95.9%;
+    --ring: 140 52% 55%;
+
+    --radius: 1.5rem;
+    /* 24px rounded corners */
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: url('/images/paper-texture.png');
+    background-repeat: repeat;
+    background-size: 400px;
+    /* Adjust size for subtle grain */
+    background-blend-mode: multiply;
+    /* Blend with Stone-50 base */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+}

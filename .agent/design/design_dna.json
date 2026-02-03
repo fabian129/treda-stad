@@ -1,0 +1,94 @@
+{
+    "name": "Treda Städ DNA",
+    "description": "Warm, professional cleaning service brand",
+    "locked": false,
+    "version": "1.0.0",
+    "last_updated": "2026-02-03",
+    "theme_injection": {
+        "root_vars": {
+            "--background": "#FAFAF9",
+            "--foreground": "#1C1917",
+            "--primary": "#22C55E",
+            "--primary-foreground": "#FFFFFF",
+            "--secondary": "#78716C",
+            "--secondary-foreground": "#1C1917",
+            "--muted": "#F5F5F4",
+            "--muted-foreground": "#A8A29E",
+            "--accent": "#22C55E",
+            "--accent-foreground": "#FFFFFF",
+            "--border": "#E7E5E4",
+            "--radius": "1.5rem"
+        }
+    },
+    "typography": {
+        "font_family": "DM Sans",
+        "weights": [
+            "400",
+            "500",
+            "700"
+        ],
+        "scale": {
+            "display": "4.5rem",
+            "h1": "3rem",
+            "h2": "2.25rem",
+            "h3": "1.5rem",
+            "body": "1rem",
+            "small": "0.875rem"
+        }
+    },
+    "motion": {
+        "entrance": {
+            "initial": {
+                "opacity": 0,
+                "y": 20
+            },
+            "animate": {
+                "opacity": 1,
+                "y": 0
+            },
+            "duration": 0.6,
+            "easing": "easeOut"
+        },
+        "stagger_children": 0.1,
+        "hover": {
+            "lift": "-translate-y-1",
+            "scale": 1.02,
+            "shadow_grow": true,
+            "duration": 0.3
+        },
+        "scroll": {
+            "library": "lenis",
+            "duration": 1.0,
+            "wheel_multiplier": 1.0
+        }
+    },
+    "spacing": {
+        "section_padding_y": "6rem",
+        "section_padding_x": "1.5rem",
+        "max_width": "80rem",
+        "card_gap": "2rem",
+        "element_gap": "1rem"
+    },
+    "effects": {
+        "shadows": {
+            "card": "0 4px 20px rgba(0, 0, 0, 0.08)",
+            "card_hover": "0 10px 40px rgba(0, 0, 0, 0.12)",
+            "glow": "0 0 30px rgba(34, 197, 94, 0.3)"
+        },
+        "blur": {
+            "glassmorphism": "10px",
+            "blob": "60px"
+        },
+        "radius": {
+            "button": "9999px",
+            "card": "1.5rem",
+            "image": "1rem"
+        }
+    },
+    "signatures": {
+        "cards": "White background, rounded-3xl, soft shadow, lift on hover",
+        "buttons": "Green primary, rounded-full, hover glow",
+        "backgrounds": "Organic blobs with green gradients, subtle warmth",
+        "images": "Lifestyle, warm tones, happy families/clean homes"
+    }
+}
