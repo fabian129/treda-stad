@@ -10,6 +10,7 @@ import { SectionBreaker } from "@/components/sections/SectionBreaker";
 import { ValuesStrip } from "@/components/sections/ValuesStrip";
 import { ServicesTabs } from "@/components/sections/ServicesTabs";
 import { NoiseTexture } from "@/components/decorations/NoiseTexture";
+import Image from "next/image";
 import Link from 'next/link';
 
 export default function Home() {
@@ -22,10 +23,13 @@ export default function Home() {
       <section className="relative h-screen min-h-[800px] flex flex-col px-6 overflow-hidden pt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/woman-digital-disconnecting-home-by-reading-book.jpg"
             alt="Woman reading book in a clean home"
-            className="w-full h-full object-cover object-center"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>

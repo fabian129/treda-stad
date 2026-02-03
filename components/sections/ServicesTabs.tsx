@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -68,10 +69,13 @@ export function ServicesTabs() {
                                 >
                                     <div className="relative h-80 w-full overflow-hidden">
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-20" />
-                                        <img
+                                        <Image
                                             src={activeService.image}
                                             alt={activeService.title}
-                                            className="w-full h-full object-cover transform scale-105"
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover transform scale-105"
+                                            priority // Preload active tab image
                                         />
                                         <div className="absolute top-6 right-6 z-20">
                                             <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-5 py-2 text-sm font-bold text-primary shadow-sm">
@@ -113,10 +117,12 @@ export function ServicesTabs() {
                                 <div key={service.id} className="group rounded-3xl bg-white overflow-hidden shadow-lg shadow-black/5 flex flex-col border border-border/60">
                                     <div className="relative h-64 w-full overflow-hidden">
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-0 group-hover:opacity-20 transition-opacity" />
-                                        <img
+                                        <Image
                                             src={service.image}
                                             alt={service.title}
-                                            className="w-full h-full object-cover"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            className="object-cover"
                                         />
                                         <div className="absolute top-4 right-4 z-20">
                                             <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary shadow-sm">

@@ -9,6 +9,10 @@ interface SectionBreakerProps {
     author?: string;
 }
 
+import Image from "next/image";
+
+// ... imports
+
 export function SectionBreaker({
     imageSrc = "/images/living-room.jpg", // Placeholder - User needs to update
     quote = "Det är detaljerna som gör helheten.",
@@ -25,12 +29,18 @@ export function SectionBreaker({
     return (
         <div ref={ref} className="relative h-[400px] md:h-[500px] w-full overflow-hidden flex items-center justify-center">
             {/* Background with Parallax */}
-            <motion.div style={{ y }} className="absolute inset-0 z-0">
+            <motion.div
+                style={{ y }}
+                className="absolute inset-0 z-0 will-change-transform"
+            >
                 <div className="absolute inset-0 bg-black/30 z-10" />
-                <img
+                <Image
                     src={imageSrc}
                     alt="Atmosphere"
-                    className="w-full h-[140%] object-cover object-center"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                    className="object-cover object-center"
+                    priority={false}
                 />
             </motion.div>
 
