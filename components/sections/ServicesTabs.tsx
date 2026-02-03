@@ -76,6 +76,7 @@ export function ServicesTabs() {
                                             sizes="(max-width: 1024px) 100vw, 50vw"
                                             className="object-cover transform scale-105"
                                             priority // Preload active tab image
+                                            unoptimized
                                         />
                                         <div className="absolute top-6 right-6 z-20">
                                             <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-5 py-2 text-sm font-bold text-primary shadow-sm">
@@ -123,6 +124,7 @@ export function ServicesTabs() {
                                             fill
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                             className="object-cover"
+                                            unoptimized
                                         />
                                         <div className="absolute top-4 right-4 z-20">
                                             <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary shadow-sm">
