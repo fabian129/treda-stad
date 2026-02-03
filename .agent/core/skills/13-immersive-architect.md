@@ -313,3 +313,100 @@ When building, always state:
   <Scene3D />
 </Suspense>
 ```
+
+---
+
+# PART 8 — CRYSTALLIZE CHECKPOINT
+
+## Purpose
+During exploration, code gets messy. When you discover a breakthrough or finalize your approach, you need to decide: **patch forward or reset clean?**
+
+## Self-Assessment (Run This Mentally)
+
+When the project feels stuck, conflicting, or has had a major insight, ask yourself:
+
+### 🔴 RED FLAGS (Signs You Should Reset)
+
+| Question | If YES → Consider Reset |
+|:---------|:------------------------|
+| Am I constantly working around earlier mistakes? | ✓ |
+| Are there 3+ "temporary fixes" still in the code? | ✓ |
+| Did we just discover a fundamentally better approach? | ✓ |
+| Is the file structure messy from trial-and-error? | ✓ |
+| Would explaining this codebase to someone else be embarrassing? | ✓ |
+| Are there conflicting patterns (old approach + new approach mixed)? | ✓ |
+
+### 🟢 GREEN FLAGS (Safe to Continue Patching)
+
+| Question | If YES → Keep Building |
+|:---------|:-----------------------|
+| Is the core architecture still sound? | ✓ |
+| Are we just adding features, not rewriting fundamentals? | ✓ |
+| Would a reset take longer than fixing the issues? | ✓ |
+| Is the messy code isolated to one component? | ✓ |
+
+## The Decision Framework
+
+```
+COUNT RED FLAGS vs GREEN FLAGS
+
+If RED > GREEN:
+  → CRYSTALLIZE: Reset to clean state with new knowledge
+  → Save current work as reference
+  → Start fresh scaffold with refined instructions
+
+If GREEN > RED:
+  → CONTINUE: Patch forward
+  → But isolate the messy parts
+  → Refactor incrementally
+```
+
+## How to Crystallize
+
+When you decide to reset:
+
+1. **SAVE THE LEARNING**
+   ```bash
+   git stash push -m "exploration-phase-[date]"
+   # or
+   cp -r src src-exploration-backup
+   ```
+
+2. **DOCUMENT WHAT WORKED**
+   - Which approaches succeeded?
+   - What values/settings were good?
+   - What patterns emerged?
+
+3. **START CLEAN**
+   ```bash
+   git checkout main
+   # or create new branch
+   git checkout -b clean-rebuild
+   ```
+
+4. **APPLY NEW KNOWLEDGE**
+   - Use the refined skill/instructions
+   - Build on solid foundation
+   - Reference the backup only for specific values
+
+## Agent Self-Prompt
+
+When you sense complexity building, pause and ask:
+
+> "I notice this is getting messy. Let me evaluate:
+> - Can I give 3+ concrete reasons why a reset would help us move faster?
+> - Or can I give 3+ concrete reasons why the current foundation is still solid?"
+
+If you can justify a reset with specific reasons, **propose it to the user:**
+
+> "I recommend we crystallize here. The current code has [X, Y, Z issues]. 
+> If we reset with our new understanding, we could [specific benefit].
+> Should I save this as a reference and start fresh?"
+
+## When to Trigger This Checkpoint
+
+- After major breakthroughs ("we finally understand how the shader works!")
+- When context feels fragmented ("I've lost track of which approach we're using")
+- After 3+ failed attempts at the same fix
+- When the user brings refined instructions from external research
+- When switching from exploration mode to production build
