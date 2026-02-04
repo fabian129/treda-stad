@@ -33,7 +33,7 @@ export default function ForetagPage() {
                         className="text-6xl md:text-8xl font-bold tracking-tight leading-[1] mb-10"
                     >
                         <span className="block text-stone-900">Rent kontor.</span>
-                        <span className="block text-stone-400">Bättre fokus.</span>
+                        <span className="block text-primary">Bättre fokus.</span>
                     </motion.h1>
 
                     {/* Description - Centered & Clean */}
