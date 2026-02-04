@@ -238,11 +238,11 @@ export default function ServicePage({ params }: PageProps) {
                             </div>
                         </div>
 
-                        {/* Grid - Image Focused (DevForge Style) */}
-                        <div className="grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-6">
+                        {/* Grid - Image Focused (Compact version) */}
+                        <div className="grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-4">
 
                             {/* Image Card 1: Clean Image */}
-                            <div className="group relative h-[360px] rounded-[2.5rem] overflow-hidden cursor-pointer">
+                            <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
                                     src="/images/woman-digital-disconnecting-home-by-reading-book.webp"
                                     alt="Mer tid för livet"
@@ -253,7 +253,7 @@ export default function ServicePage({ params }: PageProps) {
                             </div>
 
                             {/* Image Card 2: Clean Image */}
-                            <div className="group relative h-[360px] rounded-[2.5rem] overflow-hidden cursor-pointer">
+                            <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
                                     src="/images/housemaid-opening-door-room-cleaning.jpg"
                                     alt="Professionell städning"
@@ -263,16 +263,16 @@ export default function ServicePage({ params }: PageProps) {
                                 />
                             </div>
 
-                            {/* Card 3: CTA Section (Minimal "Meet Mentors" Style) */}
-                            <div className="relative h-[360px] rounded-[2.5rem] bg-primary overflow-hidden flex flex-col justify-center items-center text-center p-6 group cursor-pointer transition-colors hover:bg-primary/90">
+                            {/* Card 3: CTA Section (Minimal Style) */}
+                            <div className="relative h-[220px] rounded-2xl bg-primary overflow-hidden flex flex-col justify-center items-center text-center p-5 group cursor-pointer transition-colors hover:bg-primary/90">
 
-                                <div className="flex flex-col items-center gap-6">
-                                    <h3 className="text-2xl font-bold text-white tracking-wide whitespace-nowrap">
+                                <div className="flex flex-col items-center gap-4">
+                                    <h3 className="text-xl font-bold text-white tracking-wide whitespace-nowrap">
                                         Få Offert
                                     </h3>
 
                                     <div className="flex justify-center">
-                                        <ArrowRight className="w-8 h-8 text-white transition-transform duration-300 group-hover:translate-x-2" />
+                                        <ArrowRight className="w-6 h-6 text-white transition-transform duration-300 group-hover:translate-x-2" />
                                     </div>
                                 </div>
                             </div>
