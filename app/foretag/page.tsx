@@ -5,6 +5,9 @@ import { CheckCircle, Building2, Briefcase, FileText, ShieldCheck } from "lucide
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
+import { ForetagBento } from "@/components/foretag/ForetagBento";
+import { ForetagStats } from "@/components/foretag/ForetagStats";
+import { ForetagServices } from "@/components/foretag/ForetagServices";
 
 export default function ForetagPage() {
     return (
@@ -98,37 +101,24 @@ export default function ForetagPage() {
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[300px] bg-primary/5 blur-[120px] -z-10 rounded-full pointer-events-none" />
             </section>
 
-            {/* Services List */}
-            <section className="py-24 px-6 relative">
-                <div className="mx-auto max-w-[1000px]">
-                    <h2 className="text-3xl font-bold mb-12 text-center">Vad vi hjälper er med</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
-                        {[
-                            "Kontorsstädning (Dammning, golv, pentry)",
-                            "Fastighetsstädning (Trapphus, entréer)",
-                            "Byggstädning vid renovering",
-                            "Fönsterputsning på hög höjd",
-                            "Förbrukningsmaterial (Papper, tvål m.m.)",
-                            "Entré- och gummimattor"
-                        ].map((item) => (
-                            <div key={item} className="flex items-center gap-4 p-4 border-b border-border/60">
-                                <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-                                <span className="text-lg font-medium">{item}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* Bento Grid Features */}
+            <ForetagBento />
+
+            {/* Editorial Stats Split */}
+            <ForetagStats />
+
+            {/* Dark Mode Services */}
+            <ForetagServices />
 
             {/* Bot CTA */}
-            <section className="py-24 px-6 bg-[#02292E] text-white">
+            <section className="py-24 px-6 bg-stone-50 text-stone-900 border-t border-stone-200">
                 <div className="mx-auto max-w-[1000px] text-center">
                     <h2 className="text-3xl md:text-5xl font-bold mb-8">Redo för ett bättre kontor?</h2>
-                    <p className="text-white/80 text-xl max-w-2xl mx-auto mb-12">
+                    <p className="text-stone-500 text-xl max-w-2xl mx-auto mb-12">
                         Kontakta oss för ett kostnadsfritt besök där vi går igenom era lokaler och behov.
                     </p>
                     <div className="flex justify-center">
-                        <Button size="lg" className="h-16 px-10 text-lg bg-primary text-[#02292E] hover:bg-primary/90">
+                        <Button size="lg" className="h-16 px-10 text-lg bg-primary text-[#02292E] hover:bg-primary/90 rounded-full shadow-xl hover:shadow-primary/25 transition-all">
                             Boka Kostnadsfritt Besök
                         </Button>
                     </div>
