@@ -86,7 +86,7 @@ export default function ForetagPage() {
                                     alt="Treda Städ Visual"
                                     fill
                                     className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-                                    sizes="(max-width: 768px) 50vw, 20vw"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                             </motion.div>
                         ))}

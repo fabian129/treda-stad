@@ -28,10 +28,10 @@ async function optimizeImages() {
         if (fs.existsSync(inputPath)) {
             try {
                 await sharp(inputPath)
-                    .resize(1200, null, { // Resize to 1200px width, auto height
+                    .resize(2000, null, { // Resize to 2000px width for retina sharpness
                         withoutEnlargement: true
                     })
-                    .webp({ quality: 80 })
+                    .webp({ quality: 90 }) // Higher quality
                     .toFile(outputPath);
 
                 console.log(`Optimized: ${inputFile} -> ${outputFile}`);
