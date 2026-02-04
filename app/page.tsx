@@ -144,21 +144,22 @@ export default function Home() {
         <div className="mx-auto max-w-[1000px] text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
             Mer tid för det <br />
-            <span className="text-white/90">du älskar.</span>
+            <span className="text-primary">du älskar.</span>
           </h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
             Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
           </p>
 
-          <div className="p-10 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20 inline-block">
+          <div className="p-10 bg-white/[0.03] backdrop-blur-md rounded-[40px] shadow-2xl border border-white/10 inline-block hover:bg-white/[0.06] transition-colors group">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="text-left">
-                <h4 className="text-2xl font-bold mb-2 text-white">Boka Prova-PStädning</h4>
+                <h4 className="text-2xl font-bold mb-2 text-white">Boka Prova-På Städning</h4>
                 <p className="text-white/75">Ingen bindningstid. 20% rabatt första gången.</p>
               </div>
-              <Button size="lg" className="h-14 px-8 text-lg shadow-2xl shadow-primary/40 ring-2 ring-white/20 hover:shadow-primary/60 hover:ring-white/40">
-                Boka Nu
-              </Button>
+              <button className="h-14 px-8 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-lg font-bold tracking-wide text-white">
+                <span>Boka Nu</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
