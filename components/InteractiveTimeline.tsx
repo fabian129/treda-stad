@@ -56,9 +56,9 @@ export function InteractiveTimeline() {
     const activeIndex = timelineData.findIndex((item) => item.id === activeId);
 
     return (
-        <div className="w-full max-w-6xl mx-auto py-24 px-4">
+        <div className="w-full max-w-6xl mx-auto py-16 px-4">
             {/* Timeline Track Container */}
-            <div className="relative mb-20">
+            <div className="relative mb-12">
                 {/* The Ruler Track */}
                 <motion.div
                     className="absolute top-12 left-0 w-full h-px bg-primary flex justify-between items-end overflow-hidden"
@@ -141,8 +141,8 @@ export function InteractiveTimeline() {
                 </div>
             </div>
 
-            {/* 3D Carousel Area - Allowed to breathe (no overflow-hidden on container, just on perspective wrapper if needed) */}
-            <div className="relative h-[800px] w-full flex justify-center items-center perspective-[1200px]">
+            {/* 3D Carousel Area - Compact version */}
+            <div className="relative h-[500px] w-full flex justify-center items-center perspective-[1200px]">
                 <AnimatePresence initial={false}>
                     {timelineData.map((item, index) => {
                         const distance = index - activeIndex;
@@ -155,7 +155,7 @@ export function InteractiveTimeline() {
                             <motion.div
                                 key={item.id}
                                 className={cn(
-                                    "absolute w-[400px] md:w-[500px] aspect-[4/5] bg-white rounded-3xl shadow-2xl overflow-hidden cursor-pointer border border-stone-100",
+                                    "absolute w-[340px] md:w-[420px] aspect-[4/5] bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer border border-stone-100",
                                     isActive ? "z-20 cursor-default" : "z-10 cursor-pointer"
                                 )}
                                 initial={{ opacity: 0, scale: 0.8 }}
@@ -188,28 +188,28 @@ export function InteractiveTimeline() {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                                     </div>
 
-                                    {/* Bottom: Content */}
-                                    <div className="h-[55%] p-8 flex flex-col justify-between">
-                                        <div>
-                                            <p className="text-xs font-bold text-primary tracking-widest uppercase mb-3">
+                                    {/* Bottom: Content - Centered */}
+                                    <div className="h-[55%] p-6 flex flex-col justify-center">
+                                        <div className="text-center">
+                                            <p className="text-xs font-bold text-primary tracking-widest uppercase mb-2">
                                                 STEG {item.label}
                                             </p>
-                                            <h3 className="text-2xl font-bold text-stone-800 mb-3">
+                                            <h3 className="text-xl font-bold text-stone-800 mb-3">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-stone-500 leading-relaxed text-sm">
+                                            <p className="text-stone-500 leading-relaxed text-base">
                                                 {item.description}
                                             </p>
                                         </div>
 
                                         {/* Footer Row */}
-                                        <div className="flex items-center justify-between pt-6 border-t border-stone-100 mt-2">
-                                            {/* Icon Left */}
-                                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <div className="flex items-center justify-center gap-4 pt-4 mt-4">
+                                            {/* Icon */}
+                                            <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                                                 {item.icon}
                                             </div>
 
-                                            {/* Button Right */}
+                                            {/* Button */}
                                             {isActive ? (
                                                 <Link href="/kontakt" className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-full px-5 py-2 text-sm font-medium transition-colors">
                                                     Få Offert <ArrowRight className="w-4 h-4" />
