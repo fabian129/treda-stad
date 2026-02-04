@@ -28,7 +28,7 @@ export function ForetagStats() {
                             className="text-4xl md:text-5xl/tight font-bold text-stone-900 mb-8"
                         >
                             Mer än bara städning. <br />
-                            <span className="text-stone-400">En strategisk partner.</span>
+                            <span className="text-primary">En strategisk partner.</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
