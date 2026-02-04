@@ -205,19 +205,19 @@ export default function Home() {
 
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Kollektivavtal</h4>
+                  <h4 className="font-bold text-primary mb-1">Kollektivavtal</h4>
                   <p className="text-sm text-stone-500">Självklart för oss.</p>
                 </div>
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Utbildad Personal</h4>
+                  <h4 className="font-bold text-primary mb-1">Utbildad Personal</h4>
                   <p className="text-sm text-stone-500">Certifierade städare.</p>
                 </div>
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Alltid samma personal</h4>
+                  <h4 className="font-bold text-primary mb-1">Alltid samma personal</h4>
                   <p className="text-sm text-stone-500">För din trygghet.</p>
                 </div>
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Via Almega</h4>
+                  <h4 className="font-bold text-primary mb-1">Via Almega</h4>
                   <p className="text-sm text-stone-500">Auktoriserat Serviceföretag.</p>
                 </div>
               </div>
