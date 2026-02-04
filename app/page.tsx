@@ -144,22 +144,21 @@ export default function Home() {
         <div className="mx-auto max-w-[1000px] text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
             Mer tid för det <br />
-            <span className="text-primary">du älskar.</span>
+            <span className="text-white/90">du älskar.</span>
           </h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
             Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
           </p>
 
-          <div className="p-10 bg-white/[0.03] backdrop-blur-md rounded-[40px] shadow-2xl border border-white/10 inline-block hover:bg-white/[0.06] transition-colors group">
+          <div className="p-10 bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20 inline-block">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="text-left">
-                <h4 className="text-2xl font-bold mb-2 text-white">Boka Prova-På Städning</h4>
+                <h4 className="text-2xl font-bold mb-2 text-white">Boka Prova-PStädning</h4>
                 <p className="text-white/75">Ingen bindningstid. 20% rabatt första gången.</p>
               </div>
-              <button className="h-14 px-8 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-lg font-bold tracking-wide text-white">
-                <span>Boka Nu</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
+              <Button size="lg" className="h-14 px-8 text-lg shadow-2xl shadow-primary/40 ring-2 ring-white/20 hover:shadow-primary/60 hover:ring-white/40">
+                Boka Nu
+              </Button>
             </div>
           </div>
         </div>
@@ -169,26 +168,30 @@ export default function Home() {
       <ValuesStrip />
 
       {/* Trust / Cleaner Section */}
-      <section className="py-24 px-6 bg-stone-100 relative">
+      <section className="py-24 px-6 bg-white relative overflow-hidden">
         <NoiseTexture opacity={0.03} />
+        {/* Atmosphere - Subtle Green Glow */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="mx-auto max-w-[1240px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 md:order-1">
-              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-leasio max-w-md mx-auto relative z-10">
+              <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-stone-900/10 max-w-md mx-auto relative z-10 border border-stone-100">
                 <img src="/images/cleaner.webp" alt="Anna, Treda Städ" className="w-full h-full object-cover" />
               </div>
-              {/* Decorative elements */}
-              <div className="absolute top-10 -left-10 w-24 h-24 bg-[#E8F5E9] rounded-full blur-xl -z-0" />
-              <div className="absolute bottom-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-xl -z-0" />
+              {/* Decorative elements - Bright Mode */}
+              <div className="absolute top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-0" />
+              <div className="absolute bottom-10 -right-10 w-32 h-32 bg-stone-100 rounded-full blur-xl -z-0" />
             </div>
 
             <div className="order-1 md:order-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border/50 text-xs font-medium uppercase tracking-wider text-secondary mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold uppercase tracking-wider text-primary mb-6">
                 <Shield className="w-4 h-4" />
-                Trygghet i fokus
+                <span>Trygghet i fokus</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Vi är ansiktet utåt.</h2>
-              <div className="space-y-6 text-lg text-secondary leading-relaxed">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-900">
+                Vi är ansiktet <span className="text-primary">utåt.</span>
+              </h2>
+              <div className="space-y-6 text-lg text-stone-600 leading-relaxed">
                 <p>
                   Att släppa in någon i sitt hem handlar om förtroende. Därför är alla våra medarbetare
                   noggrant rekryterade, bakgrundskontrollerade och utbildade i vår städmetodik.
@@ -200,21 +203,21 @@ export default function Home() {
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
-                  <h4 className="font-bold text-foreground">Kollektivavtal</h4>
-                  <p className="text-sm text-secondary">Självklart för oss.</p>
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
+                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Kollektivavtal</h4>
+                  <p className="text-sm text-stone-500">Självklart för oss.</p>
                 </div>
-                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
-                  <h4 className="font-bold text-foreground">Utbildad Personal</h4>
-                  <p className="text-sm text-secondary">Certifierade städare.</p>
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
+                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Utbildad Personal</h4>
+                  <p className="text-sm text-stone-500">Certifierade städare.</p>
                 </div>
-                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
-                  <h4 className="font-bold text-foreground">Alltid samma personal</h4>
-                  <p className="text-sm text-secondary">För din trygghet.</p>
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
+                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Alltid samma personal</h4>
+                  <p className="text-sm text-stone-500">För din trygghet.</p>
                 </div>
-                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
-                  <h4 className="font-bold text-foreground">Via Almega</h4>
-                  <p className="text-sm text-secondary">Auktoriserat Serviceföretag.</p>
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
+                  <h4 className="font-bold text-stone-900 mb-1 group-hover:text-primary transition-colors">Via Almega</h4>
+                  <p className="text-sm text-stone-500">Auktoriserat Serviceföretag.</p>
                 </div>
               </div>
             </div>
