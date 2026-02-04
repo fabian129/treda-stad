@@ -183,8 +183,8 @@ export default function Home() {
               {/* Decorative elements - Bright Mode */}
               <div className="absolute top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-0" />
               <div className="absolute bottom-10 -right-10 w-32 h-32 bg-stone-100 rounded-full blur-xl -z-0" />
-              {/* Wavy Connector - Decorative Curve */}
-              <div className="absolute -bottom-4 -right-20 w-[300px] h-[120px] hidden lg:block z-20">
+              {/* Wavy Connector - Decorative Curve (behind image, to the left) */}
+              <div className="absolute bottom-16 -left-16 w-[300px] h-[120px] hidden lg:block z-0">
                 <WavyConnector className="w-full h-full text-primary opacity-70" />
               </div>
             </div>
