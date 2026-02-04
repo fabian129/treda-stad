@@ -9,13 +9,13 @@ export function ForetagServices() {
             icon: Sparkles,
             title: "Daglig Städning",
             desc: "Det löpande underhållet som håller kontoret representativt. Dammning, golv, pentry och toaletter.",
-            color: "bg-blue-500"
+            color: "bg-primary"
         },
         {
             icon: Wind,
             title: "Fönsterputs",
             desc: "Kristallklart resultat på alla höjder. Vi har certifiering för lift och höghöjdsarbete.",
-            color: "bg-cyan-400"
+            color: "bg-emerald-400"
         },
         {
             icon: Briefcase,
@@ -27,15 +27,15 @@ export function ForetagServices() {
             icon: Zap,
             title: "Golvvård",
             desc: "Djuprengöring, polering och behandling av alla typer av golv. Förlänger livslängden markant.",
-            color: "bg-purple-500"
+            color: "bg-stone-400"
         }
     ];
 
     return (
-        <section className="py-32 px-6 bg-[#0B0C0C] text-white overflow-hidden relative">
+        <section className="py-32 px-6 bg-[#0A1A15] text-white overflow-hidden relative">
             {/* Background Gradients */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="max-w-[1200px] mx-auto relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
@@ -82,9 +82,10 @@ export function ForetagServices() {
                             </p>
 
                             <div className="flex justify-end">
-                                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all">
-                                    <ArrowUpRight className="w-5 h-5" />
-                                </div>
+                                <button className="h-12 px-6 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-sm font-bold tracking-wide">
+                                    <span>Få Offert</span>
+                                    <ArrowUpRight className="w-4 h-4" />
+                                </button>
                             </div>
 
                             {/* Hover Glow Effect */}

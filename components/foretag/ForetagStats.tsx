@@ -106,7 +106,7 @@ export function ForetagStats() {
                                         <span className="text-3xl font-bold text-stone-900">&lt; 2h</span>
                                     </div>
                                     <div className="h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
-                                        <div className="h-full bg-stone-800 w-[95%] rounded-full" />
+                                        <div className="h-full bg-primary w-[95%] rounded-full" />
                                     </div>
                                 </div>
                             </div>
