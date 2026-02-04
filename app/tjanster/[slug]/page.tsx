@@ -244,7 +244,7 @@ export default function ServicePage({ params }: PageProps) {
                             {/* Image Card 1: Clean Image */}
                             <div className="group relative h-[360px] rounded-[2.5rem] overflow-hidden cursor-pointer">
                                 <Image
-                                    src="/images/woman-digital-disconnecting-home-by-reading-book.jpg"
+                                    src="/images/woman-digital-disconnecting-home-by-reading-book.webp"
                                     alt="Mer tid för livet"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
