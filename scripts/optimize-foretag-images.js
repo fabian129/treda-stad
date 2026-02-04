@@ -11,7 +11,7 @@ if (!fs.existsSync(outputDir)) {
 
 // Map input filenames to cleaner output filenames
 const imageMap = {
-    'empty-space-white-modern-office-generative-ai-aig18.jpg': 'modern-office-empty.webp',
+    'woman-with-suitcase-airport.jpg': 'woman-suitcase.webp',
     'close-up-seller-car-dealership.jpg': 'seller.webp',
     'interior-kitchen-area-modern-office-with-long-wooden-table-chairs.jpg': 'office-kitchen.webp',
     'professional-cleaning-service-people-working-together-office.jpg': 'cleaning-service.webp',

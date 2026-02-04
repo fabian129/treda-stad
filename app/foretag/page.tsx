@@ -68,7 +68,7 @@ export default function ForetagPage() {
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                         {[
                             "/images/foretag/waiting-room.webp",
-                            "/images/foretag/modern-office-empty.webp",
+                            "/images/foretag/woman-suitcase.webp",
                             "/images/foretag/office-kitchen.webp",
                             "/images/foretag/seller.webp",
                             "/images/foretag/cleaning-service.webp"
