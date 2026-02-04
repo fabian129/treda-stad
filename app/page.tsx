@@ -204,30 +204,30 @@ export default function Home() {
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3">
-                    <Handshake className="w-5 h-5" />
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                    <Handshake className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Kollektivavtal</h4>
                   <p className="text-sm text-stone-500">Självklart för oss.</p>
                 </div>
-                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3">
-                    <GraduationCap className="w-5 h-5" />
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                    <GraduationCap className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Utbildad Personal</h4>
                   <p className="text-sm text-stone-500">Certifierade städare.</p>
                 </div>
-                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3">
-                    <UserCheck className="w-5 h-5" />
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                    <UserCheck className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Alltid samma personal</h4>
                   <p className="text-sm text-stone-500">För din trygghet.</p>
                 </div>
-                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3">
-                    <Award className="w-5 h-5" />
+                <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                    <Award className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Via Almega</h4>
                   <p className="text-sm text-stone-500">Auktoriserat Serviceföretag.</p>
