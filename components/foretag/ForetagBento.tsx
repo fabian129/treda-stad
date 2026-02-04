@@ -51,7 +51,7 @@ export function ForetagBento() {
                         className="bg-white p-8 rounded-[32px] shadow-sm border border-stone-100 lg:col-span-2 relative overflow-hidden group"
                     >
                         <div className="relative z-10 max-w-md">
-                            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                            <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                                 <Smartphone className="w-6 h-6" />
                             </div>
                             <h3 className="text-2xl font-bold mb-3 text-stone-900">Digital Kvalitetsuppföljning</h3>
@@ -91,7 +91,7 @@ export function ForetagBento() {
                         className="bg-white p-8 rounded-[32px] shadow-sm border border-stone-100 flex flex-col justify-between group hover:border-primary/20 transition-colors"
                     >
                         <div>
-                            <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-6">
+                            <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                                 <ShieldCheck className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold mb-3 text-stone-900">Certifierad Säkerhet</h3>
@@ -110,7 +110,7 @@ export function ForetagBento() {
                         className="bg-white p-8 rounded-[32px] shadow-sm border border-stone-100 flex flex-col justify-between group hover:border-green-200 transition-colors"
                     >
                         <div>
-                            <div className="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mb-6">
+                            <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                                 <Leaf className="w-6 h-6" />
                             </div>
                             <h3 className="text-xl font-bold mb-3 text-stone-900">100% Miljömärkt</h3>
@@ -126,22 +126,22 @@ export function ForetagBento() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                         viewport={{ once: true }}
-                        className="bg-stone-900 p-8 rounded-[32px] shadow-sm border border-stone-800 lg:col-span-2 relative overflow-hidden flex items-center"
+                        className="bg-[#1A4D45] p-8 rounded-[32px] shadow-lg border border-white/10 lg:col-span-2 relative overflow-hidden flex items-center group"
                     >
                         <div className="relative z-10 max-w-lg">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-stone-900">
+                                <div className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-primary border border-white/10">
                                     <Medal className="w-5 h-5" />
                                 </div>
                                 <span className="text-primary font-bold tracking-wide uppercase text-xs">Unik Garanti</span>
                             </div>
                             <h3 className="text-2xl font-bold mb-3 text-white">Nöjd-Kund-Garanti</h3>
-                            <p className="text-stone-400 leading-relaxed mb-0">
+                            <p className="text-white/70 leading-relaxed mb-0">
                                 Är ni inte 100% nöjda åtgärdar vi det kostnadsfritt inom 24 timmar. Inga diskussioner, bara resultat.
                             </p>
                         </div>
                         {/* Abstract Background Graphic */}
-                        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-primary/10 to-transparent pointer-events-none" />
+                        <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-primary/20 to-transparent pointer-events-none" />
                     </motion.div>
 
                 </div>
