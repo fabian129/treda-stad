@@ -60,6 +60,7 @@ Before building new, search for existing solutions:
 | `10-accessibility-auditor` | Checking a11y |
 | `11-browser-validator` | Testing browsers |
 | `12-deployment-packager` | Shipping |
+| `14-seo-specialist` | SEO (apply during build + audit before deploy) |
 
 ---
 
@@ -162,6 +163,7 @@ Before marking work as complete:
 - [ ] Motion respects reduced-motion
 - [ ] No console errors
 - [ ] Clean code (ESLint passing)
+- [ ] SEO: Meta tags, single H1, alt texts, schema markup
 
 ---
 
