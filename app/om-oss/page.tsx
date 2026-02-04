@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { WavyConnector } from "@/components/ui/WavyConnector";
 import { BentoGrid } from "@/components/BentoGrid";
+import { FeatureThreeCol } from "@/components/FeatureThreeCol";
 
 export default function OmOssPage() {
     return (
@@ -106,6 +107,9 @@ export default function OmOssPage() {
 
             {/* Bento Grid Section */}
             <BentoGrid />
+
+            {/* Features Section */}
+            <FeatureThreeCol />
 
             {/* Bottom Spacing */}
             <div className="h-24"></div>
