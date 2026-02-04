@@ -44,7 +44,13 @@ export function ServicesTabs() {
                                                 : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
                                         )}
                                     >
-                                        {service.title}
+                                        {service.id === 'hemstadning' ? "Hemstäd i Malmö" :
+                                            service.id === 'storstadning' ? "Storstäd i Malmö" :
+                                                service.id === 'flyttstadning' ? "Flyttstäd i Malmö" :
+                                                    service.id === 'byggstadning' ? "Byggstäd i Malmö" :
+                                                        service.id === 'kontorsstad' ? "Kontorsstäd i Malmö" :
+                                                            service.id === 'fonsterputs' ? "Fönsterputs i Malmö" :
+                                                                service.title}
                                     </button>
                                 ))}
                             </div>
@@ -65,7 +71,7 @@ export function ServicesTabs() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.4, ease: "easeOut" }}
-                                    className="group rounded-[2.5rem] bg-white overflow-hidden shadow-2xl shadow-black/5 flex flex-col border border-border/60 h-full"
+                                    className="group rounded-[2.5rem] bg-white overflow-hidden shadow-2xl shadow-black/5 flex flex-col border border-border/60 h-full will-change-transform transform-gpu"
                                 >
                                     <div className="relative h-80 w-full overflow-hidden">
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-20" />
