@@ -24,11 +24,10 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/woman-digital-disconnecting-home-by-reading-book.jpg"
+            src="/images/woman-digital-disconnecting-home-by-reading-book.webp"
             alt="Woman reading book in a clean home"
             fill
             priority
-            unoptimized
             sizes="100vw"
             className="object-cover object-center"
           />
@@ -129,7 +128,7 @@ export default function Home() {
       <SectionBreaker
         quote="Det är detaljerna som gör helheten."
         author="Treda Städ"
-        imageSrc="/images/flat-lay-green-cleaning-products-marble-background.jpg"
+        imageSrc="/images/flat-lay-green-cleaning-products-marble-background.webp"
       />
 
       {/* Feature / Filler Section (Creative CTA) */}
@@ -170,7 +169,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 md:order-1">
               <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-leasio max-w-md mx-auto relative z-10">
-                <Image src="/images/cleaner.png" alt="Anna, Treda Städ" fill className="object-cover" />
+                <Image src="/images/cleaner.webp" alt="Anna, Treda Städ" fill className="object-cover" />
               </div>
               {/* Decorative elements */}
               <div className="absolute top-10 -left-10 w-24 h-24 bg-[#E8F5E9] rounded-full blur-xl -z-0" />

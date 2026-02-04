@@ -14,7 +14,7 @@ import Image from "next/image";
 // ... imports
 
 export function SectionBreaker({
-    imageSrc = "/images/living-room.jpg", // Placeholder - User needs to update
+    imageSrc = "/images/flat-lay-green-cleaning-products-marble-background.webp",
     quote = "Det är detaljerna som gör helheten.",
     author = "Treda Städ"
 }: SectionBreakerProps) {

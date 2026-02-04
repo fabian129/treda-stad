@@ -23,7 +23,7 @@ const timelineData: TimelineItem[] = [
         title: "Offert",
         description: "Börja med att få en kostnadsfri offert anpassad efter dina behov. Vi svarar snabbt med ett tydligt prisförslag.",
         icon: <FileText className="w-6 h-6" />,
-        image: "/images/woman-digital-disconnecting-home-by-reading-book.jpg" // Placeholder
+        image: "/images/woman-digital-disconnecting-home-by-reading-book.webp" // Placeholder
     },
     {
         id: "behovsanalys",
@@ -31,7 +31,7 @@ const timelineData: TimelineItem[] = [
         title: "Behovsanalys",
         description: "Vi går igenom dina önskemål för att säkerställa att vi levererar exakt den kvalitet och service du förväntar dig.",
         icon: <Search className="w-6 h-6" />,
-        image: "/images/closeup-unrecognizable-person-cleaning-door-handle.jpg" // Placeholder
+        image: "/images/closeup-unrecognizable-person-cleaning-door-handle.webp" // Placeholder
     },
     {
         id: "stadningen",
@@ -39,7 +39,7 @@ const timelineData: TimelineItem[] = [
         title: "Vi sköter städningen",
         description: "Våra professionella städare tar hand om allt enligt överenskommelse, så att du kan fokusera på annat.",
         icon: <Brush className="w-6 h-6" />,
-        image: "/images/housemaid-opening-door-room-cleaning.jpg" // Placeholder
+        image: "/images/housemaid-opening-door-room-cleaning.webp" // Placeholder
     },
     {
         id: "rent-och-fint",
@@ -47,7 +47,7 @@ const timelineData: TimelineItem[] = [
         title: "Alltid rent och fint",
         description: "Njut av ett skinande rent resultat varje gång. Vi garanterar trygghet, kvalitet och ett hem att trivas i.",
         icon: <Sparkles className="w-6 h-6" />,
-        image: "/images/room-with-large-window-that-says-welcome-you.jpg" // Placeholder
+        image: "/images/room-with-large-window-that-says-welcome-you.webp" // Placeholder
     },
 ];
 
