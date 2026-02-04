@@ -8,6 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { ForetagBento } from "@/components/foretag/ForetagBento";
 import { ForetagStats } from "@/components/foretag/ForetagStats";
 import { ForetagServices } from "@/components/foretag/ForetagServices";
+import { WavyConnector } from "@/components/ui/WavyConnector";
 
 export default function ForetagPage() {
     return (
@@ -33,10 +34,14 @@ export default function ForetagPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1, duration: 0.7 }}
-                        className="text-6xl md:text-8xl font-bold tracking-tight leading-[1] mb-10"
+                        className="text-6xl md:text-8xl font-bold tracking-tight leading-[1] mb-10 relative"
                     >
                         <span className="block text-stone-900">Rent kontor.</span>
                         <span className="block text-primary">Bättre fokus.</span>
+                        {/* Wavy Connector - Asymmetrical Decorative Curve */}
+                        <div className="absolute -right-[10%] top-[20%] w-[350px] h-[140px] hidden lg:block pointer-events-none">
+                            <WavyConnector className="w-full h-full text-primary opacity-60" />
+                        </div>
                     </motion.h1>
 
                     {/* Description - Centered & Clean */}
