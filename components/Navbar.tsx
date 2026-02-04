@@ -16,7 +16,7 @@ export function Navbar() {
         <header className="w-full bg-white border-b border-border/5 sticky top-0 z-50">
             <nav className="mx-auto max-w-[1280px] px-6 py-6 flex items-center justify-between">
                 <Link href="/" className="hover:opacity-80 transition-opacity">
-                    <Logo className="h-14 w-auto" />
+                    <Logo className="h-[68px] w-auto" />
                 </Link>
 
                 <div className="hidden md:flex items-center gap-12 text-base font-medium text-stone-900">
@@ -80,7 +80,7 @@ export function Navbar() {
                 <Button variant="default" size="lg" className="hidden md:inline-flex h-12 px-8 text-base gap-2 rounded-full shadow-xl shadow-primary/20 hover:shadow-primary/30" asChild>
                     <Link href="/kontakt">
                         <Sparkles className="w-5 h-5" />
-                        <span>Boka Städning</span>
+                        <span>Få Offert</span>
                     </Link>
                 </Button>
             </nav>
