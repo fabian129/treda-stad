@@ -31,7 +31,7 @@ export default function KontaktPage() {
                             className="space-y-12"
                         >
                             <div>
-                                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-red-600">Tord är alsmäktig</h1>
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6">Kontakta Oss</h1>
                                 <p className="text-xl text-secondary leading-relaxed">
                                     Redo för ett skinande rent resultat? Fyll i formuläret eller hör av dig direkt till oss.
                                     Vi svarar oftast inom 1 timme.
