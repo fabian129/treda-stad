@@ -24,25 +24,26 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/woman-digital-disconnecting-home-by-reading-book.webp"
+            src="/images/woman-digital-disconnecting-home-by-reading-book.jpg"
             alt="Woman reading book in a clean home"
             fill
             priority
+            unoptimized
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         {/* Main Content */}
         <div className="mx-auto max-w-[1240px] relative z-10 w-full flex-grow flex flex-col justify-center pb-32">
-          <div className="max-w-2xl text-center lg:text-left">
+          <div className="max-w-4xl text-center lg:text-left">
             {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] text-white mb-6 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] text-white mb-6 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
             >
               Rent hem,<br />
               <span className="text-white/90">utan stress.</span>
@@ -53,7 +54,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]"
+              className="text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
             >
               Vi ger dig tid tillbaka. Professionell hemstädning skräddarsydd för ditt hem och ditt schema. Njut av känslan av ett nystädat hem.
             </motion.p>
@@ -63,7 +64,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 will-change-transform transform-gpu"
             >
               <Link href="/kontakt" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full px-8 h-14 text-base rounded-full gap-2 bg-primary hover:bg-primary/90 text-white border-0 shadow-lg shadow-primary/20 cursor-pointer">
@@ -93,7 +94,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-12 flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-3 text-sm font-medium"
+              className="mt-12 flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-3 text-sm font-medium will-change-transform transform-gpu"
             >
               {/* Keeping these as pills for now */}
               <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
@@ -107,6 +108,10 @@ export default function Home() {
               <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span>RUT-avdrag direkt</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                <span>Alltid samma personal</span>
               </div>
             </motion.div>
 
@@ -128,7 +133,7 @@ export default function Home() {
       <SectionBreaker
         quote="Det är detaljerna som gör helheten."
         author="Treda Städ"
-        imageSrc="/images/flat-lay-green-cleaning-products-marble-background.webp"
+        imageSrc="/images/flat-lay-green-cleaning-products-marble-background.jpg"
       />
 
       {/* Feature / Filler Section (Creative CTA) */}
@@ -169,7 +174,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 md:order-1">
               <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-leasio max-w-md mx-auto relative z-10">
-                <Image src="/images/cleaner.webp" alt="Anna, Treda Städ" fill className="object-cover" />
+                <img src="/images/cleaner.png" alt="Anna, Treda Städ" className="w-full h-full object-cover" />
               </div>
               {/* Decorative elements */}
               <div className="absolute top-10 -left-10 w-24 h-24 bg-[#E8F5E9] rounded-full blur-xl -z-0" />
@@ -201,6 +206,14 @@ export default function Home() {
                 <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
                   <h4 className="font-bold text-foreground">Utbildad Personal</h4>
                   <p className="text-sm text-secondary">Certifierade städare.</p>
+                </div>
+                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
+                  <h4 className="font-bold text-foreground">Alltid samma personal</h4>
+                  <p className="text-sm text-secondary">För din trygghet.</p>
+                </div>
+                <div className="p-4 bg-white rounded-xl shadow-sm border border-border/40">
+                  <h4 className="font-bold text-foreground">Via Almega</h4>
+                  <p className="text-sm text-secondary">Auktoriserat Serviceföretag.</p>
                 </div>
               </div>
             </div>

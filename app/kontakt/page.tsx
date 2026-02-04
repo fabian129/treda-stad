@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export default function KontaktPage() {
     const [formState, setFormState] = useState("idle"); // idle, submitting, success
+    const [selectedService, setSelectedService] = useState("Hemstädning");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -116,15 +117,77 @@ export default function KontaktPage() {
                                     </div>
 
                                     <div className="space-y-2">
+                                        <label className="text-sm font-medium text-secondary">Telefonnummer</label>
+                                        <input type="tel" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="070-123 45 67" />
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-secondary">Adress</label>
+                                        <input type="text" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Gatunamn 12" />
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-secondary">Postnummer</label>
+                                            <input type="text" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="211 11" />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-medium text-secondary">Ort</label>
+                                            <input type="text" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="Malmö" />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
                                         <label className="text-sm font-medium text-secondary">Typ av städning</label>
-                                        <select className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none cursor-pointer">
+                                        <select
+                                            className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none cursor-pointer"
+                                            onChange={(e) => setSelectedService(e.target.value)}
+                                        >
                                             <option>Hemstädning</option>
                                             <option>Storstädning</option>
                                             <option>Flyttstädning</option>
-                                            <option>Företagsstädning</option>
+                                            <option>Byggstädning</option>
+                                            <option>Kontorsstäd</option>
+                                            <option>Fönsterputs</option>
                                             <option>Annat</option>
                                         </select>
                                     </div>
+
+                                    {/* Kvm Input - Shown for everything except Window Cleaning and Other */
+                                        !['Fönsterputs', 'Annat'].includes(selectedService) && (
+                                            <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
+                                                <label className="text-sm font-medium text-secondary">Antal kvadratmeter (kvm)</label>
+                                                <div className="relative">
+                                                    <input type="number" min="0" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="t.ex. 85" />
+                                                    <span className="absolute right-4 top-3 text-secondary/50 font-medium">m²</span>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                    {/* Window Type - Shown for Fönsterputs AND Flyttstädning */
+                                        (selectedService === 'Fönsterputs' || selectedService === 'Flyttstädning') && (
+                                            <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                                                <label className="text-sm font-medium text-secondary">Typ av fönster</label>
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <label className="flex items-center gap-3 p-4 rounded-xl border border-input cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all">
+                                                        <input type="radio" name="windowType" value="2-sidiga" className="w-4 h-4 text-primary focus:ring-primary" />
+                                                        <span className="text-sm font-medium">2-sidiga</span>
+                                                    </label>
+                                                    <label className="flex items-center gap-3 p-4 rounded-xl border border-input cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all">
+                                                        <input type="radio" name="windowType" value="4-sidiga" className="w-4 h-4 text-primary focus:ring-primary" />
+                                                        <span className="text-sm font-medium">4-sidiga</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                    {/* Number of Windows - Shown for Fönsterputs AND Flyttstädning */
+                                        (selectedService === 'Fönsterputs' || selectedService === 'Flyttstädning') && (
+                                            <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
+                                                <label className="text-sm font-medium text-secondary">Antal fönster (cirka)</label>
+                                                <input type="number" min="1" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="t.ex. 10" />
+                                            </div>
+                                        )}
 
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-secondary">Meddelande (Valfritt)</label>
@@ -139,7 +202,7 @@ export default function KontaktPage() {
                         </motion.div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 }
