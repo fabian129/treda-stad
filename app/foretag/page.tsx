@@ -67,11 +67,11 @@ export default function ForetagPage() {
                 <div className="mx-auto max-w-[1200px] mt-12 mb-12">
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                         {[
-                            "/images/room-with-large-window-that-says-welcome-you.webp",
-                            "/images/closeup-waitress-disinfecting-tables-outdoor-cafe.webp",
-                            "/images/cleaner.webp",
-                            "/images/flat-lay-green-cleaning-products-marble-background.webp",
-                            "/images/woman-digital-disconnecting-home-by-reading-book.webp"
+                            "/images/foretag/waiting-room.webp",
+                            "/images/foretag/businesswoman.webp",
+                            "/images/foretag/office-kitchen.webp",
+                            "/images/foretag/seller.webp",
+                            "/images/foretag/cleaning-service.webp"
                         ].map((src, index) => (
                             <motion.div
                                 key={index}
