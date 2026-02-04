@@ -61,6 +61,7 @@ Before building new, search for existing solutions:
 | `11-browser-validator` | Testing browsers |
 | `12-deployment-packager` | Shipping |
 | `14-seo-specialist` | SEO (apply during build + audit before deploy) |
+| `15-web-debugger` | Debugging issues (decision trees, token-efficient) |
 
 ---
 
