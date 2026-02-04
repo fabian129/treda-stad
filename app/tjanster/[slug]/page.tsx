@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { InteractiveTimeline } from "@/components/InteractiveTimeline";
 import { use } from "react";
+import Image from "next/image";
 
 interface PageProps {
     params: Promise<{
@@ -35,10 +36,12 @@ export default function ServicePage({ params }: PageProps) {
 
                     {/* Background Image */}
                     <div className="absolute inset-0 z-0">
-                        <img
+                        <Image
                             src={service.image}
                             alt={service.title}
-                            className="w-full h-full object-cover"
+                            fill
+                            priority
+                            className="object-cover"
                         />
                         {/* Dark Gradient Overlay for text readability */}
                         <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/60 to-black/20" />
@@ -149,19 +152,21 @@ export default function ServicePage({ params }: PageProps) {
 
                             {/* Image Card 1: Clean Image */}
                             <div className="group relative h-[360px] rounded-[2.5rem] overflow-hidden cursor-pointer">
-                                <img
+                                <Image
                                     src="/images/woman-digital-disconnecting-home-by-reading-book.jpg"
                                     alt="Mer tid för livet"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                             </div>
 
                             {/* Image Card 2: Clean Image */}
                             <div className="group relative h-[360px] rounded-[2.5rem] overflow-hidden cursor-pointer">
-                                <img
+                                <Image
                                     src="/images/housemaid-opening-door-room-cleaning.jpg"
                                     alt="Professionell städning"
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
                             </div>
 
