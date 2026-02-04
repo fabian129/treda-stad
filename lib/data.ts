@@ -21,7 +21,7 @@ export const services = [
     },
     {
         id: "storstadning",
-        title: "Storstäd i Malmö – när du vill "nollställa" hemmet",
+        title: "Storstäd i Malmö – när du vill \"nollställa\" hemmet",
         shortTitle: "storstäd",
         buttonText: "Få offert",
         price: "Offert",
@@ -79,7 +79,7 @@ export const services = [
         buttonText: "Få offert",
         price: "Offert",
         description: "Ett rent kontor ger bättre trivsel, färre störmoment och ett mer professionellt intryck för kunder och besökare. Treda Städ erbjuder kontorsstäd i Malmö som anpassas efter era tider och behov.",
-        longDescription: "När kontoret är rent blir arbetsdagen enklare. Vi på Treda Städ hjälper företag i Malmö med regelbunden kontorsstädning – från mindre kontor till större arbetsplatser. Ni får ett tydligt upplägg, återkommande kvalitet och enkel kontakt om ni vill ändra något. Vi kan städa före öppning, efter stängning eller på tider som passar er verksamhet. Målet är att det ska märkas att det är städat – utan att städningen "märks" i vardagen.",
+        longDescription: "När kontoret är rent blir arbetsdagen enklare. Vi på Treda Städ hjälper företag i Malmö med regelbunden kontorsstädning – från mindre kontor till större arbetsplatser. Ni får ett tydligt upplägg, återkommande kvalitet och enkel kontakt om ni vill ändra något. Vi kan städa före öppning, efter stängning eller på tider som passar er verksamhet. Målet är att det ska märkas att det är städat – utan att städningen \"märks\" i vardagen.",
         image: "/images/woman-digital-disconnecting-home-by-reading-book.jpg",
         perks: [
             "Anpassat schema (morgon/kväll)",
@@ -96,7 +96,7 @@ export const services = [
         buttonText: "Be om pris",
         price: "Från 499 kr",
         description: "Nyputsade fönster gör mer än man tror. Vi putsar noggrant för ett klart resultat utan ränder – hemma eller på jobbet.",
-        longDescription: "Smuts och beläggningar tar bort ljuset och gör hela rummet "mörkare". Med fönsterputs från Treda Städ får du en fräsch känsla direkt – perfekt inför visning, säsongsskifte eller när du bara vill se skillnaden.",
+        longDescription: "Smuts och beläggningar tar bort ljuset och gör hela rummet \"mörkare\". Med fönsterputs från Treda Städ får du en fräsch känsla direkt – perfekt inför visning, säsongsskifte eller när du bara vill se skillnaden.",
         rutText: "Fönsterputs omfattas av RUT: upp till 50% skattereduktion på arbetskostnaden, vi sköter ansökan.",
         image: "/images/close-up-hand-with-rubber-glove-disinfecting.jpg",
         perks: [
