@@ -62,75 +62,41 @@ export default function ForetagPage() {
                     </motion.div>
                 </div>
 
-                {/* Bottom Image Grid (Peeking up) */}
-                <div className="mx-auto max-w-[1400px]">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-                        {/* Image 1 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.8 }}
-                            className="relative aspect-[3/4] rounded-[32px] overflow-hidden group shadow-2xl"
-                        >
-                            <img
-                                src="/images/office-cleaning-1.jpg" // Fallback or placeholder needed? Using generic path logic based on text
-                                alt="Kontorsstädning"
-                                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
-                                onError={(e) => {
-                                    // Fallback to solid color if image fails (for demo safety)
-                                    (e.target as HTMLImageElement).style.display = 'none';
-                                    (e.target as HTMLImageElement).parentElement!.style.backgroundColor = '#f5f5f4'; // stone-100
-                                }}
-                            />
-                            {/* Overlay Content */}
-                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/60 to-transparent">
-                                <h3 className="text-white text-xl font-bold">Kontorsstädning</h3>
-                                <p className="text-white/80 text-sm mt-1">För en trivsam arbetsmiljö</p>
-                            </div>
-                        </motion.div>
-
-                        {/* Image 2 (Center - Taller?) - Keeping uniform for now per reference grid usually */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5, duration: 0.8 }}
-                            className="relative aspect-[3/4] rounded-[32px] overflow-hidden group shadow-2xl"
-                        >
-                            <div className="absolute inset-0 bg-stone-200" /> {/* Placeholder if image missing */}
-                            <img
-                                src="/images/office-lobby.webp"
-                                alt="Fastighetsstädning"
-                                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 relative z-10"
-                            />
-                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/60 to-transparent z-20">
-                                <h3 className="text-white text-xl font-bold">Fastighetsstädning</h3>
-                                <p className="text-white/80 text-sm mt-1">Trapphus & Entréer</p>
-                            </div>
-                        </motion.div>
-
-                        {/* Image 3 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
-                            className="relative aspect-[3/4] rounded-[32px] overflow-hidden group shadow-2xl"
-                        >
-                            <div className="absolute inset-0 bg-stone-200" />
-                            <img
-                                src="/images/meeting-room.webp"
-                                alt="Specialstädning"
-                                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 relative z-10"
-                            />
-                            <div className="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-black/60 to-transparent z-20">
-                                <h3 className="text-white text-xl font-bold">Specialstädning</h3>
-                                <p className="text-white/80 text-sm mt-1">Fönsterputs & Golvvård</p>
-                            </div>
-                        </motion.div>
+                {/* Bottom Image Grid (Visual Pacing - Slim Cards) */}
+                <div className="mx-auto max-w-[1600px] mt-16">
+                    <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        {[
+                            "/images/room-with-large-window-that-says-welcome-you.webp",
+                            "/images/closeup-waitress-disinfecting-tables-outdoor-cafe.webp",
+                            "/images/cleaner.webp",
+                            "/images/flat-lay-green-cleaning-products-marble-background.webp",
+                            "/images/woman-digital-disconnecting-home-by-reading-book.webp"
+                        ].map((src, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 + (index * 0.1), duration: 0.8 }}
+                                className={`relative aspect-[9/16] rounded-[24px] overflow-hidden group shadow-xl ${index > 1 ? 'hidden md:block' : ''} ${index === 2 ? 'md:translate-y-8' : ''}`}
+                            >
+                                <div className="absolute inset-0 bg-stone-100" />
+                                <img
+                                    src={src}
+                                    alt="Treda Städ Visual"
+                                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).style.display = 'none';
+                                    }}
+                                />
+                                {/* Subtle internal border/sheen */}
+                                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[24px] pointer-events-none" />
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
 
                 {/* Decorative Background Blob behind images */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[300px] bg-primary/5 blur-[100px] -z-10 rounded-full pointer-events-none" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[300px] bg-primary/5 blur-[120px] -z-10 rounded-full pointer-events-none" />
             </section>
 
             {/* Services List */}
