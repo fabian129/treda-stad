@@ -53,13 +53,6 @@ export function ForetagServices() {
                             Från dagligt underhåll till specialtjänster. Vi skräddarsyr ett upplägg som passar just era lokaler och arbetstider.
                         </p>
                     </div>
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="h-14 px-8 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 backdrop-blur-sm text-white font-medium transition-all"
-                    >
-                        Se alla våra tjänster
-                    </motion.button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
