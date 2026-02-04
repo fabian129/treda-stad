@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle, Building2, Briefcase, FileText, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 
 export default function ForetagPage() {
@@ -77,19 +78,16 @@ export default function ForetagPage() {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 + (index * 0.05), duration: 0.6 }}
-                                className={`relative aspect-[9/16] rounded-[20px] overflow-hidden shadow-md ${index > 1 ? 'hidden md:block' : ''} ${index === 2 ? 'md:translate-y-6' : ''}`}
+                                className={`relative aspect-[9/16] rounded-[20px] overflow-hidden ${index > 1 ? 'hidden md:block' : ''} ${index === 2 ? 'md:translate-y-6' : ''}`}
                             >
                                 <div className="absolute inset-0 bg-stone-100" />
-                                <img
+                                <Image
                                     src={src}
                                     alt="Treda Städ Visual"
-                                    className="object-cover w-full h-full"
-                                    onError={(e) => {
-                                        (e.target as HTMLImageElement).style.display = 'none';
-                                    }}
+                                    fill
+                                    className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
+                                    sizes="(max-width: 768px) 50vw, 20vw"
                                 />
-                                {/* Subtle internal border/sheen */}
-                                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[20px] pointer-events-none" />
                             </motion.div>
                         ))}
                     </div>
