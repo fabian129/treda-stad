@@ -64,7 +64,13 @@ export default function ProcessTimeline() {
     );
 }
 
-function ProcessNode({ step, index }: { step: any, index: number }) {
+interface ProcessStep {
+    id: string;
+    title: string;
+    desc: string;
+}
+
+function ProcessNode({ step, index }: { step: ProcessStep, index: number }) {
     const isEven = index % 2 === 0;
 
     return (

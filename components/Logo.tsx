@@ -1,4 +1,4 @@
-﻿export function Logo({ className = "", ...props }: { className?: string;[key: string]: any }) {
+﻿export function Logo({ className = "", ...props }: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             viewBox="0 0 858 343"

@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue, MotionStyle } from "framer-motion";
 import { ReactNode, useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -57,27 +57,21 @@ export function ScrollReveal({
         offset: ["start end", "end start"],
     });
 
-    // Create transforms based on enabled animations
-    const transforms: Record<string, MotionValue<any>> = {};
+    // Create transforms unconditionally (Rules of Hooks)
+    const scale = useTransform(scrollYProgress, scrollRange, scaleRange);
+    const opacity = useTransform(scrollYProgress, scrollRange, opacityRange);
+    const y = useTransform(scrollYProgress, scrollRange, yRange);
+    const x = useTransform(scrollYProgress, scrollRange, xRange);
 
-    if (animateScale) {
-        transforms.scale = useTransform(scrollYProgress, scrollRange, scaleRange);
-    }
-
-    if (animateOpacity) {
-        transforms.opacity = useTransform(scrollYProgress, scrollRange, opacityRange);
-    }
-
-    if (animateY) {
-        transforms.y = useTransform(scrollYProgress, scrollRange, yRange);
-    }
-
-    if (animateX) {
-        transforms.x = useTransform(scrollYProgress, scrollRange, xRange);
-    }
+    // Apply only enabled animations
+    const style: MotionStyle = {};
+    if (animateScale) style.scale = scale;
+    if (animateOpacity) style.opacity = opacity;
+    if (animateY) style.y = y;
+    if (animateX) style.x = x;
 
     return (
-        <motion.div ref={ref} style={transforms} className={cn(className)}>
+        <motion.div ref={ref} style={style} className={cn(className)}>
             {children}
         </motion.div>
     );

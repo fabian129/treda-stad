@@ -1,5 +1,13 @@
 import { useId } from "react";
 
+interface GridPatternProps extends React.SVGProps<SVGSVGElement> {
+    width?: number;
+    height?: number;
+    x?: number;
+    y?: number;
+    strokeDasharray?: any; // Keeping any here for simplicity on dasharray string/number mix, or string matches
+}
+
 export function GridPattern({
     width = 40,
     height = 40,
@@ -8,15 +16,7 @@ export function GridPattern({
     strokeDasharray = "0",
     className,
     ...props
-}: {
-    width?: number;
-    height?: number;
-    x?: number;
-    y?: number;
-    strokeDasharray?: string;
-    className?: string;
-    [key: string]: any;
-}) {
+}: GridPatternProps) {
     const id = useId();
 
     return (
