@@ -267,6 +267,171 @@ CHECK 3: Image exists?
 
 ---
 
+## 🎬 ANIMATION ISSUES
+
+### Animation Not Playing
+
+```
+SYMPTOM: Animation doesn't trigger or play
+
+CHECK 1: Is it a client component?
+├── Framer Motion requires "use client"
+│   FIX: Add "use client" at top of file
+│
+└── Check: Any hooks used? → Must be client component
+
+CHECK 2: Is the animation trigger correct?
+├── Framer Motion:
+│   - whileInView: Element must enter viewport
+│   - animate: Plays immediately on mount
+│   - whileHover: Only on mouse hover
+│
+├── GSAP:
+│   - Is gsap.registerPlugin(ScrollTrigger) called?
+│   - Is useGSAP hook wrapping the animation?
+│
+└── Check: Is animation inside conditional render that's false?
+
+CHECK 3: Is the component mounted?
+├── Animation inside useEffect with empty deps? → Runs once on mount
+├── Animation depends on state that hasn't updated?
+│
+└── Try adding a console.log to confirm component renders
+
+CHECK 4: Are animation props correct?
+├── Framer Motion:
+│   - initial, animate, exit all need matching keys
+│   - variants must match the keys used
+│
+└── GSAP:
+    - Selector exists? (gsap.to(".my-class") → is .my-class in DOM?)
+    - GSAP runs before DOM ready? → Use useGSAP or useLayoutEffect
+```
+
+### Animation Performance (Jank/Stutter)
+
+```
+SYMPTOM: Animation is choppy or stutters
+
+CHECK 1: Are you animating expensive properties?
+├── BAD: width, height, top, left, margin, padding
+│   These trigger layout recalculation every frame
+│
+├── GOOD: transform, opacity
+│   These are GPU-accelerated
+│
+└── FIX: Use transform instead
+    // BAD
+    animate={{ left: 100 }}
+    
+    // GOOD
+    animate={{ x: 100 }}
+
+CHECK 2: Too many elements animating?
+├── Check: Animating 50+ elements simultaneously?
+│   FIX: Stagger them or reduce count
+│
+└── Check: Particle systems or many moving objects?
+    FIX: Use CSS animations or canvas for many items
+
+CHECK 3: Animation causing re-renders?
+├── State updating every frame?
+│   FIX: Use useRef for values that don't need re-render
+│
+├── Framer Motion: Use motion values instead of state
+│   const x = useMotionValue(0);
+│
+└── GSAP: Animations are outside React render cycle (usually fine)
+
+CHECK 4: Memory leak?
+├── Animation never stops?
+├── Scroll listener not cleaned up?
+│
+└── FIX: Return cleanup function from useEffect
+    useEffect(() => {
+      const animation = gsap.to(...);
+      return () => animation.kill();
+    }, []);
+```
+
+### Framer Motion Specific
+
+```
+SYMPTOM: Framer Motion animation broken
+
+CHECK 1: Missing AnimatePresence for exit animations?
+├── Exit animations only work inside <AnimatePresence>
+│
+└── FIX:
+    <AnimatePresence>
+      {show && <motion.div exit={{ opacity: 0 }} />}
+    </AnimatePresence>
+
+CHECK 2: whileInView not triggering?
+├── Element must be in viewport
+├── Parent has overflow: hidden cutting it off?
+│
+└── FIX: Add viewport={{ once: true, margin: "-100px" }}
+
+CHECK 3: Variants not applying?
+├── Check: Are variant keys matching?
+│   variants={{ hidden: {...}, visible: {...} }}
+│   initial="hidden" animate="visible"
+│
+└── Check: Parent has variants but children don't inherit?
+    FIX: Add variants to children or use staggerChildren
+
+CHECK 4: Layout animations broken?
+├── Using layout prop?
+├── Other elements not using layout?
+│
+└── FIX: All siblings should have layout prop for smooth transitions
+```
+
+### GSAP / ScrollTrigger Specific
+
+```
+SYMPTOM: GSAP animation not working
+
+CHECK 1: Plugin registered?
+├── ScrollTrigger needs registration
+│   FIX: gsap.registerPlugin(ScrollTrigger);
+│
+└── Same for TextPlugin, SplitText, etc.
+
+CHECK 2: Running before DOM ready?
+├── Animation runs on SSR (server)?
+│   FIX: Use useGSAP hook or check typeof window
+│
+└── Element doesn't exist when GSAP runs?
+    FIX: Use refs, not class selectors
+    
+    // BAD - might not exist
+    gsap.to(".my-element", {...});
+    
+    // GOOD - guaranteed to exist
+    const ref = useRef(null);
+    gsap.to(ref.current, {...});
+
+CHECK 3: ScrollTrigger not firing?
+├── Trigger element correct?
+│   scrollTrigger: { trigger: ".element" }
+│
+├── Start/end positions off-screen?
+│   FIX: Check start: "top 80%" means when top of element hits 80% of viewport
+│
+└── Page height changed after ScrollTrigger initialized?
+    FIX: ScrollTrigger.refresh() after dynamic content loads
+
+CHECK 4: Animation works but snaps/jumps?
+├── scrub: true should make it smooth
+├── If using scrub: 1, animation takes 1 second to catch up
+│
+└── Check: Animation values reasonable for scroll distance?
+```
+
+---
+
 ## 🔧 BUILD ERRORS
 
 ```
