@@ -77,6 +77,7 @@ export default function ForetagPage() {
                                 key={index}
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
+                                whileHover={{ y: -10 }}
                                 transition={{ delay: 0.4 + (index * 0.05), duration: 0.6 }}
                                 className={`relative aspect-[9/16] rounded-[20px] overflow-hidden ${index > 1 ? 'hidden md:block' : ''} ${index === 2 ? 'md:translate-y-6' : ''}`}
                             >
@@ -85,7 +86,7 @@ export default function ForetagPage() {
                                     src={src}
                                     alt="Treda Städ Visual"
                                     fill
-                                    className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
+                                    className="object-cover"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                             </motion.div>
