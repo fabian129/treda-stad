@@ -15,19 +15,19 @@ export function ForetagServices() {
             icon: Wind,
             title: "Fönsterputs",
             desc: "Kristallklart resultat på alla höjder. Vi har certifiering för lift och höghöjdsarbete.",
-            color: "bg-emerald-400"
+            color: "bg-primary"
         },
         {
             icon: Briefcase,
             title: "Förbrukningsmaterial",
             desc: "Vi fyller på papper, tvål och kaffe innan det tar slut. Ni slipper lagerhållning och beställningar.",
-            color: "bg-amber-400"
+            color: "bg-primary"
         },
         {
             icon: Zap,
             title: "Golvvård",
             desc: "Djuprengöring, polering och behandling av alla typer av golv. Förlänger livslängden markant.",
-            color: "bg-stone-400"
+            color: "bg-primary"
         }
     ];
 
@@ -47,7 +47,7 @@ export function ForetagServices() {
                             className="text-4xl md:text-5xl font-bold mb-6"
                         >
                             En helhetslösning. <br />
-                            <span className="text-white/40">Inga kompromisser.</span>
+                            <span className="text-primary">Inga kompromisser.</span>
                         </motion.h2>
                         <p className="text-lg text-white/60 leading-relaxed">
                             Från dagligt underhåll till specialtjänster. Vi skräddarsyr ett upplägg som passar just era lokaler och arbetstider.
