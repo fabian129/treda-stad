@@ -162,10 +162,9 @@ export function InteractiveTimeline() {
                                 animate={{
                                     x: distance * 300,
                                     scale: isActive ? 1 : 0.75,
-                                    opacity: isActive ? 1 : 0.5,
+                                    opacity: isActive ? 1 : 0.4,
                                     zIndex: 10 - Math.abs(distance),
                                     rotateY: distance * -10,
-                                    filter: isActive ? "blur(0px)" : "blur(1px) grayscale(50%)",
                                 }}
                                 transition={{
                                     type: "spring",
@@ -183,8 +182,8 @@ export function InteractiveTimeline() {
                                             alt={item.title}
                                             fill
                                             className="object-cover"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            priority={isActive}
+                                            sizes="(max-width: 768px) 100vw, 500px"
+                                            priority={index < 2}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                                     </div>
