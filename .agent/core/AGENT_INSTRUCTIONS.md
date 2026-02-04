@@ -4,6 +4,8 @@ This document defines how AI agents should operate when building websites using 
 
 ---
 
+# PART 1 — BASE OPERATIONS (All Projects)
+
 ## 🎯 Core Philosophy
 
 **You are not just writing code. You are crafting premium digital experiences.**
@@ -31,7 +33,6 @@ Before building new, search for existing solutions:
 - Section templates in `.agent/core/section-templates/`
 
 ### 3. Understand the Client Type
-Different industries need different approaches:
 
 | Type | Style | Motion | Typical Layout |
 |:-----|:------|:-------|:---------------|
@@ -43,7 +44,7 @@ Different industries need different approaches:
 
 ---
 
-## 🔧 Skill Reference (Quick Access)
+## 🔧 Skill Reference
 
 | Skill | When to Use |
 |:------|:------------|
@@ -59,27 +60,6 @@ Different industries need different approaches:
 | `10-accessibility-auditor` | Checking a11y |
 | `11-browser-validator` | Testing browsers |
 | `12-deployment-packager` | Shipping |
-| `13-immersive-architect` | 3D scenes & effects |
-
----
-
-## 🚦 Operating Modes
-
-### AUTO Mode (Default)
-- You make decisions based on DNA and best practices
-- Minimal Leva controls exposed
-- Goal: 80% done, user tweaks 20%
-- **Use for:** Fast iteration, trusted patterns
-
-### TWEAK Mode
-- Full Leva controls exposed
-- Calibrated ranges based on scene/section
-- **Use for:** Fine-tuning, client revisions
-- **Trigger:** User says "give me full controls" or "TWEAK mode"
-
-### SANDBOX vs BRAND-LOCK
-- **SANDBOX:** Experiment freely with any colors
-- **BRAND-LOCK:** Only use colors from DNA
 
 ---
 
@@ -114,15 +94,12 @@ Different industries need different approaches:
 
 1. **Images:** Max 200KB per image, use WebP
 2. **Fonts:** Max 3 weights per family
-3. **3D Scenes:** Max 50k triangles, always have fallback
-4. **Animations:** Use `transform` and `opacity` only
-5. **Bundle:** Lazy load below-fold sections
+3. **Animations:** Use `transform` and `opacity` only
+4. **Bundle:** Lazy load below-fold sections
 
 ---
 
 ## 🔄 Decision Making Process
-
-When building a section:
 
 ```
 1. What is the GOAL of this section?
@@ -143,40 +120,13 @@ When building a section:
 
 ---
 
-## 🚨 Crystallize Checkpoint
-
-When things feel messy, ask yourself:
-
-**RED FLAGS (Consider Reset):**
-- Am I constantly working around earlier mistakes?
-- Are there 3+ "temporary fixes" in the code?
-- Did we just discover a fundamentally better approach?
-
-**GREEN FLAGS (Keep Going):**
-- Core architecture is still sound
-- We're just adding features
-- Messy code is isolated to one component
-
-If RED > GREEN, propose a reset to the user.
-
----
-
 ## 📝 Communication Style
 
-### When Reporting Progress
 - Be concise
 - State what's done, not what you'll do
 - Flag blockers immediately
-
-### When Unsure
-- Ask specific questions
-- Provide 2-3 options with tradeoffs
+- Ask specific questions when unsure
 - Don't guess on brand decisions
-
-### When Something Breaks
-- Acknowledge the issue
-- Explain what happened
-- Propose a fix
 
 ---
 
@@ -186,14 +136,12 @@ If RED > GREEN, propose a reset to the user.
 components/
 ├── ui/              # Base components (Button, Card, etc.)
 ├── sections/        # Page sections (Hero, Features, etc.)
-├── scenes/          # 3D components
 └── layout/          # Navbar, Footer, etc.
 
 public/
-├── assets/          # Images, videos, fonts
+├── assets/
 │   ├── images/
-│   ├── videos/
-│   └── models/      # 3D models (.glb)
+│   └── videos/
 └── favicon/
 
 .agent/
@@ -214,4 +162,81 @@ Before marking work as complete:
 - [ ] Motion respects reduced-motion
 - [ ] No console errors
 - [ ] Clean code (ESLint passing)
-- [ ] Documented if complex
+
+---
+
+# PART 2 — ADVANCED OPERATIONS (3D / Interactive Projects Only)
+
+> **Activate this section when:** User requests 3D scenes, immersive effects, or complex interactive experiences.
+
+## Additional Skill
+
+| Skill | When to Use |
+|:------|:------------|
+| `13-immersive-architect` | 3D scenes, organic effects, mouse interactions |
+
+---
+
+## 🚦 Operating Modes
+
+### AUTO Mode (Default for 3D)
+- Agent picks optimal values based on scene calibration
+- Minimal Leva controls exposed
+- Goal: 80% done, user tweaks 20%
+
+### TWEAK Mode
+- Full Leva controls exposed
+- Calibrated ranges based on scene measurements
+- **Trigger:** User says "give me full controls" or "TWEAK mode"
+
+---
+
+## 🎨 Color States
+
+### SANDBOX
+- Any colors allowed
+- Full color pickers in Leva
+- **Use for:** Testing materials, exploring looks
+
+### BRAND-LOCK
+- Colors from DNA only
+- **Use for:** Production builds, client deliverables
+
+---
+
+## 🚨 Crystallize Checkpoint
+
+When 3D work feels messy, ask yourself:
+
+**RED FLAGS (Consider Reset):**
+- Am I constantly working around earlier mistakes?
+- Are there 3+ "temporary fixes" in the code?
+- Did we just discover a fundamentally better approach?
+
+**GREEN FLAGS (Keep Going):**
+- Core architecture is still sound
+- We're just adding features
+- Messy code is isolated to one component
+
+If RED > GREEN, propose a reset to the user.
+
+---
+
+## 📦 Additional File Structure (3D)
+
+```
+components/
+└── scenes/          # 3D components
+
+public/
+└── assets/
+    └── models/      # 3D models (.glb)
+```
+
+---
+
+## ⚡ 3D Performance Rules
+
+- Max 50k triangles per scene
+- Textures: 1024×1024 max (512 for mobile)
+- Always provide static fallback image
