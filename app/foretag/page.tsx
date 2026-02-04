@@ -63,7 +63,7 @@ export default function ForetagPage() {
                 </div>
 
                 {/* Bottom Image Grid (Visual Pacing - Slim Cards) */}
-                <div className="mx-auto max-w-[1600px] mt-16">
+                <div className="mx-auto max-w-[1200px] mt-12 mb-12">
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                         {[
                             "/images/room-with-large-window-that-says-welcome-you.webp",
@@ -74,22 +74,22 @@ export default function ForetagPage() {
                         ].map((src, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 100 }}
+                                initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 + (index * 0.1), duration: 0.8 }}
-                                className={`relative aspect-[9/16] rounded-[24px] overflow-hidden group shadow-xl ${index > 1 ? 'hidden md:block' : ''} ${index === 2 ? 'md:translate-y-8' : ''}`}
+                                transition={{ delay: 0.4 + (index * 0.05), duration: 0.6 }}
+                                className={`relative aspect-[9/16] rounded-[20px] overflow-hidden shadow-md ${index > 1 ? 'hidden md:block' : ''} ${index === 2 ? 'md:translate-y-6' : ''}`}
                             >
                                 <div className="absolute inset-0 bg-stone-100" />
                                 <img
                                     src={src}
                                     alt="Treda Städ Visual"
-                                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                                    className="object-cover w-full h-full"
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).style.display = 'none';
                                     }}
                                 />
                                 {/* Subtle internal border/sheen */}
-                                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[24px] pointer-events-none" />
+                                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[20px] pointer-events-none" />
                             </motion.div>
                         ))}
                     </div>
