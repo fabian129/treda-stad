@@ -38,9 +38,13 @@ export default function ForetagPage() {
                     >
                         <span className="block text-stone-900">Rent kontor.</span>
                         <span className="block text-primary">Bättre fokus.</span>
-                        {/* Wavy Connector - Asymmetrical Decorative Curve (to the left) */}
+                        {/* Wavy Connector - Left side */}
                         <div className="absolute -left-[10%] top-[20%] w-[350px] h-[140px] hidden lg:block pointer-events-none">
                             <WavyConnector className="w-full h-full text-primary opacity-60" flipX />
+                        </div>
+                        {/* Wavy Connector - Right side */}
+                        <div className="absolute -right-[10%] top-[20%] w-[350px] h-[140px] hidden lg:block pointer-events-none">
+                            <WavyConnector className="w-full h-full text-primary opacity-60" />
                         </div>
                     </motion.h1>
 
