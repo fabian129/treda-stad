@@ -25,7 +25,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/woman-digital-disconnecting-home-by-reading-book.webp"
+            src="/images/foretag/portrait-smiling-beautiful-girl-playing-with-dog-golden-retriever-sitting-floor.jpg"
             alt="Woman reading book in a clean home"
             fill
             priority

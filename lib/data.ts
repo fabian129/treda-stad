@@ -46,7 +46,7 @@ export const services = [
         description: "Flyttstädning ställer högre krav än vanlig städning. Vi jobbar metodiskt med checklistor och detaljer – så du blir godkänd.",
         longDescription: "När du flyttar är det mycket att hålla koll på. Låt Treda Städ ta hand om flyttstädningen i Malmö så att du kan fokusera på flytt, nycklar och allt runt omkring. Vi städar noggrant från golv till tak – inklusive de moment som ofta missas, som lister, ventiler, skåp och bakom/under där det är möjligt.",
         rutText: "Flyttstäd omfattas normalt av RUT (50% på arbetskostnaden) och vi hanterar avdraget åt dig.",
-        image: "/images/flat-lay-green-cleaning-products-marble-background.webp",
+        image: "/images/marble-bg.webp",
         perks: [
             "Tydlig omfattning (fast pris & checklista)",
             "Noggrann detaljstädning (högsta standard)",
