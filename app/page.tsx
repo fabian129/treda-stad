@@ -134,7 +134,7 @@ export default function Home() {
       <SectionBreaker
         quote="Det är detaljerna som gör helheten."
         author="Treda Städ"
-        imageSrc="/images/flat-lay-green-cleaning-products-marble-background.jpg"
+        imageSrc="/images/marble-bg.webp"
       />
 
       {/* Feature / Filler Section (Creative CTA) */}

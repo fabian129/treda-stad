@@ -21,25 +21,25 @@ export default function OmOssPage() {
 
                 <div className="w-full flex flex-col lg:flex-row items-center">
                     {/* LEFT: Text Content - Massive padding to center-left float */}
-                    <div className="lg:w-[55%] pl-8 lg:pl-32 xl:pl-48 pr-8 lg:pr-16">
+                    <div className="lg:w-[65%] pl-8 lg:pl-32 xl:pl-48 pr-8 lg:pr-16">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="max-w-xl"
+                            className="max-w-3xl"
                         >
                             {/* Main Headline - Bold on two rows */}
-                            <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-10">
+                            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-10">
                                 <span className="block text-stone-900">Vi städar inte bara.</span>
                                 <span className="block text-primary">Vi skapar trivsel.</span>
                             </h1>
 
                             {/* Description - Clean sans serif */}
-                            <p className="text-lg text-stone-600 leading-relaxed mb-6 max-w-md">
-                                Treda Städ grundades med en enkel vision: att erbjuda städning som känns personlig, trygg och proffsig.
+                            <p className="text-2xl md:text-3xl font-medium text-stone-900 leading-tight mb-8 max-w-3xl">
+                                Treda Städ grundades med en enkel vision: att erbjuda städning som känns <span className="text-primary">personlig</span>, <span className="text-primary">trygg</span> och <span className="text-primary">proffsig</span>.
                             </p>
-                            <p className="text-lg text-stone-600 leading-relaxed mb-8 max-w-md">
-                                Vi använder modern teknik för bokning men gammaldags omsorg i utförandet.
+                            <p className="text-2xl md:text-3xl font-medium text-stone-900 leading-tight mb-8 max-w-3xl">
+                                Vi använder modern teknik men gammaldags <span className="text-primary">omsorg</span> i utförandet.
                             </p>
 
                             {/* Buttons */}
@@ -60,7 +60,7 @@ export default function OmOssPage() {
                     </div>
 
                     {/* RIGHT: Image Section */}
-                    <div className="lg:w-[45%] px-8 lg:px-0 lg:pr-8 xl:pr-16 relative mt-12 lg:mt-0">
+                    <div className="lg:w-[35%] px-8 lg:px-0 lg:pr-8 xl:pr-16 relative mt-12 lg:mt-0">
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             animate={{ opacity: 1, x: 0 }}

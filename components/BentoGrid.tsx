@@ -5,6 +5,7 @@ import { ArrowRight, Users, Star, Clock } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { WavyConnector } from "@/components/ui/WavyConnector";
 
 interface BentoItemProps {
     className?: string;
@@ -31,17 +32,24 @@ function BentoItem({ className, children, delay = 0 }: BentoItemProps) {
 
 export function BentoGrid() {
     return (
-        <section className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+        <section className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto relative">
+            {/* Decorative Wavy Lines */}
+            <div className="absolute -left-20 bottom-32 w-[240px] h-[120px] hidden xl:block pointer-events-none opacity-40">
+                <WavyConnector className="text-primary w-full h-full" flipX />
+            </div>
+            <div className="absolute -right-64 top-32 w-[240px] h-[120px] hidden xl:block pointer-events-none opacity-40">
+                <WavyConnector className="text-primary w-full h-full" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-[auto_auto_auto] lg:grid-rows-[300px_300px] gap-6">
 
                 {/* 1. Main Headline (Top Left - Spans 2 cols) */}
                 <BentoItem className="bg-white p-8 lg:p-12 flex flex-col justify-center border border-stone-100 col-span-1 md:col-span-2 row-span-1 lg:row-span-2">
                     <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-                        Bygg ditt <br />
-                        <span className="text-primary">drömteam</span> idag.
+                        Vi är experterna som <br />
+                        <span className="text-primary">alltid finns här</span> för dig.
                     </h2>
                     <p className="text-stone-500 text-lg mb-8 max-w-sm">
-                        Lås upp potentialen med vårt handplockade team av experter. Vi matchar rätt person med rätt uppdrag.
+                        Vi städar med hjärta och omtanke. För oss är det viktigt att du känner dig trygg och att ditt hem behandlas med största respekt.
                     </p>
                     <div className="flex items-center gap-4">
                         <Button className="rounded-full px-8 h-12 shadow-md">
@@ -61,10 +69,10 @@ export function BentoGrid() {
                     <div className="absolute bottom-6 left-6 right-6">
                         <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl border border-white/50 shadow-sm flex items-center justify-between">
                             <div>
-                                <p className="text-sm font-bold text-stone-900">Erik Svensson</p>
+                                <p className="text-sm font-bold text-stone-900">Tanja Milic</p>
                                 <p className="text-[10px] uppercase tracking-wider text-stone-500 font-medium">Expertstädare</p>
                             </div>
-                            <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center text-white text-xs">ES</div>
+                            <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center text-white text-xs">TM</div>
                         </div>
                     </div>
                 </BentoItem>
@@ -96,8 +104,8 @@ export function BentoGrid() {
                 </BentoItem>
 
                 {/* 5. Secondary Value Card (Full Width Bottom on Mobile, or specific spot) */}
-                <BentoItem className="bg-[#FFEAD0] p-8 lg:p-10 col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-4 lg:row-start-2 flex flex-col justify-end" delay={0.4}>
-                    <div className="w-12 h-12 rounded-full bg-orange-400/20 flex items-center justify-center text-orange-700 mb-auto">
+                <BentoItem className="bg-primary/10 p-8 lg:p-10 col-span-1 md:col-span-2 lg:col-span-1 lg:col-start-4 lg:row-start-2 flex flex-col justify-end border border-primary/10" delay={0.4}>
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-auto">
                         <Star className="w-6 h-6" />
                     </div>
                     <div className="relative z-10">
@@ -107,7 +115,7 @@ export function BentoGrid() {
                         </p>
                     </div>
                     {/* Decorative Circles */}
-                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-orange-200/50 rounded-full blur-2xl" />
+                    <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-2xl" />
                 </BentoItem>
 
             </div>
