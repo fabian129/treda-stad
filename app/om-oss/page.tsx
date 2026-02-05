@@ -28,11 +28,10 @@ export default function OmOssPage() {
                             transition={{ duration: 0.6 }}
                             className="max-w-xl"
                         >
-                            {/* Main Headline - Elegant & Big */}
-                            <h1 className="text-5xl md:text-6xl/tight font-medium text-stone-900 mb-8 tracking-tight">
-                                Vi städar inte bara.
-                                <br />
-                                <span className="text-stone-900">Vi skapar trivsel.</span>
+                            {/* Main Headline - Bold on two rows */}
+                            <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-10">
+                                <span className="block text-stone-900">Vi städar inte bara.</span>
+                                <span className="block text-primary">Vi skapar trivsel.</span>
                             </h1>
 
                             {/* Description - Clean sans serif */}

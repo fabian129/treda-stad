@@ -30,3 +30,4 @@ Clean experimental hero with moving client badges
 https://www.aura.build/component/1E05A
 ![alt text](image-7.png)
 Clean futuristic hero, white
+
