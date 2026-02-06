@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { services } from "@/lib/data";
 import { notFound } from "next/navigation";
@@ -244,7 +245,7 @@ export default function ServicePage({ params }: PageProps) {
                             {/* Image Card 1: Clean Image */}
                             <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
-                                    src="/images/woman-digital-disconnecting-home-by-reading-book.webp"
+                                    src="/images/flat-lay-cleaning-composition-with-copyspace.jpg"
                                     alt="Mer tid för livet"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -264,7 +265,7 @@ export default function ServicePage({ params }: PageProps) {
                             </div>
 
                             {/* Card 3: CTA Section (Minimal Style) */}
-                            <div className="relative h-[220px] rounded-2xl bg-primary overflow-hidden flex flex-col justify-center items-center text-center p-5 group cursor-pointer transition-colors hover:bg-primary/90">
+                            <Link href="/kontakt" className="relative h-[220px] rounded-2xl bg-primary overflow-hidden flex flex-col justify-center items-center text-center p-5 group cursor-pointer transition-colors hover:bg-primary/90">
 
                                 <div className="flex flex-col items-center gap-4">
                                     <h3 className="text-xl font-bold text-white tracking-wide whitespace-nowrap">
@@ -275,7 +276,7 @@ export default function ServicePage({ params }: PageProps) {
                                         <ArrowRight className="w-6 h-6 text-white transition-transform duration-300 group-hover:translate-x-2" />
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
 
                         </div>
                     </div>
