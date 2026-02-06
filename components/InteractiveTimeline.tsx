@@ -23,7 +23,7 @@ const timelineData: TimelineItem[] = [
         title: "Offert",
         description: "Börja med att få en kostnadsfri offert anpassad efter dina behov. Vi svarar snabbt med ett tydligt prisförslag.",
         icon: <FileText className="w-6 h-6" />,
-        image: "/images/woman-digital-disconnecting-home-by-reading-book.webp" // Placeholder
+        image: "/images/professional-cleaning-service-person-cleaning-office-window.jpg"
     },
     {
         id: "behovsanalys",
