@@ -4,15 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { services } from "@/lib/data";
-import { notFound } from "next/navigation";
+import { notFound, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { InteractiveTimeline } from "@/components/InteractiveTimeline";
-import { use, useRef } from "react";
+import { Suspense, use, useRef } from "react";
 import { GridPattern } from "@/components/zaitex/grid-pattern";
 import { AmbientGlow } from "@/components/zaitex/ambient-glow";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
+import { formatCity, replaceCity } from "@/lib/utils";
 
 interface PageProps {
     params: Promise<{
@@ -20,7 +21,7 @@ interface PageProps {
     }>;
 }
 
-export default function ServicePage({ params }: PageProps) {
+function ServicePageContent({ params }: PageProps) {
     const sectionRef = useRef<HTMLElement>(null);
     const lineRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -30,7 +31,10 @@ export default function ServicePage({ params }: PageProps) {
 
     const scaleY = scrollYProgress;
 
-    // Unwrap params using React.use() because it's a client component handling a promise prop from Next.js 15
+    const searchParams = useSearchParams();
+    const city = searchParams.get("stad") || undefined;
+
+    // Unwrap params using React.use()
     const resolvedParams = use(params);
 
     // Find the service based on slug
@@ -39,6 +43,10 @@ export default function ServicePage({ params }: PageProps) {
     if (!service) {
         notFound();
     }
+
+    // Dynamic replacement
+    const displayTitle = replaceCity(service.title, city);
+    const displayDescription = replaceCity(service.description, city);
 
     return (
         <div className="min-h-screen bg-stone-50 font-sans">
@@ -52,7 +60,7 @@ export default function ServicePage({ params }: PageProps) {
                     <div className="absolute inset-0 z-0">
                         <Image
                             src={service.image}
-                            alt={service.title}
+                            alt={displayTitle}
                             fill
                             priority
                             className="object-cover"
@@ -72,22 +80,22 @@ export default function ServicePage({ params }: PageProps) {
                                         <Sparkles className="w-3 h-3 text-primary" /> Tjänst
                                     </div>
                                     <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-                                        {service.title}
+                                        {displayTitle}
                                     </h1>
                                     <p className="text-stone-300 text-lg lg:text-xl leading-relaxed max-w-lg mb-8">
-                                        {service.description}
+                                        {displayDescription}
                                     </p>
                                 </div>
+                                {/* ... [buttons] ... */}
 
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                     <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
-                                        {(service as any).buttonText || `Boka ${service.title}`}
+                                        {replaceCity((service as any).buttonText || `Boka ${service.title.split(' – ')[0]}`, city)}
                                     </Button>
                                     <Button variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm">
                                         Kontakta Oss
                                     </Button>
                                 </div>
-
                                 <div className="flex flex-wrap gap-3 pt-2">
                                     {[
                                         "Alltid samma personal",
@@ -100,6 +108,9 @@ export default function ServicePage({ params }: PageProps) {
                                         </div>
                                     ))}
                                 </div>
+
+                                {/* [Right glass card logic is fine as is, service.price etc doesn't change] */}
+
                             </div>
 
                             {/* Right: Glass Card */}
@@ -127,7 +138,6 @@ export default function ServicePage({ params }: PageProps) {
                                                 ))}
                                             </ul>
                                         </div>
-
                                         {(service as any).rutText && (
                                             <div className="py-4 px-4 rounded-xl bg-white/5 border border-white/10">
                                                 <p className="text-stone-300 text-xs leading-relaxed">
@@ -169,10 +179,8 @@ export default function ServicePage({ params }: PageProps) {
                     />
 
                     <div className="container mx-auto max-w-[1400px] w-full relative z-10">
-
                         {/* Header Split */}
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24 items-start">
-
                             {/* Left: Label & Trust */}
                             <div className="shrink-0 space-y-8">
                                 <div className="flex items-center gap-4">
@@ -207,8 +215,10 @@ export default function ServicePage({ params }: PageProps) {
                                     Varför Treda
                                 </motion.div>
                                 <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-12">
-                                    Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()} i Malmö?
+                                    Varför välja just T<span className="text-primary">reda</span><br />för {replaceCity((service as any).shortTitle || "städning", city)}{city ? ` i ${formatCity(city)}` : ""}?
                                 </h2>
+
+
 
                                 <motion.div
                                     ref={lineRef}
@@ -227,12 +237,12 @@ export default function ServicePage({ params }: PageProps) {
                                         className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary origin-top will-change-transform transform-gpu"
                                     />
                                     <p className="text-xl text-secondary leading-relaxed max-w-2xl">
-                                        Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {service.title.toLowerCase()} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
+                                        Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {replaceCity(service.title.toLowerCase(), city)} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
                                     </p>
 
                                     {(service as any).longDescription && (
                                         <p className="text-xl text-secondary leading-relaxed max-w-2xl">
-                                            {(service as any).longDescription}
+                                            {replaceCity((service as any).longDescription, city)}
                                         </p>
                                     )}
                                 </motion.div>
@@ -293,5 +303,13 @@ export default function ServicePage({ params }: PageProps) {
                 </section>
             </main>
         </div>
+    );
+}
+
+export default function ServicePage({ params }: PageProps) {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-stone-50" />}>
+            <ServicePageContent params={params} />
+        </Suspense>
     );
 }

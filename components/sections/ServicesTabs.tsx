@@ -5,11 +5,15 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, formatCity, replaceCity } from "@/lib/utils";
 import { services } from "@/lib/data";
 import Link from 'next/link';
 
-export function ServicesTabs() {
+interface ServicesTabsProps {
+    city?: string;
+}
+
+export function ServicesTabs({ city }: ServicesTabsProps) {
     const [activeTab, setActiveTab] = useState(services[0].id);
 
     const activeService = services.find((s) => s.id === activeTab) || services[0];
@@ -27,7 +31,7 @@ export function ServicesTabs() {
                                     Våra Tjänster
                                 </h2>
                                 <p className="text-secondary text-lg md:text-xl max-w-md leading-relaxed mb-8">
-                                    Vi erbjuder ett komplett utbud av städtjänster för både privatpersoner och företag. Alltid med vår nöjd-kund-garanti.
+                                    Vi erbjuder ett komplett utbud av städtjänster för både privatpersoner och företag{city ? ` i ${formatCity(city)}` : ""}. Alltid med vår nöjd-kund-garanti.
                                 </p>
                             </div>
 
@@ -44,13 +48,7 @@ export function ServicesTabs() {
                                                 : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
                                         )}
                                     >
-                                        {service.id === 'hemstadning' ? "Hemstäd i Malmö" :
-                                            service.id === 'storstadning' ? "Storstäd i Malmö" :
-                                                service.id === 'flyttstadning' ? "Flyttstäd i Malmö" :
-                                                    service.id === 'byggstadning' ? "Byggstäd i Malmö" :
-                                                        service.id === 'kontorsstad' ? "Kontorsstäd i Malmö" :
-                                                            service.id === 'fonsterputs' ? "Fönsterputs i Malmö" :
-                                                                service.title}
+                                        {replaceCity(service.title, city).split(' – ')[0]}
                                     </button>
                                 ))}
                             </div>
@@ -77,7 +75,7 @@ export function ServicesTabs() {
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-20" />
                                         <Image
                                             src={activeService.image}
-                                            alt={activeService.title}
+                                            alt={replaceCity(activeService.title, city)}
                                             fill
                                             sizes="(max-width: 1024px) 100vw, 50vw"
                                             className="object-cover transform scale-105"
@@ -93,9 +91,9 @@ export function ServicesTabs() {
 
                                     <div className="p-12 flex flex-col flex-grow">
                                         <div className="mb-8">
-                                            <h3 className="text-4xl font-bold text-foreground mb-4">{activeService.title}</h3>
+                                            <h3 className="text-4xl font-bold text-foreground mb-4">{replaceCity(activeService.title, city)}</h3>
                                             <p className="text-secondary text-xl leading-relaxed max-w-2xl">
-                                                {activeService.description}
+                                                {replaceCity(activeService.description, city)}
                                             </p>
                                         </div>
 
@@ -108,7 +106,7 @@ export function ServicesTabs() {
                                         </div>
 
                                         <div className="mt-auto pt-8 border-t border-border/10 flex items-center justify-between">
-                                            <span className="font-bold text-primary text-base uppercase tracking-wider">Läs Mer Om {activeService.title}</span>
+                                            <span className="font-bold text-primary text-base uppercase tracking-wider">Läs Mer Om {replaceCity(activeService.title, city)}</span>
                                             <Link href={`/tjanster/${activeService.id}`} className="w-14 h-14 rounded-full bg-stone-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors border border-border/50">
                                                 <ArrowRight className="w-7 h-7" />
                                             </Link>
@@ -126,7 +124,7 @@ export function ServicesTabs() {
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-0 group-hover:opacity-20 transition-opacity" />
                                         <Image
                                             src={service.image}
-                                            alt={service.title}
+                                            alt={replaceCity(service.title, city)}
                                             fill
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                             className="object-cover"
@@ -139,8 +137,8 @@ export function ServicesTabs() {
                                         </div>
                                     </div>
                                     <div className="p-8">
-                                        <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                                        <p className="text-secondary mb-6 text-sm">{service.description}</p>
+                                        <h3 className="text-2xl font-bold mb-2">{replaceCity(service.title, city)}</h3>
+                                        <p className="text-secondary mb-6 text-sm">{replaceCity(service.description, city)}</p>
 
                                         <div className="space-y-2 mb-6">
                                             {service.perks.slice(0, 3).map((perk, i) => (
