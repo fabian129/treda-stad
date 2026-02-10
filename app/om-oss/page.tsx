@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { WavyConnector } from "@/components/ui/WavyConnector";
@@ -44,12 +45,16 @@ export default function OmOssPage() {
 
                             {/* Buttons */}
                             <div className="flex items-center gap-4 mb-8">
-                                <Button size="lg" className="rounded-full px-8 h-12 shadow-lg hover:shadow-primary/25 transition-all">
-                                    Få prisförslag
-                                </Button>
-                                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-stone-200 hover:bg-stone-50 text-stone-600">
-                                    Läs mer
-                                </Button>
+                                <Link href="/kontakt">
+                                    <Button size="lg" className="rounded-full px-8 h-12 shadow-lg hover:shadow-primary/25 transition-all">
+                                        Få prisförslag
+                                    </Button>
+                                </Link>
+                                <Link href="#las-mer">
+                                    <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-stone-200 hover:bg-stone-50 text-stone-600">
+                                        Läs mer
+                                    </Button>
+                                </Link>
                             </div>
 
                             {/* Wavy Line - Connecting from text */}
@@ -104,8 +109,10 @@ export default function OmOssPage() {
                 </div>
             </section>
 
-            {/* Bento Grid Section */}
-            <BentoGrid />
+            {/* BentoGrid Section */}
+            <div id="las-mer">
+                <BentoGrid />
+            </div>
 
             {/* Features Section */}
             <FeatureThreeCol />
