@@ -157,10 +157,10 @@ export default function Home() {
                 <h4 className="text-2xl font-bold mb-2 text-white">Boka Prova-På Städning</h4>
                 <p className="text-white/75">Ingen bindningstid. 20% rabatt första gången.</p>
               </div>
-              <button className="h-14 px-8 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-lg font-bold tracking-wide text-white">
+              <Link href="/kontakt" className="h-14 px-8 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-lg font-bold tracking-wide text-white">
                 <span>Boka Nu</span>
                 <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
