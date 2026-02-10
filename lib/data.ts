@@ -80,7 +80,7 @@ export const services = [
         price: "Offert",
         description: "Ett rent kontor skapar trivsel och ett professionellt intryck. Vi erbjuder kontorsstäd i Malmö, anpassat efter era tider och behov.",
         longDescription: "När kontoret är rent blir arbetsdagen enklare. Vi på Treda Städ hjälper företag i Malmö med regelbunden kontorsstädning – från mindre kontor till större arbetsplatser. Ni får ett tydligt upplägg, återkommande kvalitet och enkel kontakt om ni vill ändra något. Vi kan städa före öppning, efter stängning eller på tider som passar er verksamhet. Målet är att det ska märkas att det är städat – utan att städningen \"märks\" i vardagen.",
-        image: "/images/full-shot-people-cleaning-office (1).jpg",
+        image: "/images/full-shot-people-cleaning-office_1.jpg",
         perks: [
             "Anpassat schema (morgon/kväll)",
             "Fria ytor, kök & WC",
