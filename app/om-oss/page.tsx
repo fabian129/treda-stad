@@ -43,18 +43,17 @@ export default function OmOssPage() {
                                 Vi använder modern teknik men gammaldags <span className="text-primary">omsorg</span> i utförandet.
                             </p>
 
-                            {/* Buttons */}
                             <div className="flex items-center gap-4 mb-8">
-                                <Link href="/kontakt">
-                                    <Button size="lg" className="rounded-full px-8 h-12 shadow-lg hover:shadow-primary/25 transition-all">
+                                <Button size="lg" className="rounded-full px-8 h-12 shadow-lg hover:shadow-primary/25 transition-all" asChild>
+                                    <Link href="/kontakt">
                                         Få prisförslag
-                                    </Button>
-                                </Link>
-                                <Link href="#las-mer">
-                                    <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-stone-200 hover:bg-stone-50 text-stone-600">
+                                    </Link>
+                                </Button>
+                                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-stone-200 hover:bg-stone-50 text-stone-600" asChild>
+                                    <Link href="#las-mer">
                                         Läs mer
-                                    </Button>
-                                </Link>
+                                    </Link>
+                                </Button>
                             </div>
 
                             {/* Wavy Line - Connecting from text */}

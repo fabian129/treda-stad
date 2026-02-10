@@ -67,16 +67,16 @@ export default function ForetagPage() {
                         transition={{ delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24"
                     >
-                        <Link href="/kontakt">
-                            <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-lg shadow-primary/25 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20">
+                        <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-lg shadow-primary/25 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20" asChild>
+                            <Link href="/kontakt">
                                 Få Företagsoffert
-                            </Button>
-                        </Link>
-                        <Link href="/om-oss">
-                            <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-lg border-stone-200 bg-white/80 backdrop-blur-sm hover:bg-white hover:border-stone-300 text-stone-600 shadow-sm">
+                            </Link>
+                        </Button>
+                        <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-lg border-stone-200 bg-white/80 backdrop-blur-sm hover:bg-white hover:border-stone-300 text-stone-600 shadow-sm" asChild>
+                            <Link href="/om-oss">
                                 Läs mer om oss
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </motion.div>
                 </div>
 
@@ -132,11 +132,11 @@ export default function ForetagPage() {
                         Kontakta us for ett kostnadsfritt besök där vi går igenom era lokaler och behov.
                     </p>
                     <div className="flex justify-center">
-                        <Link href="/kontakt">
-                            <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-xl shadow-primary/30 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20">
+                        <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-xl shadow-primary/30 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20" asChild>
+                            <Link href="/kontakt">
                                 Boka Kostnadsfritt Besök
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </section>
