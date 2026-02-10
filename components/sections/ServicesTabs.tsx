@@ -46,8 +46,67 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                         kontorsstad: "Kontorsstäd",
                                         fonsterputs: "Fönsterputs"
                                     };
+
+                                    const formatCity = (citySlug: string) => {
+                                        const cityMap: Record<string, string> = {
+                                            "malmo": "Malmö",
+                                            "malmö": "Malmö",
+                                            "goteborg": "Göteborg",
+                                            "göteborg": "Göteborg",
+                                            "kopenhamn": "Köpenhamn",
+                                            "köpenhamn": "Köpenhamn",
+                                            "lulea": "Luleå",
+                                            "luleå": "Luleå",
+                                            "umea": "Umeå",
+                                            "umeå": "Umeå",
+                                            "vasteras": "Västerås",
+                                            "västerås": "Västerås",
+                                            "orebro": "Örebro",
+                                            "örebro": "Örebro",
+                                            "norrkoping": "Norrköping",
+                                            "norrköping": "Norrköping",
+                                            "linkoping": "Linköping",
+                                            "linköping": "Linköping",
+                                            "jonkoping": "Jönköping",
+                                            "jönköping": "Jönköping",
+                                            "boras": "Borås",
+                                            "borås": "Borås",
+                                            "vaxjo": "Växjö",
+                                            "växjö": "Växjö",
+                                            "kristianstad": "Kristianstad",
+                                            "helsingborg": "Helsingborg",
+                                            "lund": "Lund",
+                                            "trelleborg": "Trelleborg",
+                                            "landskrona": "Landskrona",
+                                            "eslov": "Eslöv",
+                                            "eslöv": "Eslöv",
+                                            "hollviken": "Höllviken",
+                                            "höllviken": "Höllviken",
+                                            "lomma": "Lomma",
+                                            "svedala": "Svedala",
+                                            "staffanstorp": "Staffanstorp",
+                                            "kavlinge": "Kävlinge",
+                                            "kävlinge": "Kävlinge",
+                                            "bjarred": "Bjärred",
+                                            "bjärred": "Bjärred",
+                                            "skanor": "Skanör",
+                                            "skanör": "Skanör",
+                                            "falsterbo": "Falsterbo",
+                                            "oxie": "Oxie",
+                                            "bara": "Bara",
+                                            "klagerup": "Klågerup",
+                                            "klågerup": "Klågerup",
+                                            "dalby": "Dalby",
+                                            "sodra sandby": "Södra Sandby",
+                                            "södra sandby": "Södra Sandby",
+                                            "loddekopinge": "Löddeköpinge",
+                                            "löddeköpinge": "Löddeköpinge"
+                                        };
+                                        return cityMap[citySlug.toLowerCase()] || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
+                                    };
+
                                     const baseTitle = baseTitles[service.id] || service.title;
-                                    const displayTitle = city ? `${baseTitle} i ${city}` : baseTitle;
+                                    const displayTitle = city ? `${baseTitle} i ${formatCity(city)}` : baseTitle;
 
                                     return (
                                         <button

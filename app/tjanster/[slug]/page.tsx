@@ -80,11 +80,18 @@ export default function ServicePage({ params }: PageProps) {
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
-                                        {(service as any).buttonText || `Boka ${service.title}`}
+                                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20" asChild>
+                                        <Link href="/kontakt">
+                                            Få offert
+                                        </Link>
                                     </Button>
-                                    <Button variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm">
-                                        Kontakta Oss
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="h-14 px-8 text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+                                        onClick={() => sectionRef.current?.scrollIntoView({ behavior: "smooth" })}
+                                    >
+                                        Läs mer
                                     </Button>
                                 </div>
 
