@@ -98,7 +98,7 @@ export const services = [
         description: "Nyputsade fönster gör mer än man tror. Vi putsar noggrant för ett klart resultat utan ränder – hemma eller på jobbet.",
         longDescription: "Smuts och beläggningar tar bort ljuset och gör hela rummet \"mörkare\". Med fönsterputs från Treda Städ får du en fräsch känsla direkt – perfekt inför visning, säsongsskifte eller när du bara vill se skillnaden.",
         rutText: "Fönsterputs omfattas av RUT: upp till 50% skattereduktion på arbetskostnaden, vi sköter ansökan.",
-        image: "/images/man-cleans-windows-balcony-using-detergents-tools-against-sky-trees.jpg",
+        image: "/images/man-doing-professional-home-cleaning-service (1).jpg",
         perks: [
             "Enstaka puts eller abonnemang",
             "Resultat utan ränder",
