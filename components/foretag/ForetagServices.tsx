@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Sparkles, Wind, Briefcase, Zap, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export function ForetagServices() {
     const services = [
@@ -75,10 +76,12 @@ export function ForetagServices() {
                             </p>
 
                             <div className="flex justify-end">
-                                <button className="h-12 px-6 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-sm font-bold tracking-wide">
-                                    <span>Få Offert</span>
-                                    <ArrowUpRight className="w-4 h-4" />
-                                </button>
+                                <Link href="/kontakt">
+                                    <button className="h-12 px-6 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-sm font-bold tracking-wide">
+                                        <span>Få Offert</span>
+                                        <ArrowUpRight className="w-4 h-4" />
+                                    </button>
+                                </Link>
                             </div>
 
                             {/* Hover Glow Effect */}
