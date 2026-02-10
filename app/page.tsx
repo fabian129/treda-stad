@@ -178,7 +178,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 md:order-1">
               <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-stone-900/10 max-w-md mx-auto relative z-10 border border-stone-100">
-                <img src="/images/cleaner.webp" alt="Anna, Treda Städ" className="w-full h-full object-cover" />
+                <img src="/images/closeup-waitress-disinfecting-tables-outdoor-cafe.jpg" alt="Treda Städ professional cleaning" className="w-full h-full object-cover" />
               </div>
               {/* Decorative elements - Bright Mode */}
               <div className="absolute top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-0" />

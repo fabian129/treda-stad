@@ -88,11 +88,7 @@ export function ServicesTabs({ city = "Malmö" }: ServicesTabsProps) {
                                             priority // Preload active tab image
                                             unoptimized
                                         />
-                                        <div className="absolute top-6 right-6 z-20">
-                                            <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-5 py-2 text-sm font-bold text-primary shadow-sm">
-                                                {activeService.price}
-                                            </span>
-                                        </div>
+
                                     </div>
 
                                     <div className="p-12 flex flex-col flex-grow">
@@ -136,11 +132,7 @@ export function ServicesTabs({ city = "Malmö" }: ServicesTabsProps) {
                                             className="object-cover"
                                             unoptimized
                                         />
-                                        <div className="absolute top-4 right-4 z-20">
-                                            <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary shadow-sm">
-                                                {service.price}
-                                            </span>
-                                        </div>
+
                                     </div>
                                     <div className="p-8">
                                         <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
