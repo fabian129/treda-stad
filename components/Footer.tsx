@@ -62,17 +62,17 @@ export function Footer() {
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
                                 <span>
-                                    Storgatan 12<br />
-                                    123 45 Malmö
+                                    Höjdrodergatan 3<br />
+                                    212 39 Malmö
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                                <a href="tel:081234567" className="hover:text-white transition-colors">08-123 45 67</a>
+                                <a href="tel:04081787" className="hover:text-white transition-colors">040-817 87</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                                <a href="mailto:info@tredastad.se" className="hover:text-white transition-colors">info@tredastad.se</a>
+                                <a href="mailto:info@treda.se" className="hover:text-white transition-colors">info@treda.se</a>
                             </li>
                         </ul>
                     </div>

@@ -13,7 +13,7 @@ interface ServicesTabsProps {
     city?: string;
 }
 
-export function ServicesTabs({ city = "Malmö" }: ServicesTabsProps) {
+export function ServicesTabs({ city }: ServicesTabsProps) {
     const [activeTab, setActiveTab] = useState(services[0].id);
 
     const activeService = services.find((s) => s.id === activeTab) || services[0];
@@ -37,26 +37,33 @@ export function ServicesTabs({ city = "Malmö" }: ServicesTabsProps) {
 
                             {/* Navigation Menu (Desktop: Tabs) */}
                             <div className="space-y-2 hidden lg:block mb-12">
-                                {services.map((service) => (
-                                    <button
-                                        key={service.id}
-                                        onClick={() => setActiveTab(service.id)}
-                                        className={cn(
-                                            "w-full text-left py-4 px-6 border-l-2 text-lg font-medium transition-all duration-300 rounded-r-xl flex items-center gap-4 group cursor-pointer",
-                                            activeTab === service.id
-                                                ? "border-transparent bg-primary text-white shadow-lg shadow-primary/25 font-bold"
-                                                : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
-                                        )}
-                                    >
-                                        {service.id === 'hemstadning' ? `Hemstäd i ${city}` :
-                                            service.id === 'storstadning' ? `Storstäd i ${city}` :
-                                                service.id === 'flyttstadning' ? `Flyttstäd i ${city}` :
-                                                    service.id === 'byggstadning' ? `Byggstäd i ${city}` :
-                                                        service.id === 'kontorsstad' ? `Kontorsstäd i ${city}` :
-                                                            service.id === 'fonsterputs' ? `Fönsterputs i ${city}` :
-                                                                service.title}
-                                    </button>
-                                ))}
+                                {services.map((service) => {
+                                    const baseTitles: Record<string, string> = {
+                                        hemstadning: "Hemstäd",
+                                        storstadning: "Storstäd",
+                                        flyttstadning: "Flyttstäd",
+                                        byggstadning: "Byggstäd",
+                                        kontorsstad: "Kontorsstäd",
+                                        fonsterputs: "Fönsterputs"
+                                    };
+                                    const baseTitle = baseTitles[service.id] || service.title;
+                                    const displayTitle = city ? `${baseTitle} i ${city}` : baseTitle;
+
+                                    return (
+                                        <button
+                                            key={service.id}
+                                            onClick={() => setActiveTab(service.id)}
+                                            className={cn(
+                                                "w-full text-left py-4 px-6 border-l-2 text-lg font-medium transition-all duration-300 rounded-r-xl flex items-center gap-4 group cursor-pointer",
+                                                activeTab === service.id
+                                                    ? "border-transparent bg-primary text-white shadow-lg shadow-primary/25 font-bold"
+                                                    : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
+                                            )}
+                                        >
+                                            {displayTitle}
+                                        </button>
+                                    );
+                                })}
                             </div>
 
 
