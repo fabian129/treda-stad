@@ -46,7 +46,7 @@ export const services = [
         description: "Flyttstädning ställer högre krav än vanlig städning. Vi jobbar metodiskt med checklistor och detaljer – så du blir godkänd.",
         longDescription: "När du flyttar är det mycket att hålla koll på. Låt Treda Städ ta hand om flyttstädningen i Malmö så att du kan fokusera på flytt, nycklar och allt runt omkring. Vi städar noggrant från golv till tak – inklusive de moment som ofta missas, som lister, ventiler, skåp och bakom/under där det är möjligt.",
         rutText: "Flyttstäd omfattas normalt av RUT (50% på arbetskostnaden) och vi hanterar avdraget åt dig.",
-        image: "/images/marble-bg.webp",
+        image: "/images/woman-cleaning-house (1).jpg",
         perks: [
             "Tydlig omfattning (fast pris & checklista)",
             "Noggrann detaljstädning (högsta standard)",
@@ -63,7 +63,7 @@ export const services = [
         price: "Offert",
         description: "Efter renovering och byggprojekt samlas fint damm och byggrester överallt. Vi gör rent ordentligt så att ytorna blir redo att användas.",
         longDescription: "Byggdamm sätter sig i lister, på väggar, inredning och i hörn – och det krävs rätt metod för att få det riktigt rent. Treda Städ utför byggstäd i Malmö för privatpersoner, byggfirmor och fastighetsägare. Vi kan hjälpa både under projektets gång och som slutstäd inför överlämning.",
-        image: "/images/cleaner.webp",
+        image: "/images/construction-worker-cleaning-dust-with-vacuum-cleaner (1).jpg",
         perks: [
             "Dammtorkning av alla ytor",
             "Rengöring av kök & badrum",
@@ -80,7 +80,7 @@ export const services = [
         price: "Offert",
         description: "Ett rent kontor skapar trivsel och ett professionellt intryck. Vi erbjuder kontorsstäd i Malmö, anpassat efter era tider och behov.",
         longDescription: "När kontoret är rent blir arbetsdagen enklare. Vi på Treda Städ hjälper företag i Malmö med regelbunden kontorsstädning – från mindre kontor till större arbetsplatser. Ni får ett tydligt upplägg, återkommande kvalitet och enkel kontakt om ni vill ändra något. Vi kan städa före öppning, efter stängning eller på tider som passar er verksamhet. Målet är att det ska märkas att det är städat – utan att städningen \"märks\" i vardagen.",
-        image: "/images/woman-digital-disconnecting-home-by-reading-book.webp",
+        image: "/images/woman-cleaning-desk-with-mop-background (1).jpg",
         perks: [
             "Anpassat schema (morgon/kväll)",
             "Fria ytor, kök & WC",
@@ -98,7 +98,7 @@ export const services = [
         description: "Nyputsade fönster gör mer än man tror. Vi putsar noggrant för ett klart resultat utan ränder – hemma eller på jobbet.",
         longDescription: "Smuts och beläggningar tar bort ljuset och gör hela rummet \"mörkare\". Med fönsterputs från Treda Städ får du en fräsch känsla direkt – perfekt inför visning, säsongsskifte eller när du bara vill se skillnaden.",
         rutText: "Fönsterputs omfattas av RUT: upp till 50% skattereduktion på arbetskostnaden, vi sköter ansökan.",
-        image: "/images/close-up-hand-with-rubber-glove-disinfecting.webp",
+        image: "/images/man-doing-professional-home-cleaning-service.jpg",
         perks: [
             "Enstaka puts eller abonnemang",
             "Resultat utan ränder",
