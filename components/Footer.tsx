@@ -41,7 +41,7 @@ export function Footer() {
                                 <Link href="/" className="hover:text-primary transition-colors">Hem</Link>
                             </li>
                             <li>
-                                <Link href="/tjanster" className="hover:text-primary transition-colors">Våra Tjänster</Link>
+                                <Link href="/#services" className="hover:text-primary transition-colors">Våra Tjänster</Link>
                             </li>
                             <li>
                                 <Link href="/foretag" className="hover:text-primary transition-colors">Företag</Link>
