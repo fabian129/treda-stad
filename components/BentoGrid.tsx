@@ -61,7 +61,7 @@ export function BentoGrid() {
                 {/* 2. Team Member Large (Top Middle - Spans 1 col, 2 rows) */}
                 <BentoItem className="bg-stone-100 col-span-1 row-span-1 lg:row-span-2 relative group" delay={0.1}>
                     <Image
-                        src="/images/cleaner.webp"
+                        src="/images/closeup-waitress-disinfecting-tables-outdoor-cafe.jpg"
                         alt="Team Member"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
