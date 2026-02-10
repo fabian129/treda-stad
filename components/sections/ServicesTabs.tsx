@@ -9,7 +9,11 @@ import { cn } from "@/lib/utils";
 import { services } from "@/lib/data";
 import Link from 'next/link';
 
-export function ServicesTabs() {
+interface ServicesTabsProps {
+    city?: string;
+}
+
+export function ServicesTabs({ city = "Malmö" }: ServicesTabsProps) {
     const [activeTab, setActiveTab] = useState(services[0].id);
 
     const activeService = services.find((s) => s.id === activeTab) || services[0];
@@ -44,12 +48,12 @@ export function ServicesTabs() {
                                                 : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
                                         )}
                                     >
-                                        {service.id === 'hemstadning' ? "Hemstäd i Malmö" :
-                                            service.id === 'storstadning' ? "Storstäd i Malmö" :
-                                                service.id === 'flyttstadning' ? "Flyttstäd i Malmö" :
-                                                    service.id === 'byggstadning' ? "Byggstäd i Malmö" :
-                                                        service.id === 'kontorsstad' ? "Kontorsstäd i Malmö" :
-                                                            service.id === 'fonsterputs' ? "Fönsterputs i Malmö" :
+                                        {service.id === 'hemstadning' ? `Hemstäd i ${city}` :
+                                            service.id === 'storstadning' ? `Storstäd i ${city}` :
+                                                service.id === 'flyttstadning' ? `Flyttstäd i ${city}` :
+                                                    service.id === 'byggstadning' ? `Byggstäd i ${city}` :
+                                                        service.id === 'kontorsstad' ? `Kontorsstäd i ${city}` :
+                                                            service.id === 'fonsterputs' ? `Fönsterputs i ${city}` :
                                                                 service.title}
                                     </button>
                                 ))}
