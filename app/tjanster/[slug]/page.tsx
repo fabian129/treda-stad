@@ -242,7 +242,7 @@ export default function ServicePage({ params }: PageProps) {
                             {/* Image Card 1: Clean Image */}
                             <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
-                                    src="/images/flat-lay-cleaning-composition-with-copyspace.jpg"
+                                    src="/images/closeup-unrecognizable-person-cleaning-door-handle.webp"
                                     alt="Mer tid för livet"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -253,7 +253,7 @@ export default function ServicePage({ params }: PageProps) {
                             {/* Image Card 2: Clean Image */}
                             <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
-                                    src="/images/housemaid-opening-door-room-cleaning.jpg"
+                                    src="/images/housemaid-opening-door-room-cleaning.webp"
                                     alt="Professionell städning"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
