@@ -3,17 +3,17 @@ import { Sparkles, Star, Clock } from "lucide-react";
 export const services = [
     {
         id: "hemstadning",
-        title: "Hemstäd i Malmö – mer tid i vardagen",
+        title: "Hemstäd – mer tid i vardagen",
         shortTitle: "hemstäd",
         buttonText: "Be om offert",
         price: "Från 249 kr/h",
         description: "Med återkommande hemstäd från Treda Städ får du en ren och lugn känsla hemma – utan stress.",
         longDescription: "Vill du komma hem till ett hem som doftar rent och känns i ordning? Treda Städ hjälper dig med hemstäd i Malmö – veckovis, varannan vecka eller exakt när du behöver det. Vi jobbar metodiskt, noggrant och med tydlig kommunikation, så att du alltid vet vad som görs och när.",
-        rutText: "Hemstäd omfattas av RUT – du kan få upp till 50% skattereduktion på arbetskostnaden, och vi sköter administrationen så att du ser rabatten direkt på fakturan.",
+        rutText: "Hemstäd omfattas av RUT – du kan få upp till 50% skattereduktion på arbetskostnaden, och we sköter administrationen så att du ser rabatten direkt på fakturan.",
         image: "/images/joyful-girl-touching-her-father-nose-home.webp",
         perks: [
             "Personligt upplägg (fokus på dina viktigaste ytor)",
-            "Samma rutin – jämn kvalitet över tid",
+            "Samma rutin – jämn kvalitet over tid",
             "Tydlig checklista och enkel bokning",
             "Möjlighet till tillägg (ugn, fönsterputs m.m.)"
         ],
@@ -21,7 +21,7 @@ export const services = [
     },
     {
         id: "storstadning",
-        title: "Storstäd i Malmö – när du vill \"nollställa\" hemmet",
+        title: "Storstäd – när du vill \"nollställa\" hemmet",
         shortTitle: "storstäd",
         buttonText: "Få offert",
         price: "Offert",
@@ -39,14 +39,14 @@ export const services = [
     },
     {
         id: "flyttstadning",
-        title: "Flyttstäd i Malmö – noggrant, tryggt och besiktningsredo",
+        title: "Flyttstäd – noggrant, tryggt och besiktningsredo",
         shortTitle: "flyttstäd",
         buttonText: "Boka flyttstäd",
         price: "Offert inom 1h",
         description: "Flyttstädning ställer högre krav än vanlig städning. Vi jobbar metodiskt med checklistor och detaljer – så du blir godkänd.",
         longDescription: "När du flyttar är det mycket att hålla koll på. Låt Treda Städ ta hand om flyttstädningen i Malmö så att du kan fokusera på flytt, nycklar och allt runt omkring. Vi städar noggrant från golv till tak – inklusive de moment som ofta missas, som lister, ventiler, skåp och bakom/under där det är möjligt.",
         rutText: "Flyttstäd omfattas normalt av RUT (50% på arbetskostnaden) och vi hanterar avdraget åt dig.",
-        image: "/images/marble-bg.webp",
+        image: "/images/crop-woman-with-box-with-things.jpg",
         perks: [
             "Tydlig omfattning (fast pris & checklista)",
             "Noggrann detaljstädning (högsta standard)",
@@ -57,13 +57,13 @@ export const services = [
     },
     {
         id: "byggstadning",
-        title: "Byggstäd i Malmö – klart för inflytt, visning eller överlämning",
+        title: "Byggstäd – klart för inflytt, visning eller överlämning",
         shortTitle: "byggstäd",
         buttonText: "Kontakta oss",
         price: "Offert",
         description: "Efter renovering och byggprojekt samlas fint damm och byggrester överallt. Vi gör rent ordentligt så att ytorna blir redo att användas.",
         longDescription: "Byggdamm sätter sig i lister, på väggar, inredning och i hörn – och det krävs rätt metod för att få det riktigt rent. Treda Städ utför byggstäd i Malmö för privatpersoner, byggfirmor och fastighetsägare. Vi kan hjälpa både under projektets gång och som slutstäd inför överlämning.",
-        image: "/images/cleaner.webp",
+        image: "/images/worker-prepares-subfloor-wooden-floorboard-installation.jpg",
         perks: [
             "Dammtorkning av alla ytor",
             "Rengöring av kök & badrum",
@@ -74,13 +74,13 @@ export const services = [
     },
     {
         id: "kontorsstad",
-        title: "Kontorsstäd i Malmö – fräscha ytor, bättre arbetsdagar",
+        title: "Kontorsstäd – fräscha ytor, bättre arbetsdagar",
         shortTitle: "kontorsstäd",
         buttonText: "Få offert",
         price: "Offert",
         description: "Ett rent kontor skapar trivsel och ett professionellt intryck. Vi erbjuder kontorsstäd i Malmö, anpassat efter era tider och behov.",
         longDescription: "När kontoret är rent blir arbetsdagen enklare. Vi på Treda Städ hjälper företag i Malmö med regelbunden kontorsstädning – från mindre kontor till större arbetsplatser. Ni får ett tydligt upplägg, återkommande kvalitet och enkel kontakt om ni vill ändra något. Vi kan städa före öppning, efter stängning eller på tider som passar er verksamhet. Målet är att det ska märkas att det är städat – utan att städningen \"märks\" i vardagen.",
-        image: "/images/woman-digital-disconnecting-home-by-reading-book.webp",
+        image: "/images/full-shot-people-cleaning-office (1).jpg",
         perks: [
             "Anpassat schema (morgon/kväll)",
             "Fria ytor, kök & WC",
@@ -91,14 +91,14 @@ export const services = [
     },
     {
         id: "fonsterputs",
-        title: "Fönsterputs i Malmö – släpp in ljuset",
+        title: "Fönsterputs – släpp in ljuset",
         shortTitle: "fönsterputs",
         buttonText: "Be om pris",
         price: "Från 499 kr",
         description: "Nyputsade fönster gör mer än man tror. Vi putsar noggrant för ett klart resultat utan ränder – hemma eller på jobbet.",
         longDescription: "Smuts och beläggningar tar bort ljuset och gör hela rummet \"mörkare\". Med fönsterputs från Treda Städ får du en fräsch känsla direkt – perfekt inför visning, säsongsskifte eller när du bara vill se skillnaden.",
         rutText: "Fönsterputs omfattas av RUT: upp till 50% skattereduktion på arbetskostnaden, vi sköter ansökan.",
-        image: "/images/close-up-hand-with-rubber-glove-disinfecting.webp",
+        image: "/images/man-cleans-windows-balcony-using-detergents-tools-against-sky-trees.jpg",
         perks: [
             "Enstaka puts eller abonnemang",
             "Resultat utan ränder",
