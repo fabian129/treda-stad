@@ -174,77 +174,55 @@ export default function ServicePage({ params }: PageProps) {
 
                     <div className="container mx-auto max-w-[1400px] w-full relative z-10">
 
-                        {/* Header Split */}
-                        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24 items-start">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="inline-flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6"
+                        >
+                            <motion.span
+                                initial={{ scaleX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4, duration: 1, ease: "circOut" }}
+                                className="w-12 h-[1px] bg-primary origin-left"
+                            />
+                            Varför Treda
+                        </motion.div>
+                        <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-12">
+                            Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()} i Malmö?
+                        </h2>
 
-                            {/* Left: Label & Trust */}
-                            <div className="shrink-0 space-y-8">
-                                <div className="flex items-center gap-4">
-                                    <div className="flex -space-x-4">
-                                        <div className="w-10 h-10 rounded-full bg-primary/40 border-2 border-stone-50" />
-                                        <div className="w-10 h-10 rounded-full bg-primary/70 border-2 border-stone-50" />
-                                        <div className="w-10 h-10 rounded-full bg-primary border-2 border-stone-50" />
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-foreground leading-none mb-1">4.9/5 Betyg</p>
-                                        <p className="text-xs text-secondary">Baserat på 500+ uppdrag</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <motion.div
+                            ref={lineRef}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            className="space-y-10 pl-8 md:pl-12 relative"
+                        >
+                            {/* Static Background Line */}
+                            <div className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary/20" />
 
-                            {/* Right: Headline & Intro */}
-                            <div className="flex-1">
-                                <motion.div
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8, ease: "easeOut" }}
-                                    className="inline-flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-6"
-                                >
-                                    <motion.span
-                                        initial={{ scaleX: 0 }}
-                                        whileInView={{ scaleX: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.4, duration: 1, ease: "circOut" }}
-                                        className="w-12 h-[1px] bg-primary origin-left"
-                                    />
-                                    Varför Treda
-                                </motion.div>
-                                <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-12">
-                                    Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()} i Malmö?
-                                </h2>
+                            {/* Animated Progress Line */}
+                            <motion.div
+                                style={{ scaleY }}
+                                className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary origin-top will-change-transform transform-gpu"
+                            />
+                            <p className="text-xl text-secondary leading-relaxed max-w-2xl">
+                                Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {service.title.toLowerCase()} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
+                            </p>
 
-                                <motion.div
-                                    ref={lineRef}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2, duration: 0.8 }}
-                                    className="space-y-10 pl-8 md:pl-12 relative"
-                                >
-                                    {/* Static Background Line */}
-                                    <div className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary/20" />
-
-                                    {/* Animated Progress Line */}
-                                    <motion.div
-                                        style={{ scaleY }}
-                                        className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary origin-top will-change-transform transform-gpu"
-                                    />
-                                    <p className="text-xl text-secondary leading-relaxed max-w-2xl">
-                                        Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {service.title.toLowerCase()} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
-                                    </p>
-
-                                    {(service as any).longDescription && (
-                                        <p className="text-xl text-secondary leading-relaxed max-w-2xl">
-                                            {(service as any).longDescription}
-                                        </p>
-                                    )}
-                                </motion.div>
-                            </div>
-                        </div>
+                            {(service as any).longDescription && (
+                                <p className="text-xl text-secondary leading-relaxed max-w-2xl">
+                                    {(service as any).longDescription}
+                                </p>
+                            )}
+                        </motion.div>
 
                         {/* Grid - Image Focused (Compact version) */}
-                        <div className="grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-4">
+                        <div className="grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-4 mt-16">
 
                             {/* Image Card 1: Clean Image */}
                             <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
@@ -284,7 +262,7 @@ export default function ServicePage({ params }: PageProps) {
 
                         </div>
                     </div>
-                </section>
+                </section >
 
                 <section className="py-20 bg-white">
                     <div className="max-w-6xl mx-auto px-4 mb-2">
@@ -295,7 +273,7 @@ export default function ServicePage({ params }: PageProps) {
                     </div>
                     <InteractiveTimeline />
                 </section>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 }

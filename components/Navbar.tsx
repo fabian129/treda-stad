@@ -57,39 +57,13 @@ export function Navbar() {
                         </div>
                     </div>
 
-                    {/* Locations Dropdown */}
-                    <div className="relative group">
-                        <button className={cn(
-                            "flex items-center gap-1 transition-colors hover:text-primary py-4",
-                            isActive("/vart-finns-vi") ? "text-primary font-semibold" : ""
-                        )}>
-                            Vart finns vi
-                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-50 group-hover:opacity-100 transition-opacity">
-                                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button>
 
-                        {/* Dropdown Content */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200 z-50 w-56">
-                            <div className="bg-white rounded-xl shadow-xl border border-border/10 p-2 overflow-hidden">
-                                <Link href="/vart-finns-vi/malmo" className="block px-4 py-3 rounded-lg hover:bg-stone-50 text-stone-900 hover:text-primary transition-colors">
-                                    Malmö
-                                </Link>
-                                <Link href="/vart-finns-vi/lund" className="block px-4 py-3 rounded-lg hover:bg-stone-50 text-stone-900 hover:text-primary transition-colors">
-                                    Lund
-                                </Link>
-                                <Link href="/vart-finns-vi/trelleborg" className="block px-4 py-3 rounded-lg hover:bg-stone-50 text-stone-900 hover:text-primary transition-colors">
-                                    Trelleborg
-                                </Link>
-                                <Link href="/vart-finns-vi/vellinge" className="block px-4 py-3 rounded-lg hover:bg-stone-50 text-stone-900 hover:text-primary transition-colors">
-                                    Vellinge
-                                </Link>
-                                <Link href="/vart-finns-vi/hollviken" className="block px-4 py-3 rounded-lg hover:bg-stone-50 text-stone-900 hover:text-primary transition-colors">
-                                    Höllviken
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+                    <Link
+                        href="/vart-finns-vi"
+                        className={cn("transition-colors hover:text-primary", isActive("/vart-finns-vi") ? "text-primary font-semibold" : "")}
+                    >
+                        Vart finns vi
+                    </Link>
 
 
                     <Link
