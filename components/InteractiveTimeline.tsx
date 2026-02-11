@@ -23,7 +23,7 @@ const timelineData: TimelineItem[] = [
         title: "Offert",
         description: "Börja med att få en kostnadsfri offert anpassad efter dina behov. Vi svarar snabbt med ett tydligt prisförslag.",
         icon: <FileText className="w-6 h-6" />,
-        image: "/images/man-doing-professional-home-cleaning-service.jpg"
+        image: "/images/foretag/satisfied-young-european-woman-rubber-gloves-sings-song-imaginary-microphone-modern-kitchen.jpg"
     },
     {
         id: "behovsanalys",

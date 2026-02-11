@@ -5,11 +5,15 @@ import { Mail, Phone, MapPin, ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
 import { BorderBeam } from "@/components/ui/border-beam";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function KontaktPage() {
     const [formState, setFormState] = useState("idle"); // idle, submitting, success
     const [selectedService, setSelectedService] = useState("Hemstädning");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

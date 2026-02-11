@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, Building2, Briefcase, FileText, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { ForetagBento } from "@/components/foretag/ForetagBento";
 import { ForetagStats } from "@/components/foretag/ForetagStats";
@@ -66,11 +67,15 @@ export default function ForetagPage() {
                         transition={{ delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24"
                     >
-                        <Button size="lg" className="rounded-full px-10 h-14 text-base shadow-xl hover:shadow-primary/25 transition-all w-full sm:w-auto">
-                            Få Företagsoffert
+                        <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-lg shadow-primary/25 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20" asChild>
+                            <Link href="/kontakt">
+                                Få Företagsoffert
+                            </Link>
                         </Button>
-                        <Button variant="outline" size="lg" className="rounded-full px-10 h-14 text-base border-stone-200 hover:bg-stone-50 text-stone-600 w-full sm:w-auto">
-                            Läs mer om oss
+                        <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-lg border-stone-200 bg-white/80 backdrop-blur-sm hover:bg-white hover:border-stone-300 text-stone-600 shadow-sm" asChild>
+                            <Link href="/om-oss">
+                                Läs mer om oss
+                            </Link>
                         </Button>
                     </motion.div>
                 </div>
@@ -124,11 +129,13 @@ export default function ForetagPage() {
                 <div className="mx-auto max-w-[1000px] text-center">
                     <h2 className="text-3xl md:text-5xl font-bold mb-8">Redo för ett bättre kontor?</h2>
                     <p className="text-stone-500 text-xl max-w-2xl mx-auto mb-12">
-                        Kontakta oss för ett kostnadsfritt besök där vi går igenom era lokaler och behov.
+                        Kontakta us for ett kostnadsfritt besök där vi går igenom era lokaler och behov.
                     </p>
                     <div className="flex justify-center">
-                        <Button size="lg" className="h-16 px-10 text-lg bg-primary text-[#02292E] hover:bg-primary/90 rounded-full shadow-xl hover:shadow-primary/25 transition-all">
-                            Boka Kostnadsfritt Besök
+                        <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-xl shadow-primary/30 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20" asChild>
+                            <Link href="/kontakt">
+                                Boka Kostnadsfritt Besök
+                            </Link>
                         </Button>
                     </div>
                 </div>

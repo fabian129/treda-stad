@@ -4,16 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { services } from "@/lib/data";
-import { notFound, useSearchParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { InteractiveTimeline } from "@/components/InteractiveTimeline";
-import { Suspense, use, useRef } from "react";
+import { use, useRef } from "react";
 import { GridPattern } from "@/components/zaitex/grid-pattern";
 import { AmbientGlow } from "@/components/zaitex/ambient-glow";
-import { motion, useScroll } from "framer-motion";
-import { formatCity, replaceCity } from "@/lib/utils";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 interface PageProps {
     params: Promise<{
@@ -21,7 +20,7 @@ interface PageProps {
     }>;
 }
 
-function ServicePageContent({ params }: PageProps) {
+export default function ServicePage({ params }: PageProps) {
     const sectionRef = useRef<HTMLElement>(null);
     const lineRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
@@ -31,10 +30,7 @@ function ServicePageContent({ params }: PageProps) {
 
     const scaleY = scrollYProgress;
 
-    const searchParams = useSearchParams();
-    const city = searchParams.get("stad") || undefined;
-
-    // Unwrap params using React.use()
+    // Unwrap params using React.use() because it's a client component handling a promise prop from Next.js 15
     const resolvedParams = use(params);
 
     // Find the service based on slug
@@ -43,10 +39,6 @@ function ServicePageContent({ params }: PageProps) {
     if (!service) {
         notFound();
     }
-
-    // Dynamic replacement
-    const displayTitle = replaceCity(service.title, city);
-    const displayDescription = replaceCity(service.description, city);
 
     return (
         <div className="min-h-screen bg-stone-50 font-sans">
@@ -60,7 +52,7 @@ function ServicePageContent({ params }: PageProps) {
                     <div className="absolute inset-0 z-0">
                         <Image
                             src={service.image}
-                            alt={displayTitle}
+                            alt={service.title}
                             fill
                             priority
                             className="object-cover"
@@ -80,22 +72,29 @@ function ServicePageContent({ params }: PageProps) {
                                         <Sparkles className="w-3 h-3 text-primary" /> Tjänst
                                     </div>
                                     <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-                                        {displayTitle}
+                                        {service.title}
                                     </h1>
                                     <p className="text-stone-300 text-lg lg:text-xl leading-relaxed max-w-lg mb-8">
-                                        {displayDescription}
+                                        {service.description}
                                     </p>
                                 </div>
-                                {/* ... [buttons] ... */}
 
                                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20">
-                                        {replaceCity((service as any).buttonText || `Boka ${service.title.split(' – ')[0]}`, city)}
+                                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20" asChild>
+                                        <Link href="/kontakt">
+                                            Få offert
+                                        </Link>
                                     </Button>
-                                    <Button variant="outline" size="lg" className="h-14 px-8 text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm">
-                                        Kontakta Oss
+                                    <Button
+                                        variant="outline"
+                                        size="lg"
+                                        className="h-14 px-8 text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+                                        onClick={() => sectionRef.current?.scrollIntoView({ behavior: "smooth" })}
+                                    >
+                                        Läs mer
                                     </Button>
                                 </div>
+
                                 <div className="flex flex-wrap gap-3 pt-2">
                                     {[
                                         "Alltid samma personal",
@@ -108,9 +107,6 @@ function ServicePageContent({ params }: PageProps) {
                                         </div>
                                     ))}
                                 </div>
-
-                                {/* [Right glass card logic is fine as is, service.price etc doesn't change] */}
-
                             </div>
 
                             {/* Right: Glass Card */}
@@ -120,10 +116,7 @@ function ServicePageContent({ params }: PageProps) {
                                     <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/30 rounded-full blur-[80px] transform-gpu" />
 
                                     <div className="relative space-y-10">
-                                        <div>
-                                            <p className="text-stone-400 text-sm uppercase tracking-wider font-semibold mb-2">Prisbild</p>
-                                            <p className="text-4xl font-bold text-white">{service.price}</p>
-                                        </div>
+
 
                                         <div className="space-y-6">
                                             <p className="text-stone-400 text-sm uppercase tracking-wider font-semibold">Detta ingår</p>
@@ -138,6 +131,7 @@ function ServicePageContent({ params }: PageProps) {
                                                 ))}
                                             </ul>
                                         </div>
+
                                         {(service as any).rutText && (
                                             <div className="py-4 px-4 rounded-xl bg-white/5 border border-white/10">
                                                 <p className="text-stone-300 text-xs leading-relaxed">
@@ -179,8 +173,10 @@ function ServicePageContent({ params }: PageProps) {
                     />
 
                     <div className="container mx-auto max-w-[1400px] w-full relative z-10">
+
                         {/* Header Split */}
                         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24 items-start">
+
                             {/* Left: Label & Trust */}
                             <div className="shrink-0 space-y-8">
                                 <div className="flex items-center gap-4">
@@ -215,10 +211,8 @@ function ServicePageContent({ params }: PageProps) {
                                     Varför Treda
                                 </motion.div>
                                 <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-12">
-                                    Varför välja just T<span className="text-primary">reda</span><br />för {replaceCity((service as any).shortTitle || "städning", city)}{city ? ` i ${formatCity(city)}` : ""}?
+                                    Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()} i Malmö?
                                 </h2>
-
-
 
                                 <motion.div
                                     ref={lineRef}
@@ -237,12 +231,12 @@ function ServicePageContent({ params }: PageProps) {
                                         className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary origin-top will-change-transform transform-gpu"
                                     />
                                     <p className="text-xl text-secondary leading-relaxed max-w-2xl">
-                                        Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {replaceCity(service.title.toLowerCase(), city)} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
+                                        Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {service.title.toLowerCase()} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
                                     </p>
 
                                     {(service as any).longDescription && (
                                         <p className="text-xl text-secondary leading-relaxed max-w-2xl">
-                                            {replaceCity((service as any).longDescription, city)}
+                                            {(service as any).longDescription}
                                         </p>
                                     )}
                                 </motion.div>
@@ -255,7 +249,7 @@ function ServicePageContent({ params }: PageProps) {
                             {/* Image Card 1: Clean Image */}
                             <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
-                                    src="/images/hands-housekeeper-woman-maid-cleaning-home-with-equipment-housework-person-hygiene-clean-house-maintenance-service-basket-disinfectant-product-by-worker-living-room.webp"
+                                    src="/images/closeup-unrecognizable-person-cleaning-door-handle.webp"
                                     alt="Mer tid för livet"
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -303,13 +297,5 @@ function ServicePageContent({ params }: PageProps) {
                 </section>
             </main>
         </div>
-    );
-}
-
-export default function ServicePage({ params }: PageProps) {
-    return (
-        <Suspense fallback={<div className="min-h-screen bg-stone-50" />}>
-            <ServicePageContent params={params} />
-        </Suspense>
     );
 }

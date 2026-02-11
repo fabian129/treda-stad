@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Star, Clock } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { WavyConnector } from "@/components/ui/WavyConnector";
@@ -52,8 +53,10 @@ export function BentoGrid() {
                         Vi städar med hjärta och omtanke. För oss är det viktigt att du känner dig trygg och att ditt hem behandlas med största respekt.
                     </p>
                     <div className="flex items-center gap-4">
-                        <Button className="rounded-full px-8 h-12 shadow-md">
-                            Boka Konsultation <ArrowRight className="ml-2 w-4 h-4" />
+                        <Button className="rounded-full px-8 h-12 shadow-md" asChild>
+                            <Link href="/kontakt">
+                                Boka Konsultation <ArrowRight className="ml-2 w-4 h-4" />
+                            </Link>
                         </Button>
                     </div>
                 </BentoItem>
@@ -61,7 +64,7 @@ export function BentoGrid() {
                 {/* 2. Team Member Large (Top Middle - Spans 1 col, 2 rows) */}
                 <BentoItem className="bg-stone-100 col-span-1 row-span-1 lg:row-span-2 relative group" delay={0.1}>
                     <Image
-                        src="/images/cleaner.webp"
+                        src="/images/closeup-waitress-disinfecting-tables-outdoor-cafe.webp"
                         alt="Team Member"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"

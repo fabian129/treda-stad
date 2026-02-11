@@ -41,7 +41,7 @@ export function Footer() {
                                 <Link href="/" className="hover:text-primary transition-colors">Hem</Link>
                             </li>
                             <li>
-                                <Link href="/tjanster" className="hover:text-primary transition-colors">Våra Tjänster</Link>
+                                <Link href="/#services" className="hover:text-primary transition-colors">Våra Tjänster</Link>
                             </li>
                             <li>
                                 <Link href="/foretag" className="hover:text-primary transition-colors">Företag</Link>
@@ -62,17 +62,17 @@ export function Footer() {
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
                                 <span>
-                                    Storgatan 12<br />
-                                    123 45 Malmö
+                                    Höjdrodergatan 3<br />
+                                    212 39 Malmö
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                                <a href="tel:081234567" className="hover:text-white transition-colors">08-123 45 67</a>
+                                <a href="tel:04081787" className="hover:text-white transition-colors">040-817 87</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                                <a href="mailto:info@tredastad.se" className="hover:text-white transition-colors">info@tredastad.se</a>
+                                <a href="mailto:info@treda.se" className="hover:text-white transition-colors">info@treda.se</a>
                             </li>
                         </ul>
                     </div>
@@ -82,8 +82,9 @@ export function Footer() {
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-sm text-white/50 gap-4">
                     <p>&copy; {new Date().getFullYear()} Treda Städ AB. Alla rättigheter förbehållna.</p>
                     <div className="flex gap-8">
+                        <Link href="#" className="hover:text-white transition-colors">Tillgänglighetspolicy</Link>
                         <Link href="#" className="hover:text-white transition-colors">Integritetspolicy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Villkor</Link>
+                        <Link href="#" className="hover:text-white transition-colors">Allmänna villkor</Link>
                     </div>
                 </div>
             </div>

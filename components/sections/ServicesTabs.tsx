@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn, formatCity, replaceCity } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { services } from "@/lib/data";
 import Link from 'next/link';
 
@@ -31,26 +31,98 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                     Våra Tjänster
                                 </h2>
                                 <p className="text-secondary text-lg md:text-xl max-w-md leading-relaxed mb-8">
-                                    Vi erbjuder ett komplett utbud av städtjänster för både privatpersoner och företag{city ? ` i ${formatCity(city)}` : ""}. Alltid med vår nöjd-kund-garanti.
+                                    Vi erbjuder ett komplett utbud av städtjänster för både privatpersoner och företag. Alltid med vår nöjd-kund-garanti.
                                 </p>
                             </div>
 
                             {/* Navigation Menu (Desktop: Tabs) */}
                             <div className="space-y-2 hidden lg:block mb-12">
-                                {services.map((service) => (
-                                    <button
-                                        key={service.id}
-                                        onClick={() => setActiveTab(service.id)}
-                                        className={cn(
-                                            "w-full text-left py-4 px-6 border-l-2 text-lg font-medium transition-all duration-300 rounded-r-xl flex items-center gap-4 group cursor-pointer",
-                                            activeTab === service.id
-                                                ? "border-transparent bg-primary text-white shadow-lg shadow-primary/25 font-bold"
-                                                : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
-                                        )}
-                                    >
-                                        {replaceCity(service.title, city).split(' – ')[0]}
-                                    </button>
-                                ))}
+                                {services.map((service) => {
+                                    const baseTitles: Record<string, string> = {
+                                        hemstadning: "Hemstäd",
+                                        storstadning: "Storstäd",
+                                        flyttstadning: "Flyttstäd",
+                                        byggstadning: "Byggstäd",
+                                        kontorsstad: "Kontorsstäd",
+                                        fonsterputs: "Fönsterputs"
+                                    };
+
+                                    const formatCity = (citySlug: string) => {
+                                        const cityMap: Record<string, string> = {
+                                            "malmo": "Malmö",
+                                            "malmö": "Malmö",
+                                            "goteborg": "Göteborg",
+                                            "göteborg": "Göteborg",
+                                            "kopenhamn": "Köpenhamn",
+                                            "köpenhamn": "Köpenhamn",
+                                            "lulea": "Luleå",
+                                            "luleå": "Luleå",
+                                            "umea": "Umeå",
+                                            "umeå": "Umeå",
+                                            "vasteras": "Västerås",
+                                            "västerås": "Västerås",
+                                            "orebro": "Örebro",
+                                            "örebro": "Örebro",
+                                            "norrkoping": "Norrköping",
+                                            "norrköping": "Norrköping",
+                                            "linkoping": "Linköping",
+                                            "linköping": "Linköping",
+                                            "jonkoping": "Jönköping",
+                                            "jönköping": "Jönköping",
+                                            "boras": "Borås",
+                                            "borås": "Borås",
+                                            "vaxjo": "Växjö",
+                                            "växjö": "Växjö",
+                                            "kristianstad": "Kristianstad",
+                                            "helsingborg": "Helsingborg",
+                                            "lund": "Lund",
+                                            "trelleborg": "Trelleborg",
+                                            "landskrona": "Landskrona",
+                                            "eslov": "Eslöv",
+                                            "eslöv": "Eslöv",
+                                            "hollviken": "Höllviken",
+                                            "höllviken": "Höllviken",
+                                            "lomma": "Lomma",
+                                            "svedala": "Svedala",
+                                            "staffanstorp": "Staffanstorp",
+                                            "kavlinge": "Kävlinge",
+                                            "kävlinge": "Kävlinge",
+                                            "bjarred": "Bjärred",
+                                            "bjärred": "Bjärred",
+                                            "skanor": "Skanör",
+                                            "skanör": "Skanör",
+                                            "falsterbo": "Falsterbo",
+                                            "oxie": "Oxie",
+                                            "bara": "Bara",
+                                            "klagerup": "Klågerup",
+                                            "klågerup": "Klågerup",
+                                            "dalby": "Dalby",
+                                            "sodra sandby": "Södra Sandby",
+                                            "södra sandby": "Södra Sandby",
+                                            "loddekopinge": "Löddeköpinge",
+                                            "löddeköpinge": "Löddeköpinge"
+                                        };
+                                        return cityMap[citySlug.toLowerCase()] || citySlug.charAt(0).toUpperCase() + citySlug.slice(1);
+                                    };
+
+                                    const baseTitle = baseTitles[service.id] || service.title;
+                                    const displayTitle = city ? `${baseTitle} i ${formatCity(city)}` : baseTitle;
+
+                                    return (
+                                        <button
+                                            key={service.id}
+                                            onClick={() => setActiveTab(service.id)}
+                                            className={cn(
+                                                "w-full text-left py-4 px-6 border-l-2 text-lg font-medium transition-all duration-300 rounded-r-xl flex items-center gap-4 group cursor-pointer",
+                                                activeTab === service.id
+                                                    ? "border-transparent bg-primary text-white shadow-lg shadow-primary/25 font-bold"
+                                                    : "border-transparent hover:border-border text-secondary hover:text-primary hover:bg-primary/5"
+                                            )}
+                                        >
+                                            {displayTitle}
+                                        </button>
+                                    );
+                                })}
                             </div>
 
 
@@ -75,25 +147,21 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-20" />
                                         <Image
                                             src={activeService.image}
-                                            alt={replaceCity(activeService.title, city)}
+                                            alt={activeService.title}
                                             fill
                                             sizes="(max-width: 1024px) 100vw, 50vw"
                                             className="object-cover transform scale-105"
                                             priority // Preload active tab image
                                             unoptimized
                                         />
-                                        <div className="absolute top-6 right-6 z-20">
-                                            <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-5 py-2 text-sm font-bold text-primary shadow-sm">
-                                                {activeService.price}
-                                            </span>
-                                        </div>
+
                                     </div>
 
                                     <div className="p-12 flex flex-col flex-grow">
                                         <div className="mb-8">
-                                            <h3 className="text-4xl font-bold text-foreground mb-4">{replaceCity(activeService.title, city)}</h3>
+                                            <h3 className="text-4xl font-bold text-foreground mb-4">{activeService.title}</h3>
                                             <p className="text-secondary text-xl leading-relaxed max-w-2xl">
-                                                {replaceCity(activeService.description, city)}
+                                                {activeService.description}
                                             </p>
                                         </div>
 
@@ -106,7 +174,7 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                         </div>
 
                                         <div className="mt-auto pt-8 border-t border-border/10 flex items-center justify-between">
-                                            <span className="font-bold text-primary text-base uppercase tracking-wider">Läs Mer Om {replaceCity(activeService.title, city)}</span>
+                                            <span className="font-bold text-primary text-base uppercase tracking-wider">Läs Mer Om {activeService.title}</span>
                                             <Link href={`/tjanster/${activeService.id}`} className="w-14 h-14 rounded-full bg-stone-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors border border-border/50">
                                                 <ArrowRight className="w-7 h-7" />
                                             </Link>
@@ -124,21 +192,17 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                         <div className="absolute inset-0 bg-primary/10 mix-blend-multiply z-10 opacity-0 group-hover:opacity-20 transition-opacity" />
                                         <Image
                                             src={service.image}
-                                            alt={replaceCity(service.title, city)}
+                                            alt={service.title}
                                             fill
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                             className="object-cover"
                                             unoptimized
                                         />
-                                        <div className="absolute top-4 right-4 z-20">
-                                            <span className="inline-flex items-center rounded-full bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary shadow-sm">
-                                                {service.price}
-                                            </span>
-                                        </div>
+
                                     </div>
                                     <div className="p-8">
-                                        <h3 className="text-2xl font-bold mb-2">{replaceCity(service.title, city)}</h3>
-                                        <p className="text-secondary mb-6 text-sm">{replaceCity(service.description, city)}</p>
+                                        <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                                        <p className="text-secondary mb-6 text-sm">{service.description}</p>
 
                                         <div className="space-y-2 mb-6">
                                             {service.perks.slice(0, 3).map((perk, i) => (
