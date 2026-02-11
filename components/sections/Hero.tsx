@@ -82,7 +82,6 @@ export function Hero({ city }: HeroProps) {
                     alt="Woman reading book in a clean home"
                     fill
                     priority
-                    unoptimized
                     sizes="100vw"
                     className="object-cover object-center"
                 />
