@@ -82,9 +82,9 @@ export function Footer() {
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-sm text-white/50 gap-4">
                     <p>&copy; {new Date().getFullYear()} Treda Städ AB. Alla rättigheter förbehållna.</p>
                     <div className="flex gap-8">
-                        <Link href="#" className="hover:text-white transition-colors">Tillgänglighetspolicy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Integritetspolicy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Allmänna villkor</Link>
+                        <Link href="/tillganglighetspolicy" className="hover:text-white transition-colors">Tillgänglighetspolicy</Link>
+                        <Link href="/integritetspolicy" className="hover:text-white transition-colors">Integritetspolicy</Link>
+                        <Link href="/villkor" className="hover:text-white transition-colors">Allmänna villkor</Link>
                     </div>
                 </div>
             </div>
