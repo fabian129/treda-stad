@@ -154,8 +154,7 @@ export default function Home() {
           <div className="p-10 bg-white/[0.03] backdrop-blur-md rounded-[40px] shadow-2xl border border-white/10 inline-block hover:bg-white/[0.06] transition-colors group">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="text-left">
-                <h4 className="text-2xl font-bold mb-2 text-white">Boka Prova-På Städning</h4>
-                <p className="text-white/75">Ingen bindningstid. 20% rabatt första gången.</p>
+                <h4 className="text-2xl font-bold mb-2 text-white">Boka din städning idag</h4>
               </div>
               <Link href="/kontakt" className="h-14 px-8 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-lg font-bold tracking-wide text-white">
                 <span>Boka Nu</span>

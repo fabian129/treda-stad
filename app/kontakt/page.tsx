@@ -50,7 +50,7 @@ export default function KontaktPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">Telefon</h3>
-                                        <p className="text-secondary text-lg">040-123 45 67</p>
+                                        <p className="text-secondary text-lg">040-817 87</p>
                                         <p className="text-sm text-secondary/70">Mån-Fre 08:00 - 17:00</p>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@ export default function KontaktPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">E-post</h3>
-                                        <p className="text-secondary text-lg">info@tredastad.se</p>
+                                        <p className="text-secondary text-lg">info@treda.se</p>
                                         <p className="text-sm text-secondary/70">Vi svarar alla mail.</p>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ export default function KontaktPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">Besök oss</h3>
-                                        <p className="text-secondary text-lg">Storgatan 12, Malmö</p>
+                                        <p className="text-secondary text-lg">Höjdrodergatan 3, 212 39 Malmö</p>
                                         <p className="text-sm text-secondary/70">Boka gärna tid innan besök.</p>
                                     </div>
                                 </div>
