@@ -39,7 +39,7 @@ export default function KontaktPage() {
                                 <h1 className="text-4xl md:text-6xl font-bold mb-6">Kontakta Oss</h1>
                                 <p className="text-xl text-secondary leading-relaxed">
                                     Redo för ett skinande rent resultat? Fyll i formuläret eller hör av dig direkt till oss.
-                                    Vi svarar oftast inom 1 timme.
+                                    Vi svarar oftast inom 24 h.
                                 </p>
                             </div>
 
@@ -62,7 +62,6 @@ export default function KontaktPage() {
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">E-post</h3>
                                         <p className="text-secondary text-lg">info@treda.se</p>
-                                        <p className="text-sm text-secondary/70">Vi svarar alla mail.</p>
                                     </div>
                                 </div>
 
@@ -208,7 +207,7 @@ export default function KontaktPage() {
                         </motion.div>
                     </div>
                 </div>
-            </section >
-        </div >
+            </section>
+        </div>
     );
 }
