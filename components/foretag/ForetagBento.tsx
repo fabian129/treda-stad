@@ -28,15 +28,7 @@ export function ForetagBento() {
                     >
                         Trygghet i varje detalj.
                     </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        viewport={{ once: true }}
-                        className="text-lg text-stone-600 leading-relaxed"
-                    >
-                        Vi har moderniserat städbranschen. Med digitala loggar, screenad personal och en 100% nöjd-kund-garanti.
-                    </motion.p>
+
                 </div>
 
                 {/* Grid Layout */}

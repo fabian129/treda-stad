@@ -28,15 +28,9 @@ export default function TermsPage() {
         {
             title: "3. OMBOKNING OCH AVBOKNING",
             list: [
-                "Om- eller avbokning senast 5 vardagar innan är kostnadsfri.",
-                "Ombokning senare än så: 12,5 % debiteras.",
-                "Avbokning senare än så: 25 % debiteras."
-            ],
-            extra: "Avgifter är inte RUT-berättigade."
-        },
-        {
-            title: "4. ABONNEMANG",
-            content: "Vid abonnemang kan Kunden spara timmar vid avbokningar i en timbank enligt avtalade begränsningar. Sparade timmar gäller i upp till 12 månader och förfaller därefter."
+                "Om- eller avbokning senast 48 timmar innan är kostnadsfri.",
+                "Ombokning senare än så: 70 % debiteras."
+            ]
         },
         {
             title: "5. RUT- OCH ROT-AVDRAG",
@@ -70,7 +64,7 @@ export default function TermsPage() {
         },
         {
             title: "11. TVIST",
-            content: "Tvister hanteras enligt svensk lag. Kunden kan vända sig till Allmänna Reklamationsnämnden (ARN). Tingsrätten på Kundens hemort är behörig domstol."
+            content: "Tvister hanteras enligt svensk lag. Kunden kan vända sig till Allmänna Reklamationsnämnden (ARN). Tingsrätten på Kundens hemort är behörig"
         }
     ];
 

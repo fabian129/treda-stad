@@ -129,7 +129,7 @@ export default function ForetagPage() {
                 <div className="mx-auto max-w-[1000px] text-center">
                     <h2 className="text-3xl md:text-5xl font-bold mb-8">Redo för ett bättre kontor?</h2>
                     <p className="text-stone-500 text-xl max-w-2xl mx-auto mb-12">
-                        Kontakta us for ett kostnadsfritt besök där vi går igenom era lokaler och behov.
+                        Kontakta oss för ett kostnadsfritt besök där vi går igenom era lokaler och behov.
                     </p>
                     <div className="flex justify-center">
                         <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-xl shadow-primary/30 bg-primary hover:bg-primary/90 text-white border-2 border-primary/20" asChild>
