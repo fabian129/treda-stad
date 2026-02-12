@@ -12,14 +12,7 @@ export function ForetagStats() {
 
                     {/* LEFT: Editorial Text */}
                     <div className="flex-1">
-                        <motion.span
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="text-primary font-bold tracking-wider uppercase text-xs mb-6 block"
-                        >
-                            Recognition & Impact
-                        </motion.span>
+
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +82,7 @@ export function ForetagStats() {
                             viewport={{ once: true }}
                             className="absolute bottom-8 left-8 right-8 md:right-auto md:w-[320px] bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-stone-100"
                         >
-                            <h4 className="text-sm font-bold uppercase tracking-wider text-stone-400 mb-6">Treda Impact 2024</h4>
+
                             <div className="space-y-6">
                                 <div>
                                     <div className="flex items-baseline justify-between mb-1">

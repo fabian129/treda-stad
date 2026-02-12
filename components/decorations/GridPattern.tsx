@@ -5,7 +5,7 @@ interface GridPatternProps extends React.SVGProps<SVGSVGElement> {
     height?: number;
     x?: number;
     y?: number;
-    strokeDasharray?: any; // Keeping any here for simplicity on dasharray string/number mix, or string matches
+    strokeDasharray?: string | number;
 }
 
 export function GridPattern({
