@@ -152,9 +152,23 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                             sizes="(max-width: 1024px) 100vw, 50vw"
                                             className="object-cover transform scale-105"
                                             priority // Preload active tab image
-                                            unoptimized
                                         />
+                                    </div>
 
+                                    {/* Invisible Preloader for other tab images */}
+                                    <div className="hidden">
+                                        {services.map((service) => (
+                                            <div key={`preload-${service.id}`} className="relative w-1 h-1">
+                                                <Image
+                                                    src={service.image}
+                                                    alt="preload"
+                                                    width={10}
+                                                    height={10}
+                                                    priority
+                                                    className="opacity-0"
+                                                />
+                                            </div>
+                                        ))}
                                     </div>
 
                                     <div className="p-12 flex flex-col flex-grow">
@@ -196,7 +210,6 @@ export function ServicesTabs({ city }: ServicesTabsProps) {
                                             fill
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                             className="object-cover"
-                                            unoptimized
                                         />
 
                                     </div>

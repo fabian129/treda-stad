@@ -7,8 +7,14 @@ export function NoiseTexture({ className = "", opacity = 0.05 }: { className?: s
         <div
             className={`absolute inset-0 pointer-events-none z-0 ${className}`}
             style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='${opacity}'/%3E%3C/svg%3E")`,
-                backgroundRepeat: 'repeat',
+                // Using a static noise image instead of live calculation could be even faster, 
+                // but for now, we'll keep the SVG but ensure it's not re-rendering unnecessarily.
+                // Actually, let's switch to a simpler opacity overlay to be safe as requested.
+                // However, the user liked the texture. 
+                // A better approach for performance is a static PNG. 
+                // I will use a very lightweight static noise pattern.
+                backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAA5OTkAAABMTExERERmZmYzMzMyMjJOUl6NAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfmCwQOIDB0VE1hAAAAh0lEQVQ4y2NgQAX8DIwsCgwM7OoMDOwaiUBhZgYGdXYIxc7AoM4OodgZGNQ5IBS7AoM6B4RiD4iS8wxQJecZGNQ5IRS7A4M6J4RiLwYGdW4IxT4MDOrcEIq9GRjUuSEU+zAwqHNDKPZjYFDnhlDsx8Cgzg2h2I+BQZ0bQrEfA4M6N4RiPwYGZQ4AkoMOd/1w8aIAAAAASUVORK5CYII=")`,
+                opacity: opacity,
             }}
         />
     );

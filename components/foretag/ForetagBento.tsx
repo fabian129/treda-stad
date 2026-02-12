@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Smartphone, ShieldCheck, Leaf, Medal, ArrowRight } from "lucide-react";
+import { UserCheck, ShieldCheck, Leaf, Medal, Briefcase } from "lucide-react";
 import Image from "next/image";
 
 export function ForetagBento() {
@@ -40,38 +40,19 @@ export function ForetagBento() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                         viewport={{ once: true }}
-                        className="bg-white p-8 rounded-[32px] shadow-sm border border-stone-100 lg:col-span-2 relative overflow-hidden group"
+                        className="bg-white p-8 rounded-[32px] shadow-sm border border-stone-100 lg:col-span-2 relative overflow-hidden group flex flex-col justify-center"
                     >
-                        <div className="relative z-10 max-w-md">
+                        <div className="relative z-10 max-w-lg">
                             <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
-                                <Smartphone className="w-6 h-6" />
+                                <Briefcase className="w-6 h-6" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-3 text-stone-900">Digital Kvalitetsuppföljning</h3>
-                            <p className="text-stone-500 leading-relaxed mb-6">
-                                Följ när vi städat, se checklistor och kommunicera direkt med era städare via vår app. Full transparens i realtid.
+                            <h3 className="text-2xl font-bold mb-3 text-stone-900">Skräddarsydda Lösningar</h3>
+                            <p className="text-stone-500 leading-relaxed text-lg">
+                                Vi anpassar städningen efter er verksamhet. Flexibla scheman och en dedikerad kontaktperson för smidigt samarbete.
                             </p>
-                            <button className="flex items-center gap-2 text-sm font-bold text-stone-900 group-hover:gap-3 transition-all">
-                                Se hur det funkar <ArrowRight className="w-4 h-4" />
-                            </button>
                         </div>
-                        {/* Decorative UI Mockup */}
-                        <div className="absolute top-12 -right-12 w-[60%] h-full bg-stone-50 rounded-tl-[32px] border-l border-t border-stone-100 shadow-lg transform translate-x-10 translate-y-10 group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-500 hidden sm:block">
-                            {/* Simple App UI Abstract */}
-                            <div className="p-6 space-y-4">
-                                <div className="h-4 w-1/3 bg-stone-200 rounded-full animate-pulse" />
-                                <div className="space-y-2">
-                                    <div className="h-2 w-full bg-stone-100 rounded-full" />
-                                    <div className="h-2 w-5/6 bg-stone-100 rounded-full" />
-                                    <div className="h-2 w-4/6 bg-stone-100 rounded-full" />
-                                </div>
-                                <div className="flex gap-2 mt-8">
-                                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-                                        <div className="w-2 h-2 bg-green-500 rounded-full" />
-                                    </div>
-                                    <div className="h-8 w-24 bg-stone-100 rounded-lg" />
-                                </div>
-                            </div>
-                        </div>
+                        {/* Decorative background element instead of app mockup */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
                     </motion.div>
 
                     {/* Card 2: Security */}

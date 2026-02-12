@@ -31,8 +31,8 @@ export const services = [
         image: "/images/closeup-unrecognizable-person-cleaning-door-handle.webp",
         perks: [
             "Djupgående rengöring",
-            "Fönsterputs (kan väljas till)",
-            "Invändigt vitvaror (kan väljas till)",
+            "Fönsterputs",
+            "Invändigt vitvaror",
             "Fokus på kök & badrum"
         ],
         icon: Star
