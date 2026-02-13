@@ -11,7 +11,7 @@ import { ValuesStrip } from "@/components/sections/ValuesStrip";
 import { ServicesTabs } from "@/components/sections/ServicesTabs";
 import { NoiseTexture } from "@/components/decorations/NoiseTexture";
 import { WavyConnector } from "@/components/ui/WavyConnector";
-import { MapSection } from "@/components/sections/MapSection";
+
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -244,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* Map Section */}
-      <MapSection />
+
 
     </div >
   );
