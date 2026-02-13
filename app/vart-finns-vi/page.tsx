@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import Link from "next/link";
 import { GridPattern } from "@/components/zaitex/grid-pattern";
 import { AmbientGlow } from "@/components/zaitex/ambient-glow";
+import { SkaneMap } from "@/components/SkaneMap";
 
 export default function VartFinnsViPage() {
     const cities = [
@@ -47,7 +48,7 @@ export default function VartFinnsViPage() {
                             Vårt täckningsområde
                         </div>
                         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-                            📍 Vi utgår från Malmö –<br />
+                            Vi utgår från Malmö –<br />
                             <span className="text-primary">vi arbetar i hela Skåne</span>
                         </h1>
                     </motion.div>
@@ -87,43 +88,8 @@ export default function VartFinnsViPage() {
                         transition={{ delay: 0.4 }}
                         className="mb-20"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                            Vi finns i hela Skåne
-                        </h2>
-                        <div className="flex flex-nowrap justify-center gap-8 mb-8">
-                            {cities.filter(c => !c.isSpecial).map((city, index) => (
-                                <motion.div
-                                    key={city.name}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.5 + index * 0.1 }}
-                                    className="rounded-2xl text-center shadow-lg shadow-stone-900/5 border bg-white border-stone-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group flex flex-col items-center justify-center py-6 px-8"
-                                    style={{ minWidth: '120px' }}
-                                >
-                                    <div className="mb-4 text-7xl transition-transform group-hover:scale-110">
-                                        {city.icon}
-                                    </div>
-                                    <h3 className="font-bold text-xl text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
-                                        {city.name}
-                                    </h3>
-                                </motion.div>
-                            ))}
-                        </div>
-                        <div className="flex justify-center">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.5 + 7 * 0.1 }}
-                                className="rounded-2xl text-center shadow-lg shadow-stone-900/5 border bg-gradient-to-br from-primary/10 to-primary/5 border-primary/30 hover:shadow-xl transition-all duration-300 group flex flex-col items-center justify-center py-8 px-20"
-                            >
-                                <div className="mb-4 text-7xl transition-transform">
-                                    ✨
-                                </div>
-                                <h3 className="font-bold text-2xl text-foreground group-hover:text-primary transition-colors whitespace-nowrap">
-                                    vi finns även på många fler städer och orter
-                                </h3>
-                            </motion.div>
-                        </div>
+
+
                     </motion.div>
 
                     {/* CTA Section */}

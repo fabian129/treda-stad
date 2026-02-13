@@ -83,7 +83,7 @@ export default function KontaktPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="bg-white p-8 md:p-10 rounded-[32px] shadow-xl shadow-stone-900/5 border border-stone-100 relative overflow-hidden"
+                            className="bg-white p-8 md:p-10 rounded-[32px] shadow-xl shadow-primary/5 border-2 border-primary relative overflow-hidden"
                         >
                             <BorderBeam size={250} duration={9} delay={0} colorFrom="#16a34a" colorTo="#86efac" />
                             {formState === "success" ? (
@@ -116,14 +116,16 @@ export default function KontaktPage() {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-stone-700">E-post</label>
-                                        <input required type="email" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="anna@exempel.se" />
-                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-semibold text-stone-700">E-post</label>
+                                            <input required type="email" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="anna@exempel.se" />
+                                        </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-stone-700">Telefonnummer</label>
-                                        <input type="tel" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="070-123 45 67" />
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-semibold text-stone-700">Telefonnummer</label>
+                                            <input type="tel" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="070-123 45 67" />
+                                        </div>
                                     </div>
 
                                     <div className="space-y-2">

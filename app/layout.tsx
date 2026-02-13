@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 import SmoothScroll from "@/components/SmoothScroll";
 
 import { Footer } from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +28,7 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
           <Footer />
+          <CookieBanner />
         </SmoothScroll>
       </body>
     </html>
