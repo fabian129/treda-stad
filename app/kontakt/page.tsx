@@ -15,11 +15,27 @@ export default function KontaktPage() {
         window.scrollTo(0, 0);
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
         setFormState("submitting");
-        setTimeout(() => setFormState("success"), 1500); // Simulate network request
-    };
+
+        try {
+            await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+            setFormState("success");
+            // alert("Skickat!"); // Using UI state instead of alert
+        } catch (err) {
+            console.error(err);
+            alert("Något gick fel. Försök igen eller kontakta oss via telefon.");
+            setFormState("idle");
+        }
+    }
 
     return (
         <div className="min-h-screen bg-background font-sans text-foreground overflow-x-hidden">
@@ -108,55 +124,56 @@ export default function KontaktPage() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-semibold text-stone-700">Förnamn</label>
-                                            <input required type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Anna" />
+                                            <input required name="firstName" type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Anna" />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-sm font-semibold text-stone-700">Efternamn</label>
-                                            <input required type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Andersson" />
+                                            <input required name="lastName" type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Andersson" />
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-semibold text-stone-700">E-post</label>
-                                            <input required type="email" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="anna@exempel.se" />
+                                            <input required name="email" type="email" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="anna@exempel.se" />
                                         </div>
 
                                         <div className="space-y-2">
                                             <label className="text-sm font-semibold text-stone-700">Telefonnummer</label>
-                                            <input type="tel" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="070-123 45 67" />
+                                            <input name="phone" type="tel" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="070-123 45 67" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
                                         <label className="text-sm font-semibold text-stone-700">Adress</label>
-                                        <input type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Gatunamn 12" />
+                                        <input name="address" type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Gatunamn 12" />
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-semibold text-stone-700">Postnummer</label>
-                                            <input type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="211 11" />
+                                            <input name="zipCode" type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="211 11" />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-sm font-semibold text-stone-700">Ort</label>
-                                            <input type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Malmö" />
+                                            <input name="city" type="text" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="Malmö" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
                                         <label className="text-sm font-semibold text-stone-700">Typ av städning</label>
                                         <select
+                                            name="serviceType"
                                             className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all appearance-none cursor-pointer"
                                             onChange={(e) => setSelectedService(e.target.value)}
                                         >
-                                            <option>Hemstädning</option>
-                                            <option>Storstädning</option>
-                                            <option>Flyttstädning</option>
-                                            <option>Byggstädning</option>
-                                            <option>Kontorsstäd</option>
-                                            <option>Fönsterputs</option>
-                                            <option>Annat</option>
+                                            <option value="Hemstädning">Hemstädning</option>
+                                            <option value="Storstädning">Storstädning</option>
+                                            <option value="Flyttstädning">Flyttstädning</option>
+                                            <option value="Byggstädning">Byggstädning</option>
+                                            <option value="Kontorsstäd">Kontorsstäd</option>
+                                            <option value="Fönsterputs">Fönsterputs</option>
+                                            <option value="Annat">Annat</option>
                                         </select>
                                     </div>
 
@@ -165,7 +182,7 @@ export default function KontaktPage() {
                                             <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
                                                 <label className="text-sm font-semibold text-stone-700">Antal kvadratmeter (kvm)</label>
                                                 <div className="relative">
-                                                    <input type="number" min="0" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="t.ex. 85" />
+                                                    <input name="sqm" type="number" min="0" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="t.ex. 85" />
                                                     <span className="absolute right-4 top-3 text-secondary/50 font-medium">m²</span>
                                                 </div>
                                             </div>
@@ -192,13 +209,13 @@ export default function KontaktPage() {
                                         (selectedService === 'Fönsterputs' || selectedService === 'Flyttstädning') && (
                                             <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
                                                 <label className="text-sm font-medium text-secondary">Antal fönster (cirka)</label>
-                                                <input type="number" min="1" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="t.ex. 10" />
+                                                <input name="windowsCount" type="number" min="1" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="t.ex. 10" />
                                             </div>
                                         )}
 
                                     <div className="space-y-2">
                                         <label className="text-sm font-semibold text-stone-700">Meddelande (Valfritt)</label>
-                                        <textarea className="w-full h-32 p-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all resize-none" placeholder="Berätta gärna mer om vad du behöver hjälp med..." />
+                                        <textarea name="message" className="w-full h-32 p-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all resize-none" placeholder="Berätta gärna mer om vad du behöver hjälp med..." />
                                     </div>
 
                                     <Button type="submit" size="lg" className="w-full h-14 text-base bg-primary text-[#02292E] hover:bg-primary/90 mt-4" disabled={formState === "submitting"}>
