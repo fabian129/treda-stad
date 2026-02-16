@@ -142,7 +142,7 @@ export function InteractiveTimeline() {
             </div>
 
             {/* 3D Carousel Area - Compact version */}
-            <div className="relative h-[500px] w-full flex justify-center items-center perspective-[1200px]">
+            <div className="relative h-[500px] w-full flex justify-center items-center perspective-[1200px] overflow-hidden">
                 <AnimatePresence initial={false}>
                     {timelineData.map((item, index) => {
                         const distance = index - activeIndex;
