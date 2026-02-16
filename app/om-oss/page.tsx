@@ -16,7 +16,7 @@ export default function OmOssPage() {
             <Navbar />
 
             {/* Hero Split - Top Aligned */}
-            <section className="min-h-screen flex items-center relative py-32 lg:py-0">
+            <section className="min-h-screen flex items-start lg:items-center relative pt-24 pb-12 lg:py-0">
                 {/* Decorative Corner Blob */}
                 <div className="absolute top-0 right-0 w-[300px] h-[350px] bg-primary/5 rounded-bl-[100px] -z-10" />
 
@@ -91,14 +91,14 @@ export default function OmOssPage() {
                                 initial={{ x: -20, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ delay: 0.6, type: "spring", stiffness: 100 }}
-                                className="absolute top-[40%] -left-16 bg-white py-4 px-5 rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-stone-50 z-20 max-w-[200px]"
+                                className="absolute top-[40%] -left-8 md:-left-16 bg-white py-6 md:py-4 px-6 md:px-5 rounded-2xl md:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-stone-50 z-20 w-[240px] md:max-w-[200px]"
                             >
-                                <p className="text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-bold">Nöjd-Kund-Garanti</p>
-                                <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                        <Shield className="w-4 h-4" />
+                                <p className="text-xs md:text-[10px] uppercase tracking-widest text-stone-500 md:text-stone-400 mb-3 md:mb-2 font-bold">Nöjd-Kund-Garanti</p>
+                                <div className="flex items-center gap-4 md:gap-3">
+                                    <div className="w-12 h-12 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <Shield className="w-6 h-6 md:w-4 md:h-4" />
                                     </div>
-                                    <p className="text-xs font-medium text-stone-800">
+                                    <p className="text-base md:text-xs font-bold md:font-medium text-stone-900 md:text-stone-800">
                                         100% Garanterat
                                     </p>
                                 </div>

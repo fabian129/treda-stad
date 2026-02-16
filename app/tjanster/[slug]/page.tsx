@@ -156,7 +156,7 @@ export default function ServicePage({ params }: PageProps) {
                 </section>
 
                 {/* INFO GRID SECTION */}
-                <section ref={sectionRef} className="py-32 px-6 bg-stone-50 min-h-[80vh] flex items-center relative">
+                <section ref={sectionRef} className="py-32 px-6 bg-stone-50 min-h-[80vh] flex items-center relative overflow-hidden">
                     {/* Background Atmosphere */}
                     <GridPattern
                         width={60}

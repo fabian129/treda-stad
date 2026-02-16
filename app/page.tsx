@@ -30,7 +30,6 @@ export default function Home() {
             alt="Woman reading book in a clean home"
             fill
             priority
-            unoptimized
             sizes="100vw"
             className="object-cover object-center"
           />
@@ -45,7 +44,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] text-white mb-6 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] md:leading-[1.05] text-white mb-4 md:mb-6 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
             >
               Rent hem,<br />
               <span className="text-white/90">utan stress.</span>
@@ -56,7 +55,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
+              className="text-base sm:text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-6 md:mb-8 leading-relaxed drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
             >
               Vi ger dig tid tillbaka. Professionell hemstädning skräddarsydd för ditt hem och ditt schema. Njut av känslan av ett nystädat hem.
             </motion.p>
@@ -96,7 +95,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-12 flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-3 text-sm font-medium will-change-transform transform-gpu"
+              className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center lg:justify-start gap-3 md:gap-x-4 md:gap-y-3 text-sm font-medium will-change-transform transform-gpu"
             >
               {/* Keeping these as pills for now */}
               <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
@@ -139,16 +138,16 @@ export default function Home() {
       />
 
       {/* Feature / Filler Section (Creative CTA) */}
-      <section className="py-32 px-6 relative overflow-hidden bg-[#1A4D45]">
+      <section className="py-20 md:py-32 px-6 relative overflow-hidden bg-[#1A4D45]">
         {/* Subtle Atmosphere */}
         <OrganicBlob className="top-[-20%] left-[-10%] w-[700px] h-[700px] opacity-25" variant="secondary" />
 
         <div className="mx-auto max-w-[1000px] text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 text-white">
             Mer tid för det <br />
             <span className="text-primary">du älskar.</span>
           </h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8 md:mb-12">
             Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
           </p>
 
@@ -170,15 +169,21 @@ export default function Home() {
       <ValuesStrip />
 
       {/* Trust / Cleaner Section */}
-      <section className="py-24 px-6 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 px-6 bg-white relative overflow-hidden">
         <NoiseTexture opacity={0.03} />
         {/* Atmosphere - Subtle Green Glow */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
         <div className="mx-auto max-w-[1240px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="relative order-2 md:order-1">
               <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-stone-900/10 max-w-md mx-auto relative z-10 border border-stone-100">
-                <img src="/images/closeup-waitress-disinfecting-tables-outdoor-cafe.webp" alt="Treda Städ professional cleaning" className="w-full h-full object-cover" />
+                <Image
+                  src="/images/closeup-waitress-disinfecting-tables-outdoor-cafe.webp"
+                  alt="Treda Städ professional cleaning"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                />
               </div>
               {/* Decorative elements - Bright Mode */}
               <div className="absolute top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-0" />
@@ -194,7 +199,7 @@ export default function Home() {
                 <Shield className="w-4 h-4" />
                 <span>Trygghet i fokus</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-900">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-stone-900">
                 Vi är ansiktet <span className="text-primary">utåt.</span>
               </h2>
               <div className="space-y-6 text-lg text-stone-600 leading-relaxed">
@@ -210,28 +215,28 @@ export default function Home() {
 
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg hidden sm:flex items-center justify-center text-primary">
                     <Handshake className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Kollektivavtal</h4>
                   <p className="text-sm text-stone-500">Självklart för oss.</p>
                 </div>
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg hidden sm:flex items-center justify-center text-primary">
                     <GraduationCap className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Utbildad Personal</h4>
                   <p className="text-sm text-stone-500">Certifierade städare.</p>
                 </div>
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg hidden sm:flex items-center justify-center text-primary">
                     <UserCheck className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Alltid samma personal</h4>
                   <p className="text-sm text-stone-500">För din trygghet.</p>
                 </div>
                 <div className="p-5 bg-stone-50 rounded-2xl border border-stone-100 hover:border-primary/30 transition-colors group relative">
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-primary/10 rounded-lg hidden sm:flex items-center justify-center text-primary">
                     <Award className="w-4 h-4" />
                   </div>
                   <h4 className="font-bold text-primary mb-1">Via Almega</h4>
