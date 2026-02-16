@@ -25,7 +25,7 @@ export function SectionBreaker({
     const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
     return (
-        <div ref={ref} className="relative h-[400px] md:h-[500px] w-full overflow-hidden flex items-center justify-center bg-stone-800">
+        <div ref={ref} className="relative h-[300px] md:h-[500px] w-full overflow-hidden flex items-center justify-center bg-stone-800">
             {/* Background with Optimized Parallax */}
             <motion.div
                 style={{ y }}
@@ -51,7 +51,7 @@ export function SectionBreaker({
                 transition={{ duration: 0.6 }}
                 className="relative z-20 text-center px-6 max-w-4xl"
             >
-                <h3 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+                <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
                     {quote}
                 </h3>
                 {author && (

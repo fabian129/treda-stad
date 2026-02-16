@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv" className={dmSans.variable}>
-      <body className="antialiased font-sans flex flex-col min-h-screen">
+      <body className="antialiased font-sans flex flex-col min-h-screen overflow-x-hidden">
         <SmoothScroll>
           {children}
           <Footer />

@@ -4,11 +4,30 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo";
 
 export function Navbar() {
     const pathname = usePathname();
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Prevent scrolling when menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => { document.body.style.overflow = "unset"; };
+    }, [isMenuOpen]);
+
+    // Close menu on route change
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [pathname]);
 
     const isActive = (path: string) => pathname === path;
 
@@ -92,7 +111,74 @@ export function Navbar() {
                         <span>Få Offert</span>
                     </Link>
                 </Button>
+
+                {/* Mobile Menu Toggle Button */}
+                <button
+                    className="md:hidden relative z-50 p-2 text-stone-900 focus:outline-none"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    {isMenuOpen ? (
+                        <X className="w-8 h-8 text-stone-900" />
+                    ) : (
+                        <Menu className="w-8 h-8" />
+                    )}
+                </button>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden flex flex-col h-screen overflow-y-auto"
+                    >
+                        <nav className="flex flex-col gap-6 text-xl font-medium text-stone-900">
+                            <Link href="/" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/") && "text-primary font-bold")}>
+                                Hem
+                            </Link>
+
+                            <div className="flex flex-col gap-4 py-2 border-b border-border/10">
+                                <span className="text-secondary text-sm uppercase tracking-widest font-bold mb-2">Våra Tjänster</span>
+                                <Link href="/tjanster/hemstadning" className="pl-4 hover:text-primary transition-colors">Hemstädning</Link>
+                                <Link href="/tjanster/storstadning" className="pl-4 hover:text-primary transition-colors">Storstädning</Link>
+                                <Link href="/tjanster/flyttstadning" className="pl-4 hover:text-primary transition-colors">Flyttstädning</Link>
+                                <Link href="/tjanster/byggstadning" className="pl-4 hover:text-primary transition-colors">Byggstädning</Link>
+                                <Link href="/tjanster/kontorsstad" className="pl-4 hover:text-primary transition-colors">Kontorsstäd</Link>
+                                <Link href="/tjanster/fonsterputs" className="pl-4 hover:text-primary transition-colors">Fönsterputs</Link>
+                            </div>
+
+                            <Link href="/vart-finns-vi" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/vart-finns-vi") && "text-primary font-bold")}>
+                                Vart finns vi
+                            </Link>
+
+                            <Link href="/foretag" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/foretag") && "text-primary font-bold")}>
+                                Företag
+                            </Link>
+
+                            <Link href="/om-oss" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/om-oss") && "text-primary font-bold")}>
+                                Om oss
+                            </Link>
+
+                            <Link href="/kontakt" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/kontakt") && "text-primary font-bold")}>
+                                Kontakt
+                            </Link>
+
+                            <div className="mt-8">
+                                <Button size="lg" className="w-full text-lg h-14 rounded-full gap-2 shadow-xl shadow-primary/20" asChild>
+                                    <Link href="/kontakt">
+                                        <Sparkles className="w-5 h-5" />
+                                        <span>Få Offert Direkt</span>
+                                    </Link>
+                                </Button>
+                            </div>
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

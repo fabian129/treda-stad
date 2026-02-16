@@ -102,7 +102,7 @@ export function InteractiveTimeline() {
                                 {/* Number/Label above the line */}
                                 <span
                                     className={cn(
-                                        "mb-6 font-mono text-sm tracking-widest transition-colors duration-300",
+                                        "mb-6 font-mono text-sm tracking-widest transition-colors duration-300 hidden md:block",
                                         isActive ? "text-primary font-bold" : "text-muted-foreground/50 group-hover:text-muted-foreground"
                                     )}
                                 >
@@ -129,7 +129,7 @@ export function InteractiveTimeline() {
                                 {/* Title under the dot */}
                                 <span
                                     className={cn(
-                                        "mt-10 font-medium text-sm transition-all duration-300 whitespace-nowrap",
+                                        "mt-10 font-medium text-sm transition-all duration-300 whitespace-nowrap hidden md:block",
                                         isActive ? "text-primary scale-110" : "text-muted-foreground/60 group-hover:text-muted-foreground"
                                     )}
                                 >
@@ -155,7 +155,7 @@ export function InteractiveTimeline() {
                             <motion.div
                                 key={item.id}
                                 className={cn(
-                                    "absolute w-[340px] md:w-[420px] aspect-[4/5] bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer border border-stone-100",
+                                    "absolute w-[85vw] max-w-[340px] md:max-w-none md:w-[420px] aspect-[4/5] bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer border border-stone-100",
                                     isActive ? "z-20 cursor-default" : "z-10 cursor-pointer"
                                 )}
                                 initial={{ opacity: 0, scale: 0.8 }}

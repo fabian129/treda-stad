@@ -14,7 +14,7 @@ export function ValuesStrip() {
     return (
         <section className="py-12 bg-white border-y border-stone-100">
             <div className="mx-auto max-w-[1240px] px-6">
-                <div className="flex flex-wrap items-center justify-center md:justify-between gap-8 md:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
                     {values.map((item, idx) => (
                         <motion.div
                             key={item.label}

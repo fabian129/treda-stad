@@ -1,6 +1,7 @@
 "use client";
 
 import { use } from "react";
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { OrganicBlob } from "@/components/decorations/OrganicBlob";
 import { SectionBreaker } from "@/components/sections/SectionBreaker";
@@ -80,7 +81,13 @@ export default function LocationPage({ params }: PageProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <div className="relative order-2 md:order-1">
                             <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-stone-900/10 max-w-md mx-auto relative z-10 border border-stone-100">
-                                <img src="/images/cleaner.webp" alt="Anna, Treda Städ" className="w-full h-full object-cover" />
+                                <Image
+                                    src="/images/cleaner.webp"
+                                    alt="Anna, Treda Städ"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 500px"
+                                />
                             </div>
                             {/* Decorative elements - Bright Mode */}
                             <div className="absolute top-10 -left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-0" />
