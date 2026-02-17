@@ -90,31 +90,30 @@ export default function Home() {
             </motion.div>
 
 
-            {/* Trust Pillars - Hidden on mobile, shown in desktop layout if needed, or keeping user preference */}
-            <motion.div
+            {/* Trust Pillars - Semantic HTML */}
+            <motion.ul
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center lg:justify-start gap-3 md:gap-x-4 md:gap-y-3 text-sm font-medium will-change-transform transform-gpu"
+              className="mt-8 md:mt-12 flex flex-wrap justify-center lg:justify-start gap-3 md:gap-x-4 md:gap-y-3 text-sm font-medium will-change-transform transform-gpu list-none p-0"
             >
-              {/* Keeping these as pills for now */}
-              <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
+              <li className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span>Nöjd-Kund-Garanti</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
+              </li>
+              <li className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span>Ansvarsförsäkring</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
+              </li>
+              <li className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span>RUT-avdrag direkt</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
+              </li>
+              <li className="flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 text-foreground shadow-sm border border-white/60">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span>Alltid samma personal</span>
-              </div>
-            </motion.div>
+              </li>
+            </motion.ul>
 
           </div>
         </div>
