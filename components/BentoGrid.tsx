@@ -69,15 +69,7 @@ export function BentoGrid() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute bottom-6 left-6 right-6">
-                        <div className="bg-white/90 backdrop-blur-sm p-4 rounded-2xl border border-white/50 shadow-sm flex items-center justify-between">
-                            <div>
-                                <p className="text-sm font-bold text-stone-900">Tanja Milic</p>
-                                <p className="text-[10px] uppercase tracking-wider text-stone-500 font-medium">Expertstädare</p>
-                            </div>
-                            <div className="w-8 h-8 rounded-full bg-stone-900 flex items-center justify-center text-white text-xs">TM</div>
-                        </div>
-                    </div>
+
                 </BentoItem>
 
                 {/* 3. Green Value Card (Top Right - Small) */}
