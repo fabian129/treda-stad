@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -75,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang="sv" className={dmSans.variable}>
       <body className="antialiased font-sans flex flex-col min-h-screen overflow-x-hidden">
+        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
         <StructuredData />
         <SmoothScroll>
           {children}
@@ -85,4 +87,3 @@ export default function RootLayout({
     </html>
   );
 }
-

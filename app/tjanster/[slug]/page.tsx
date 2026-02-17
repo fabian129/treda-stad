@@ -46,7 +46,7 @@ export default function ServicePage({ params }: PageProps) {
 
             <main>
                 {/* HERO SECTION - The "Underpage" Layout */}
-                <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden flex items-center">
+                <section className="relative h-[90vh] min-h-[500px] md:min-h-[700px] w-full overflow-hidden flex items-center">
 
                     {/* Background Image */}
                     <div className="absolute inset-0 z-0">
@@ -62,47 +62,47 @@ export default function ServicePage({ params }: PageProps) {
                         <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/60 to-black/20" />
                     </div>
 
-                    <div className="container mx-auto px-6 relative z-10 h-full flex flex-col justify-center">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                    <div className="container mx-auto px-4 md:px-6 relative z-10 h-full flex flex-col justify-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
 
                             {/* Left: Content */}
-                            <div className="text-white space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
+                            <div className="text-white space-y-6 md:space-y-8 animate-in fade-in slide-in-from-left-8 duration-700 pt-20 md:pt-0">
                                 <div>
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-xs font-medium uppercase tracking-wider mb-6 text-primary-foreground/90">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-xs font-medium uppercase tracking-wider mb-4 md:mb-6 text-primary-foreground/90">
                                         <Sparkles className="w-3 h-3 text-primary" /> Tjänst
                                     </div>
-                                    <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+                                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 leading-[1.1]">
                                         {service.title}
                                     </h1>
-                                    <p className="text-stone-300 text-lg lg:text-xl leading-relaxed max-w-lg mb-8">
+                                    <p className="text-stone-300 text-base md:text-lg lg:text-xl leading-relaxed max-w-lg mb-6 md:mb-8">
                                         {service.description}
                                     </p>
                                 </div>
 
-                                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                    <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20" asChild>
-                                        <Link href="/kontakt">
+                                <div className="flex flex-col sm:flex-row gap-4 pt-2 md:pt-4">
+                                    <Button size="lg" className="h-12 md:h-14 px-8 text-base md:text-lg rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 w-full sm:w-auto" asChild>
+                                        <Link href={`/kontakt?service=${service.id}`}>
                                             Få offert
                                         </Link>
                                     </Button>
                                     <Button
                                         variant="outline"
                                         size="lg"
-                                        className="h-14 px-8 text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm"
+                                        className="h-12 md:h-14 px-8 text-base md:text-lg rounded-full bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm w-full sm:w-auto"
                                         onClick={() => sectionRef.current?.scrollIntoView({ behavior: "smooth" })}
                                     >
                                         Läs mer
                                     </Button>
                                 </div>
 
-                                <div className="flex flex-wrap gap-3 pt-2">
+                                <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
                                     {[
                                         "Alltid samma personal",
                                         "Nöjd-Kund-Garanti",
                                         "Ansvarsförsäkring"
                                     ].map((badge, i) => (
-                                        <div key={i} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-sm font-medium text-stone-100">
-                                            <CheckCircle className="w-4 h-4 text-primary" />
+                                        <div key={i} className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-xs md:text-sm font-medium text-stone-100">
+                                            <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                                             {badge}
                                         </div>
                                     ))}
@@ -156,7 +156,7 @@ export default function ServicePage({ params }: PageProps) {
                 </section>
 
                 {/* INFO GRID SECTION */}
-                <section ref={sectionRef} className="py-32 px-6 bg-stone-50 min-h-[80vh] flex items-center relative overflow-hidden">
+                <section ref={sectionRef} className="py-20 md:py-32 px-4 md:px-6 bg-stone-50 min-h-[80vh] flex items-center relative overflow-hidden">
                     {/* Background Atmosphere */}
                     <GridPattern
                         width={60}
@@ -190,7 +190,7 @@ export default function ServicePage({ params }: PageProps) {
                             />
                             Varför Treda
                         </motion.div>
-                        <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-12">
+                        <h2 className="text-3xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-8 md:mb-12">
                             Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()} i Malmö?
                         </h2>
 
@@ -200,7 +200,7 @@ export default function ServicePage({ params }: PageProps) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2, duration: 0.8 }}
-                            className="space-y-10 pl-8 md:pl-12 relative"
+                            className="space-y-8 md:space-y-10 pl-6 md:pl-12 relative"
                         >
                             {/* Static Background Line */}
                             <div className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary/20" />
@@ -210,22 +210,22 @@ export default function ServicePage({ params }: PageProps) {
                                 style={{ scaleY }}
                                 className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary origin-top will-change-transform transform-gpu"
                             />
-                            <p className="text-xl text-secondary leading-relaxed max-w-2xl">
+                            <p className="text-lg md:text-xl text-secondary leading-relaxed max-w-2xl">
                                 Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {service.title.toLowerCase()} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
                             </p>
 
                             {(service as any).longDescription && (
-                                <p className="text-xl text-secondary leading-relaxed max-w-2xl">
+                                <p className="text-lg md:text-xl text-secondary leading-relaxed max-w-2xl">
                                     {(service as any).longDescription}
                                 </p>
                             )}
                         </motion.div>
 
                         {/* Grid - Image Focused (Compact version) */}
-                        <div className="grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-4 mt-16">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_2fr_1fr] gap-4 mt-12 md:mt-16">
 
                             {/* Image Card 1: Clean Image */}
-                            <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
+                            <div className="group relative h-[200px] md:h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
                                     src="/images/closeup-unrecognizable-person-cleaning-door-handle.webp"
                                     alt="Mer tid för livet"
@@ -236,7 +236,7 @@ export default function ServicePage({ params }: PageProps) {
                             </div>
 
                             {/* Image Card 2: Clean Image */}
-                            <div className="group relative h-[220px] rounded-2xl overflow-hidden cursor-pointer">
+                            <div className="group relative h-[200px] md:h-[220px] rounded-2xl overflow-hidden cursor-pointer">
                                 <Image
                                     src="/images/housemaid-opening-door-room-cleaning.webp"
                                     alt="Professionell städning"
@@ -247,7 +247,7 @@ export default function ServicePage({ params }: PageProps) {
                             </div>
 
                             {/* Card 3: CTA Section (Minimal Style) */}
-                            <Link href="/kontakt" className="relative h-[220px] rounded-2xl bg-primary overflow-hidden flex flex-col justify-center items-center text-center p-5 group cursor-pointer transition-colors hover:bg-primary/90">
+                            <Link href="/kontakt" className="relative h-[120px] md:h-[220px] md:col-span-1 col-span-2 rounded-2xl bg-primary overflow-hidden flex flex-col justify-center items-center text-center p-5 group cursor-pointer transition-colors hover:bg-primary/90">
 
                                 <div className="flex flex-col items-center gap-4">
                                     <h3 className="text-xl font-bold text-white tracking-wide whitespace-nowrap">
@@ -264,14 +264,37 @@ export default function ServicePage({ params }: PageProps) {
                     </div>
                 </section >
 
-                <section className="py-20 bg-white">
+                <section className="py-16 md:py-24 bg-stone-100/50">
+                    <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+                        <div className="text-center mb-10 md:mb-16">
+                            <h2 className="text-2xl md:text-4xl font-bold text-stone-900 mb-4">Vanliga frågor</h2>
+                            <p className="text-stone-500 text-sm md:text-base">Här har vi samlat svaren på de vanligaste frågorna om {(service as any).shortTitle || service.title.toLowerCase()}.</p>
+                        </div>
+
+                        <div className="grid gap-4 md:gap-6">
+                            {(service as any).faq?.map((item: any, i: number) => (
+                                <div key={i} className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-stone-100 transition-all hover:shadow-md">
+                                    <h3 className="text-base md:text-lg font-bold text-stone-900 mb-2 md:mb-3 flex items-start gap-3">
+                                        <div className="bg-primary/10 text-primary w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs md:text-sm">?</div>
+                                        {item.question}
+                                    </h3>
+                                    <p className="text-sm md:text-base text-stone-600 leading-relaxed pl-9">
+                                        {item.answer}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-16 md:py-20 bg-white">
                     <div className="max-w-6xl mx-auto px-4 mb-2">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-stone-900 leading-[1.1]">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight text-stone-900 leading-[1.1]">
                             En enkel process för<br />
                             <span className="text-primary">en renare vardag.</span>
                         </h2>
                     </div>
-                    <InteractiveTimeline />
+                    <InteractiveTimeline serviceId={service.id} steps={(service as any).process} />
                 </section>
             </main >
         </div >

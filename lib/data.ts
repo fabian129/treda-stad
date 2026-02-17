@@ -17,6 +17,38 @@ export const services = [
             "Tydlig checklista och enkel bokning",
             "Möjlighet till tillägg (ugn, fönsterputs m.m.)"
         ],
+        faq: [
+            {
+                question: "Måste jag vara hemma när ni städar?",
+                answer: "Nej, de flesta av våra kunder lämnar en nyckel så att vi kan städa när ni är på jobbet. Vi har säkra rutiner för nyckelhantering."
+            },
+            {
+                question: "Vad ingår i en vanlig hemstädning?",
+                answer: "Vi dammsuger och svabbar golv, dammtorkar fria ytor, rengör kök (bänkar, spis, diskho) och badrum (toalett, dusch, handfat) samt torkar lister och dörrar."
+            },
+            {
+                question: "Har jag alltid samma personal?",
+                answer: "Ja, vi strävar alltid efter att du ska ha samma städare varje gång för trygghet och kvalitet."
+            }
+        ],
+        process: [
+            {
+                title: "Boka enkelt",
+                description: "Kontakta oss för att boka ett kostnadsfritt hembesök eller direkt uppstart."
+            },
+            {
+                title: "Vi lär känna ditt hem",
+                description: "Vi går igenom dina önskemål och matchar dig med rätt personal."
+            },
+            {
+                title: "Städningen utförs",
+                description: "Samma städare kommer på avtalad tid och gör ditt hem skinande rent."
+            },
+            {
+                title: "Njut av friheten",
+                description: "Kom hem till doften av nystädat och få tid över till annat."
+            }
+        ],
         icon: Sparkles
     },
     {
@@ -34,6 +66,38 @@ export const services = [
             "Fönsterputs",
             "Invändigt vitvaror",
             "Fokus på kök & badrum"
+        ],
+        faq: [
+            {
+                question: "Vad är skillnaden på hemstäd och storstäd?",
+                answer: "Storstädning är mer omfattande och inkluderar moment som torkning av väggar, rengöring bakom vitvaror, invändig ugnsrengöring och ofta fönsterputs."
+            },
+            {
+                question: "Ingår fönsterputs?",
+                answer: "Ja, i våra storstädningar ingår normalt fönsterputsning, men det går att välja bort om så önskas."
+            },
+            {
+                question: "Hur lång tid tar en storstädning?",
+                answer: "Det beror på hemmets storlek, men räkna med cirka 4–8 timmar för ett normalstort hem."
+            }
+        ],
+        process: [
+            {
+                title: "Få offert",
+                description: "Beskriv ditt hem och behov så får du ett fast pris direkt."
+            },
+            {
+                title: "Vi bokar in",
+                description: "Vi hittar en dag som passar dig för den stora genomgången."
+            },
+            {
+                title: "Djuprengöring",
+                description: "Vi städar allt från golv till tak, bakom spisar och inuti skåp."
+            },
+            {
+                title: "Besiktning",
+                description: "Vi går igenom resultatet tillsammans för att säkerställa att allt är perfekt."
+            }
         ],
         icon: Star
     },
@@ -53,6 +117,38 @@ export const services = [
             "Enkelt upplägg (offert → städning → klart)",
             "Trygghetsgaranti mot hyresvärd/köpare"
         ],
+        faq: [
+            {
+                question: "Lämnar ni garanti på flyttstädningen?",
+                answer: "Ja, vi lämnar alltid garanti. Skulle hyresvärden eller den nya ägaren ha anmärkningar åtgärdar vi det kostnadsfritt."
+            },
+            {
+                question: "Måste jag ha städmaterial hemma?",
+                answer: "Nej, vid flyttstädning har vi med oss allt material och utrustning som krävs."
+            },
+            {
+                question: "Ingår biytor som balkong och förråd?",
+                answer: "Det ingår normalt inte i grundpriset men kan enkelt läggas till som tillval. Säg bara till vid bokning!"
+            }
+        ],
+        process: [
+            {
+                title: "Boka & Planera",
+                description: "Boka in datumet för flytten. Vi säkrar upp personal och material."
+            },
+            {
+                title: "Nyckelöverlämning",
+                description: "Vi stämmer av hur vi får tillgång till bostaden (nyckel eller kod)."
+            },
+            {
+                title: "Totalstädning",
+                description: "Vi följer mäklarsamfundets riktlinjer för en godkänd flyttstädning."
+            },
+            {
+                title: "Garanti & Klart",
+                description: "Nöjd-kund-garanti ingår. Vi hanterar ev. synpunkter från ny ägare."
+            }
+        ],
         icon: Clock
     },
     {
@@ -69,6 +165,34 @@ export const services = [
             "Rengöring av kök & badrum",
             "Golvrengöring efter behov",
             "Borttagning av byggrester"
+        ],
+        faq: [
+            {
+                question: "Hur snabbt kan ni komma?",
+                answer: "Vi försöker vara så flexibla som möjligt. Kontakta oss så ser vi över schemat."
+            },
+            {
+                question: "Ingår bortforsling av grovsopor?",
+                answer: "Vi fokuserar på städning och dammsanering. Bortforsling av större byggskräp behöver bokas separat eller hanteras av byggfirman."
+            }
+        ],
+        process: [
+            {
+                title: "Besiktning",
+                description: "Vi tittar på projektet för att bedöma omfattning och behov."
+            },
+            {
+                title: "Offert & Plan",
+                description: "Du får ett pris och en tidsplan som matchar ditt byggprojekt."
+            },
+            {
+                title: "Grov & Finstäd",
+                description: "Vi tar hand om allt byggdamm, färgstänk och rester."
+            },
+            {
+                title: "Inflyttningsklart",
+                description: "Ytorna lämnas helt rena och redo för inredning eller inflytt."
+            }
         ],
         icon: Star
     },
@@ -87,6 +211,34 @@ export const services = [
             "Tömning av avfall",
             "Kvalitetsuppföljning"
         ],
+        faq: [
+            {
+                question: "Binder vi upp oss på långa avtal?",
+                answer: "Vi tror på nöjda kunder, inte inlåsta kunder. Vi har schyssta villkor och rimliga uppsägningstider."
+            },
+            {
+                question: "Kan ni sköta inköp av förbrukningsvaror?",
+                answer: "Absolut! Vi kan se till att toalettpapper, tvål och handdukar alltid finns på plats."
+            }
+        ],
+        process: [
+            {
+                title: "Behovsanalys",
+                description: "Vi besöker ert kontor och går igenom era specifika önskemål."
+            },
+            {
+                title: "Skräddarsytt avtal",
+                description: "Vi sätter upp ett schema och en frekvens som passar er verksamhet."
+            },
+            {
+                title: "Regelbunden service",
+                description: "Vår personal sköter städningen diskret och professionellt."
+            },
+            {
+                title: "Uppföljning",
+                description: "Vi har löpande kontakt för att säkerställa att ni är nöjda."
+            }
+        ],
         icon: Star
     },
     {
@@ -104,6 +256,34 @@ export const services = [
             "Resultat utan ränder",
             "Kombinera med hemstäd",
             "Vi sköter RUT-ansökan"
+        ],
+        faq: [
+            {
+                question: "Putsar ni på hög höjd?",
+                answer: "Vi klarar de flesta villor och lägenheter med stege och stång. Vid mycket höga höjder behöver vi informeras innan."
+            },
+            {
+                question: "Vad händer om det regnar?",
+                answer: "Lite regn hindrar inte putsningen, fönstren blir rena ändå. Vid kraftigt oväder bokar vi givetvis om tiden."
+            }
+        ],
+        process: [
+            {
+                title: "Prisförslag",
+                description: "Berätta hur många fönster du har så får du ett pris direkt."
+            },
+            {
+                title: "Tidsbokning",
+                description: "Vi hittar en tid som passar. Du behöver inte vara hemma om vi kommer åt utifrån."
+            },
+            {
+                title: "Professionell puts",
+                description: "Vi putsar och rengör karmar (om valt) för ett skinande resultat."
+            },
+            {
+                title: "Klart!",
+                description: "Njut av ljusinsläppet och rena fönster utan ränder."
+            }
         ],
         icon: Star
     }
