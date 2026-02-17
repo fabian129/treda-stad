@@ -51,9 +51,23 @@ const timelineData: TimelineItem[] = [
     },
 ];
 
-export function InteractiveTimeline() {
-    const [activeId, setActiveId] = useState(timelineData[0].id);
-    const activeIndex = timelineData.findIndex((item) => item.id === activeId);
+export function InteractiveTimeline({ serviceId, steps }: { serviceId?: string; steps?: { title: string; description: string }[] }) {
+    // Merge default data with custom steps if provided
+    const items = timelineData.map((item, index) => {
+        if (steps && steps[index]) {
+            return {
+                ...item,
+                title: steps[index].title,
+                description: steps[index].description
+            };
+        }
+        return item;
+    });
+
+    const [activeId, setActiveId] = useState(items[0].id);
+    const activeIndex = items.findIndex((item) => item.id === activeId);
+
+    const contactHref = serviceId ? `/kontakt?service=${serviceId}` : "/kontakt";
 
     return (
         <div className="w-full max-w-6xl mx-auto py-16 px-4">
@@ -90,7 +104,7 @@ export function InteractiveTimeline() {
 
                 {/* Nodes Layer */}
                 <div className="relative z-10 flex justify-between items-start lg:px-20">
-                    {timelineData.map((item, index) => {
+                    {items.map((item, index) => {
                         const isActive = activeId === item.id;
 
                         return (
@@ -144,7 +158,7 @@ export function InteractiveTimeline() {
             {/* 3D Carousel Area - Compact version */}
             <div className="relative h-[500px] w-full flex justify-center items-center perspective-[1200px] overflow-hidden">
                 <AnimatePresence initial={false}>
-                    {timelineData.map((item, index) => {
+                    {items.map((item, index) => {
                         const distance = index - activeIndex;
                         const isActive = distance === 0;
 
@@ -211,7 +225,7 @@ export function InteractiveTimeline() {
 
                                             {/* Button */}
                                             {isActive ? (
-                                                <Link href="/kontakt" className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-full px-5 py-2 text-sm font-medium transition-colors">
+                                                <Link href={contactHref} className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-full px-5 py-2 text-sm font-medium transition-colors">
                                                     Få Offert <ArrowRight className="w-4 h-4" />
                                                 </Link>
                                             ) : (
