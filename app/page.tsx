@@ -144,18 +144,18 @@ export default function Home() {
         <div className="mx-auto max-w-[1000px] text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 text-white">
             Mer tid för det <br />
-            <span className="text-primary">du älskar.</span>
+            <span className="text-[#50C878]">du älskar.</span>
           </h2>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8 md:mb-12">
             Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
           </p>
 
-          <div className="p-10 bg-white/[0.03] backdrop-blur-md rounded-[40px] shadow-2xl border border-white/10 inline-block hover:bg-white/[0.06] transition-colors group">
+          <div className="p-10 bg-[#50C878] backdrop-blur-md rounded-[40px] shadow-2xl border border-white/10 inline-block hover:bg-[#50C878]/90 transition-colors group">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="text-left">
-                <h4 className="text-2xl font-bold mb-2 text-white">Boka din städning idag</h4>
+                <h4 className="text-2xl font-bold mb-2 text-stone-900">Boka din städning idag</h4>
               </div>
-              <Link href="/kontakt" className="h-14 px-8 rounded-full border border-white/20 flex items-center gap-2 group-hover:bg-primary group-hover:border-primary group-hover:text-stone-900 transition-all text-lg font-bold tracking-wide text-white">
+              <Link href="/kontakt" className="h-14 px-8 rounded-full border border-stone-900/20 flex items-center gap-2 group-hover:bg-stone-900 group-hover:border-stone-900 group-hover:text-white transition-all text-lg font-bold tracking-wide text-stone-900">
                 <span>Boka Nu</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
