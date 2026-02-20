@@ -48,7 +48,7 @@ export default function LocationPage({ params }: PageProps) {
                 <div className="mx-auto max-w-[1000px] text-center relative z-10">
                     <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
                         Mer tid för det <br />
-                        <span className="text-primary">du älskar.</span>
+                        <span className="text-[#50C878]">du älskar.</span>
                     </h2>
                     <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
                         Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
