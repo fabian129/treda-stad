@@ -92,6 +92,12 @@ export function Navbar() {
                         Företag
                     </Link>
                     <Link
+                        href="/jobba-hos-oss"
+                        className={cn("transition-colors hover:text-primary", isActive("/jobba-hos-oss") ? "text-primary font-semibold" : "")}
+                    >
+                        Jobba hos oss
+                    </Link>
+                    <Link
                         href="/om-oss"
                         className={cn("transition-colors hover:text-primary", isActive("/om-oss") ? "text-primary font-semibold" : "")}
                     >
@@ -157,6 +163,10 @@ export function Navbar() {
 
                             <Link href="/foretag" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/foretag") && "text-primary font-bold")}>
                                 Företag
+                            </Link>
+
+                            <Link href="/jobba-hos-oss" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/jobba-hos-oss") && "text-primary font-bold")}>
+                                Jobba hos oss
                             </Link>
 
                             <Link href="/om-oss" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/om-oss") && "text-primary font-bold")}>
