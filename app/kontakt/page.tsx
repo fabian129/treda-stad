@@ -14,6 +14,12 @@ function ContactForm() {
 
     const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
     const [selectedService, setSelectedService] = useState("Hemstädning");
+    const [details, setDetails] = useState<Record<string, any>>({});
+    const [serviceKvm, setServiceKvm] = useState("");
+
+    const setDetail = (key: string, value: any) => {
+        setDetails((prev) => ({ ...prev, [key]: value }));
+    };
 
     // Pre-select service based on URL param
     useEffect(() => {
@@ -40,17 +46,38 @@ function ContactForm() {
 
         setFormState("submitting");
 
+        const payload = {
+            contact: {
+                fornamn: data.firstName,
+                efternamn: data.lastName,
+                email: data.email,
+                telefonnummer: data.phone,
+                adress: data.address,
+                postnummer: data.zipCode,
+                ort: data.city,
+            },
+            service: {
+                typ: selectedService,
+                kvadratmeter: serviceKvm,
+            },
+            details, // includes dynamic fields like typFonster, antalFonster
+            meddelande: data.message,
+        };
+
         try {
-            const res = await fetch("/api/contact", {
+            const res = await fetch("/api/forfragan", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                body: JSON.stringify(payload),
             });
 
             if (!res.ok) throw new Error("Failed");
 
             setFormState("success");
             window.scrollTo({ top: 0, behavior: "smooth" });
+            // Optional: Reset form state
+            // setDetails({});
+            // setServiceKvm("");
         } catch (err) {
             console.error(err);
             setFormState("error");
@@ -151,7 +178,7 @@ function ContactForm() {
                     <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
                         <label className="text-sm font-semibold text-stone-700">Antal kvadratmeter (kvm)</label>
                         <div className="relative">
-                            <input name="sqm" type="number" min="0" className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="t.ex. 85" />
+                            <input name="sqm" type="number" min="0" value={serviceKvm} onChange={(e) => setServiceKvm(e.target.value)} className="w-full h-14 px-5 rounded-2xl bg-stone-50 border border-stone-100 text-stone-900 placeholder:text-stone-400 focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all" placeholder="t.ex. 85" />
                             <span className="absolute right-4 top-3 text-secondary/50 font-medium">m²</span>
                         </div>
                     </div>
@@ -163,11 +190,11 @@ function ContactForm() {
                         <label className="text-sm font-medium text-secondary">Typ av fönster</label>
                         <div className="grid grid-cols-2 gap-4">
                             <label className="flex items-center gap-3 p-4 rounded-xl border border-input cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all">
-                                <input type="radio" name="windowType" value="2-sidiga" className="w-4 h-4 text-primary focus:ring-primary" />
+                                <input type="radio" name="typFonster" value="2-sidiga" checked={details.typFonster === "2-sidiga"} onChange={() => setDetail("typFonster", "2-sidiga")} className="w-4 h-4 text-primary focus:ring-primary" />
                                 <span className="text-sm font-medium">2-sidiga</span>
                             </label>
                             <label className="flex items-center gap-3 p-4 rounded-xl border border-input cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all">
-                                <input type="radio" name="windowType" value="4-sidiga" className="w-4 h-4 text-primary focus:ring-primary" />
+                                <input type="radio" name="typFonster" value="4-sidiga" checked={details.typFonster === "4-sidiga"} onChange={() => setDetail("typFonster", "4-sidiga")} className="w-4 h-4 text-primary focus:ring-primary" />
                                 <span className="text-sm font-medium">4-sidiga</span>
                             </label>
                         </div>
@@ -178,7 +205,7 @@ function ContactForm() {
                 (selectedService === 'Fönsterputs' || selectedService === 'Flyttstädning') && (
                     <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
                         <label className="text-sm font-medium text-secondary">Antal fönster (cirka)</label>
-                        <input name="windowsCount" type="number" min="1" className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="t.ex. 10" />
+                        <input name="antalFonster" type="number" min="1" value={details.antalFonster ?? ""} onChange={(e) => setDetail("antalFonster", e.target.value)} className="w-full h-12 px-4 rounded-xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" placeholder="t.ex. 10" />
                     </div>
                 )}
 

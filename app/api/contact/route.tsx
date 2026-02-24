@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { resend } from "@/lib/resend";
 import { EmailTemplate } from "@/components/email-template";
 
 export async function POST(req: Request) {
@@ -19,8 +19,6 @@ export async function POST(req: Request) {
             windowsCount,
             message
         } = body;
-
-        const resend = new Resend(process.env.RESEND_API_KEY);
 
         const { data, error } = await resend.emails.send({
             from: "kontakt@send.treda.se",

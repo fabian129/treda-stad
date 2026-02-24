@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post Preview - Treda Städ</title>
+    <style>
+        body {
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .phone-frame {
+            background: white;
+            width: 375px;
+            height: 812px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 12px solid #333;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Notch */
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 24px;
+            background: #333;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            z-index: 10;
+        }
+
+        .status-bar {
+            height: 44px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 600;
+            padding-top: 10px;
+            /* Space for notch */
+        }
+
+        .app-header {
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #dbdbdb;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Post */
+        .post {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 14px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #dbdbdb;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .username {
+            font-weight: 600;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .more-options {
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .post-image-container {
+            width: 100%;
+            aspect-ratio: 4/5;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+            background: linear-gradient(160deg, #f5f0e8 0%, #ede8dc 60%, #d9d3c5 100%);
+        }
+
+        /* === CSS ROOM SCENE === */
+
+        /* Sunlight ray from top-left */
+        .room-sunlight {
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(ellipse at top left, rgba(255, 230, 160, 0.55) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Window */
+        .room-window {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 90px;
+            background: linear-gradient(180deg, #d4eaf7 0%, #f0f8ff 100%);
+            border: 3px solid #c8bfb0;
+            border-radius: 4px;
+            box-shadow: inset 0 0 18px rgba(200, 230, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        .room-window::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #c8bfb0;
+        }
+
+        .room-window::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #c8bfb0;
+        }
+
+        /* Wall */
+        .room-wall {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 68%;
+            background: linear-gradient(180deg, #f0ece3 0%, #e8e2d5 100%);
+        }
+
+        /* Floor */
+        .room-floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: repeating-linear-gradient(90deg,
+                    #c4a97a 0px, #c4a97a 28px,
+                    #b89868 28px, #b89868 30px,
+                    #c9ae82 30px, #c9ae82 58px,
+                    #b89868 58px, #b89868 60px);
+            opacity: 0.85;
+        }
+
+        /* Baseboard */
+        .room-baseboard {
+            position: absolute;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: #d4cfc4;
+        }
+
+        /* Sofa */
+        .room-sofa {
+            position: absolute;
+            bottom: 36%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+        }
+
+        .sofa-body {
+            background: #e8e2d5;
+            border-radius: 16px 16px 4px 4px;
+            height: 52px;
+            border: 2px solid #cec8bc;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .sofa-back {
+            background: #ddd7ca;
+            border-radius: 12px 12px 0 0;
+            height: 30px;
+            border: 2px solid #cec8bc;
+            border-bottom: none;
+            margin: 0 6px;
+            position: relative;
+            bottom: -2px;
+        }
+
+        .sofa-cushion {
+            position: absolute;
+            top: 8px;
+            width: 48%;
+            height: 30px;
+            border-radius: 10px;
+            background: #f0ece3;
+            border: 1px solid #d5d0c4;
+        }
+
+        .sofa-cushion.left {
+            left: 6%;
+        }
+
+        .sofa-cushion.right {
+            right: 6%;
+        }
+
+        .sofa-leg {
+            position: absolute;
+            bottom: -10px;
+            width: 14px;
+            height: 10px;
+            background: #b8a98a;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .sofa-leg.left {
+            left: 16px;
+        }
+
+        .sofa-leg.right {
+            right: 16px;
+        }
+
+        /* Coffee table */
+        .room-table {
+            position: absolute;
+            bottom: 23%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 14px;
+            background: #a8865a;
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        .room-table::after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            height: 20px;
+            background: #96784e;
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* Vase with flowers on table */
+        .room-vase {
+            position: absolute;
+            bottom: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .vase-body {
+            width: 16px;
+            height: 22px;
+            background: #e8e2d5;
+            border-radius: 4px 4px 6px 6px;
+            border: 1.5px solid #cec8bc;
+            margin: 0 auto;
+        }
+
+        .vase-flower {
+            position: absolute;
+            bottom: 18px;
+        }
+
+        .flower-stem {
+            width: 2px;
+            background: #22c55e;
+            margin: 0 auto;
+        }
+
+        .flower-head {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        /* Large plant left */
+        .room-plant-left {
+            position: absolute;
+            bottom: 38%;
+            left: 6%;
+        }
+
+        .plant-pot {
+            width: 28px;
+            height: 22px;
+            background: #a8865a;
+            border-radius: 2px 2px 6px 6px;
+            border: 1.5px solid #96784e;
+            margin: 0 auto;
+        }
+
+        .plant-leaves {
+            position: relative;
+            bottom: 2px;
+        }
+
+        .leaf {
+            position: absolute;
+            border-radius: 50% 0 50% 0;
+            background: #22c55e;
+            opacity: 0.9;
+        }
+
+        /* Plant right */
+        .room-plant-right {
+            position: absolute;
+            bottom: 38%;
+            right: 8%;
+        }
+
+        /* Decorative picture on wall */
+        .room-picture {
+            position: absolute;
+            top: 22%;
+            left: 10%;
+            width: 44px;
+            height: 36px;
+            background: #f0f5ee;
+            border: 2px solid #c8bfb0;
+            border-radius: 2px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .room-picture-inner {
+            width: 28px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #22c55e 30%, #16a34a 100%);
+            opacity: 0.7;
+        }
+
+        /* Shelf / lamp on right wall */
+        .room-lamp {
+            position: absolute;
+            top: 20%;
+            right: 8%;
+        }
+
+        .lamp-stand {
+            width: 3px;
+            height: 40px;
+            background: #b8a98a;
+            margin: 0 auto;
+        }
+
+        .lamp-shade {
+            width: 28px;
+            height: 18px;
+            background: linear-gradient(180deg, #f5f0e0, #e8d8b0);
+            border-radius: 4px 4px 12px 12px;
+            border: 1.5px solid #cec8bc;
+            margin: 0 auto;
+            box-shadow: 0 4px 14px rgba(255, 220, 100, 0.35);
+        }
+
+        .lamp-base {
+            width: 16px;
+            height: 6px;
+            background: #b8a98a;
+            border-radius: 3px;
+            margin: 0 auto;
+        }
+
+        /* Green accent pill (brand tag) */
+        .room-brand-tag {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #15803d;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 99px;
+            white-space: nowrap;
+        }
+
+        .action-bar {
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions-left {
+            display: flex;
+            gap: 16px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Simulate icons with simple shapes/svgs */
+        .heart::before {
+            content: '♡';
+            font-size: 24px;
+        }
+
+        .comment::before {
+            content: '💬';
+            font-size: 20px;
+        }
+
+        .share::before {
+            content: '➤';
+            font-size: 20px;
+            transform: rotate(-45deg);
+            display: inline-block;
+        }
+
+        .bookmark::before {
+            content: '☖';
+            font-size: 24px;
+        }
+
+        .likes {
+            padding: 0 14px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .caption-section {
+            padding: 0 14px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .caption-username {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .caption-text {
+            white-space: pre-wrap;
+            /* Keeps line breaks */
+        }
+
+        .more-link {
+            color: #8e8e8e;
+            cursor: pointer;
+        }
+
+        .timestamp {
+            padding: 10px 14px;
+            font-size: 10px;
+            color: #8e8e8e;
+            text-transform: uppercase;
+        }
+
+        .tab-bar {
+            height: 48px;
+            border-top: 1px solid #dbdbdb;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: 20px;
+            /* Home bar area */
+        }
+
+        .tab-icon {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="phone-frame">
+        <div class="notch"></div>
+
+        <div class="status-bar">
+            <span>12:45</span>
+            <span>Items 5G 🔋</span>
+        </div>
+
+        <div class="app-header">
+            Posts
+        </div>
+
+        <div class="post">
+            <!-- Header -->
+            <div class="post-header">
+                <div class="avatar">
+                    <img src="Treda logo black.svg" alt="Treda Logo"
+                        onerror="this.src='https://placehold.co/32x32?text=T'">
+                </div>
+                <div class="username">treda.stad</div>
+                <div class="more-options">...</div>
+            </div>
+
+            <!-- Image Area: CSS Scandinavian Room Scene -->
+            <div class="post-image-container">
+                <div class="room-sunlight"></div>
+                <div class="room-wall"></div>
+                <div class="room-floor"></div>
+                <div class="room-baseboard"></div>
+                <div class="room-window"></div>
+
+                <!-- Wall art -->
+                <div class="room-picture">
+                    <div class="room-picture-inner"></div>
+                </div>
+
+                <!-- Floor lamp -->
+                <div class="room-lamp">
+                    <div class="lamp-shade"></div>
+                    <div class="lamp-stand"></div>
+                    <div class="lamp-base"></div>
+                </div>
+
+                <!-- Left plant -->
+                <div class="room-plant-left">
+                    <div class="plant-leaves" style="height:50px; width:30px;">
+                        <div class="leaf" style="width:28px;height:18px;left:-10px;top:6px;transform:rotate(-30deg);">
+                        </div>
+                        <div class="leaf" style="width:28px;height:18px;left:8px;top:0;transform:rotate(20deg);"></div>
+                        <div class="leaf" style="width:22px;height:14px;left:0;top:20px;transform:rotate(-50deg);">
+                        </div>
+                    </div>
+                    <div class="plant-pot"></div>
+                </div>
+
+                <!-- Right plant -->
+                <div class="room-plant-right">
+                    <div class="plant-leaves" style="height:44px; width:28px;">
+                        <div class="leaf"
+                            style="width:24px;height:16px;left:-8px;top:4px;transform:rotate(-25deg);background:#16a34a;">
+                        </div>
+                        <div class="leaf"
+                            style="width:24px;height:16px;left:6px;top:2px;transform:rotate(15deg);background:#22c55e;">
+                        </div>
+                        <div class="leaf"
+                            style="width:18px;height:12px;left:2px;top:18px;transform:rotate(-40deg);background:#15803d;">
+                        </div>
+                    </div>
+                    <div class="plant-pot"></div>
+                </div>
+
+                <!-- Sofa -->
+                <div class="room-sofa">
+                    <div class="sofa-back"></div>
+                    <div class="sofa-body">
+                        <div class="sofa-cushion left"></div>
+                        <div class="sofa-cushion right"></div>
+                        <div class="sofa-leg left"></div>
+                        <div class="sofa-leg right"></div>
+                    </div>
+                </div>
+
+                <!-- Coffee table -->
+                <div class="room-table"></div>
+
+                <!-- Vase with flowers -->
+                <div class="room-vase">
+                    <div class="vase-flower" style="left:-8px;">
+                        <div class="flower-head" style="background:#f97316; width:8px; height:8px;"></div>
+                        <div class="flower-stem" style="height:18px;"></div>
+                    </div>
+                    <div class="vase-flower" style="left:2px;">
+                        <div class="flower-head" style="background:#fbbf24; width:9px; height:9px;"></div>
+                        <div class="flower-stem" style="height:22px;"></div>
+                    </div>
+                    <div class="vase-flower" style="left:11px;">
+                        <div class="flower-head" style="background:#fb923c; width:7px; height:7px;"></div>
+                        <div class="flower-stem" style="height:16px;"></div>
+                    </div>
+                    <div class="vase-body"></div>
+                </div>
+
+                <!-- Brand tag -->
+                <div class="room-brand-tag">✦ Rent hem, utan stress ✦</div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-bar">
+                <div class="actions-left">
+                    <span class="icon heart"></span>
+                    <span class="icon comment"></span>
+                    <span class="icon share"></span>
+                </div>
+                <span class="icon bookmark"></span>
+            </div>
+
+            <!-- Likes -->
+            <div class="likes">142 likes</div>
+
+            <!-- Caption -->
+            <div class="caption-section">
+                <span class="caption-username">treda.stad</span>
+                <span class="caption-text">
+                    Känslan av att komma hem till ett nystädat hem... ✨
+
+                    Vi vet att livspusslet kan vara intensivt. Låt oss ta hand om städningen så att du får mer tid över
+                    till det du älskar. Alltid samma personal, trygga villkor och nöjd-kund-garanti.
+
+                    Boka din hemstädning via länken i bion.
+
+                    .
+                    .
+                    .
+                    #tredastad #hemstädning #malmö #lund #vardagslyx #livspussel #städhjälp</span>
+            </div>
+
+            <div class="timestamp">2 HOURS AGO</div>
+        </div>
+
+        <!-- Tab Bar -->
+        <div class="tab-bar">
+            <span class="tab-icon">🏠</span>
+            <span class="tab-icon">🔍</span>
+            <span class="tab-icon">➕</span>
+            <span class="tab-icon">❤️</span>
+            <div class="avatar" style="width: 24px; height: 24px;">
+                <img src="Treda logo black.svg" alt="Profile" onerror="this.src='https://placehold.co/24x24?text=T'">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
