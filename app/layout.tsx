@@ -12,11 +12,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://treda.se"),
   title: {
-    default: "Treda Städ - Professionell Städning i Malmö & Lund",
+    default: "Treda Städ - Professionell städning i Skåne",
     template: "%s | Treda Städ",
   },
   description: "Vi skapar rena och trivsamma miljöer för både privatpersoner och företag i Malmö, Lund och omnejd. Boka hemstädning, flyttstädning eller kontorsstädning idag.",
-  keywords: ["städning Malmö", "städfirma Malmö", "hemstädning", "flyttstädning", "kontorsstädning", "fönsterputs", "Lund", "Treda Städ"],
+  keywords: ["städning", "städfirma", "hemstädning", "flyttstädning", "kontorsstädning", "fönsterputs", "Treda Städ", "Malmö", "Lund", "Vellinge", "Lomma", "Staffanstorp", "Trelleborg", "Svedala", "Burlöv", "Kävlinge", "Höllviken", "Skanör", "Falsterbo", "Eslöv", "Landskrona", "Helsingborg", "Ystad", "Skåne", "städfirma Skåne"],
   authors: [{ name: "Treda Städ AB" }],
   creator: "Treda Städ AB",
   publisher: "Treda Städ AB",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Treda Städ - Professionell Städning i Malmö & Lund",
+    title: "Treda Städ - Professionell städning i Skåne",
     description: "Vi skapar rena och trivsamma miljöer för både privatpersoner och företag. Boka din städning idag.",
     url: "https://treda.se",
     siteName: "Treda Städ",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Treda Städ - Professionell Städning",
+    title: "Treda Städ - Professionell städning i Skåne",
     description: "Vi skapar rena och trivsamma miljöer i Malmö med omnejd.",
     images: ["/images/foretag/portrait-smiling-beautiful-girl-playing-with-dog-golden-retriever-sitting-floor.jpg"],
   },

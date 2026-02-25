@@ -39,7 +39,18 @@ export function StructuredData() {
                     { "@type": "City", "name": "Vellinge" },
                     { "@type": "City", "name": "Trelleborg" },
                     { "@type": "City", "name": "Staffanstorp" },
-                    { "@type": "City", "name": "Lomma" }
+                    { "@type": "City", "name": "Lomma" },
+                    { "@type": "City", "name": "Svedala" },
+                    { "@type": "City", "name": "Burlöv" },
+                    { "@type": "City", "name": "Kävlinge" },
+                    { "@type": "City", "name": "Höllviken" },
+                    { "@type": "City", "name": "Skanör" },
+                    { "@type": "City", "name": "Falsterbo" },
+                    { "@type": "City", "name": "Eslöv" },
+                    { "@type": "City", "name": "Landskrona" },
+                    { "@type": "City", "name": "Helsingborg" },
+                    { "@type": "City", "name": "Ystad" },
+                    { "@type": "Region", "name": "Skåne län" }
                 ],
                 "telephone": "070-123 45 67", // Needs verification
                 "email": "info@treda.se", // Needs verification
@@ -53,8 +64,9 @@ export function StructuredData() {
                     }
                 ],
                 "sameAs": [
-                    "https://www.facebook.com/tredastad",
-                    "https://www.instagram.com/tredastad"
+                    "https://www.facebook.com/profile.php?id=61588427983542&locale=sv_SE",
+                    "https://www.instagram.com/treda.stad/",
+                    "https://www.linkedin.com/in/treda-st%C3%A4d-1b617b3b3/"
                 ]
             },
             {
@@ -62,7 +74,7 @@ export function StructuredData() {
                 "@id": "https://treda.se/#website",
                 "url": "https://treda.se",
                 "name": "Treda Städ",
-                "description": "Professionell städning i Malmö & Lund",
+                "description": "Professionell städning i Skåne",
                 "publisher": { "@id": "https://treda.se/#organization" },
                 "inLanguage": "sv-SE"
             }

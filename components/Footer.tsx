@@ -21,15 +21,15 @@ export function Footer() {
                             Professionell städning för både hem och företag. Vi levererar skinande resultat med nöjd-kund-garanti och utbildad personal.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-[#02292E] transition-all">
+                            <a href="https://www.instagram.com/treda.stad/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-[#02292E] transition-all">
                                 <Instagram className="w-5 h-5" />
-                            </Link>
-                            <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-[#02292E] transition-all">
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61588427983542&locale=sv_SE" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-[#02292E] transition-all">
                                 <Facebook className="w-5 h-5" />
-                            </Link>
-                            <Link href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-[#02292E] transition-all">
+                            </a>
+                            <a href="https://www.linkedin.com/in/treda-st%C3%A4d-1b617b3b3/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-[#02292E] transition-all">
                                 <Linkedin className="w-5 h-5" />
-                            </Link>
+                            </a>
                         </div>
                     </div>
 
