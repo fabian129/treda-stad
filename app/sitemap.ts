@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/kontakt",
         "/tjanster",
         "/foretag",
+        "/jobba-hos-oss",
         "/integritetspolicy",
         "/tillganglighetspolicy",
         "/villkor",
@@ -25,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Add dynamic routes manually for now (can be fetched from CMS/API later)
     // Example: Services
-    const services = ["hemstadning", "flyttstadning", "storstadning", "fonsterputs", "kontorsstadning", "visningsstadning"];
+    const services = ["hemstadning", "storstadning", "flyttstadning", "byggstadning", "kontorsstad", "fonsterputs"];
     const serviceEntries = services.map((slug) => ({
         url: `${baseUrl}/tjanster/${slug}`,
         lastModified: new Date(),
