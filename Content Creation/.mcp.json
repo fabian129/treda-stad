@@ -1,0 +1,24 @@
+{
+    "mcpServers": {
+        "google-ai-studio": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "aistudio-mcp-server"
+            ],
+            "env": {
+                "GEMINI_API_KEY": "AIzaSyBgGsMX6H3tItc-wk0dAVLSOQp1SOm2Fv0"
+            }
+        },
+        "imagen": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@ckz_2055/gemini-image-mcp"
+            ],
+            "env": {
+                "GEMINI_API_KEY": "AIzaSyBgGsMX6H3tItc-wk0dAVLSOQp1SOm2Fv0"
+            }
+        }
+    }
+}

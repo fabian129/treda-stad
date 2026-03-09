@@ -191,7 +191,7 @@ export default function ServicePage({ params }: PageProps) {
                             Varför Treda
                         </motion.div>
                         <h2 className="text-3xl md:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-8 md:mb-12">
-                            Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()} i Malmö?
+                            Varför välja just T<span className="text-primary">reda</span><br />för {(service as any).shortTitle || service.title.toLowerCase()}?
                         </h2>
 
                         <motion.div

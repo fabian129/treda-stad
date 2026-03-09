@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "hydrate": "node scripts/hydrate.js",
+    "save:fram": "powershell -ExecutionPolicy Bypass -File scripts/save-brochure-version.ps1 -Source \"public/images/Treda_Stad_A5_Fram_NEW.html\" -OutDir \"public/images/versions\"",
     "dna:lock": "node scripts/hydrate.js && echo DNA Locked Successfully",
     "dna:unlock": "echo DNA unlocked - edit .agent/design/design_dna.json freely"
   },
