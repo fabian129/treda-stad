@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/foretag/portrait-smiling-beautiful-girl-playing-with-dog-golden-retriever-sitting-floor.jpg",
+        url: "/images/foretag/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Treda Städ - Njut av ett nystädat hem",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Treda Städ - Professionell städning i Skåne",
     description: "Vi skapar rena och trivsamma miljöer i Malmö med omnejd.",
-    images: ["/images/foretag/portrait-smiling-beautiful-girl-playing-with-dog-golden-retriever-sitting-floor.jpg"],
+    images: ["/images/foretag/og-image.jpg"],
   },
   robots: {
     index: true,
