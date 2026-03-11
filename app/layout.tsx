@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Treda Städ - Professionell städning i Skåne",
-    description: "Vi skapar rena och trivsamma miljöer för både privatpersoner och företag. Boka din städning idag.",
+    title: "Treda Städ – Professionell städning i Skåne",
+    description: "Vi erbjuder professionell städning i hela Skåne. Boka enkelt online.",
     url: "https://treda.se",
     siteName: "Treda Städ",
     locale: "sv_SE",
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
         url: "/images/foretag/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Treda Städ - Njut av ett nystädat hem",
+        alt: "Treda Städ - Professionell städning i Skåne",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Treda Städ - Professionell städning i Skåne",
-    description: "Vi skapar rena och trivsamma miljöer i Malmö med omnejd.",
+    title: "Treda Städ – Professionell städning i Skåne",
+    description: "Vi erbjuder professionell städning i hela Skåne. Boka enkelt online.",
     images: ["/images/foretag/og-image.jpg"],
   },
   robots: {
