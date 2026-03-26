@@ -81,7 +81,7 @@ export function Navbar() {
                         href="/vart-finns-vi"
                         className={cn("transition-colors hover:text-primary", isActive("/vart-finns-vi") ? "text-primary font-semibold" : "")}
                     >
-                        Vart finns vi
+                        Var finns vi
                     </Link>
 
 
