@@ -64,15 +64,20 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
-
 import { Footer } from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import { StructuredData } from "@/components/seo/StructuredData";
-export default function RootLayout({
+import { headers } from "next/headers";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-invoke-path") || headersList.get("x-pathname") || "";
+  const isLandingPage = pathname.startsWith("/offert");
+
   return (
     <html lang="sv" className={dmSans.variable}>
       <body className="antialiased font-sans flex flex-col min-h-screen overflow-x-hidden">
@@ -80,8 +85,8 @@ export default function RootLayout({
         <StructuredData />
         <SmoothScroll>
           {children}
-          <Footer />
-          <CookieBanner />
+          {!isLandingPage && <Footer />}
+          {!isLandingPage && <CookieBanner />}
         </SmoothScroll>
       </body>
     </html>
