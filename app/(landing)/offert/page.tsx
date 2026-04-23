@@ -6,7 +6,7 @@ import {
   ArrowRight, Star, CheckCircle, Shield, Phone,
   ChevronDown, Award, Clock, Sparkles
 } from "lucide-react";
-
+import { Logo } from "@/components/Logo";
 
 const reviews = [
   { name: "Anna L.", rating: 5, text: "Fantastisk service! Hemmet har aldrig varit så rent. Alltid samma städare — det ger en trygghet som är ovärderlig.", location: "Malmö", time: "2 veckor sedan" },
@@ -57,8 +57,7 @@ export default function OffertPage() {
       <header className="bg-white/90 backdrop-blur-md border-b border-stone-100 sticky top-0 z-40 px-5">
         <div className="max-w-3xl mx-auto h-16 flex items-center justify-between">
           {/* Logo — not a link on landing page */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/Svart%20f%C3%A4rg%20(1)%20(2).svg" alt="Treda Städ" className="h-7 w-auto" />
+          <Logo className="h-8 w-auto text-[#02292E]" />
           <a
             href="tel:04081787"
             className="flex items-center gap-2 bg-primary text-white font-semibold text-sm px-4 h-9 rounded-full hover:bg-primary/90 transition-all shadow-sm shadow-primary/20"
@@ -76,8 +75,7 @@ export default function OffertPage() {
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
             </div>
-            <span className="font-bold text-stone-900 text-sm">4.9</span>
-            <span className="text-stone-400 text-sm">· 200+ Google-recensioner</span>
+            <span className="font-bold text-stone-900 text-sm">15 stycken på 4.9 i betyg</span>
           </div>
           <div className="flex items-center gap-5 text-sm text-stone-500">
             <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-primary" />Svar inom 2 timmar</span>
