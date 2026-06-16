@@ -34,8 +34,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    // Example: Cities - assuming standard list or fetched
-    const cities = ["malmo", "lund", "trelleborg", "vellinge", "hollviken", "lomma", "staffanstorp"];
+    // Skåne Cities Coverage
+    const cities = [
+        "malmo",
+        "lund",
+        "helsingborg",
+        "trelleborg",
+        "vellinge",
+        "ystad",
+        "landskrona",
+        "eslov",
+        "hollviken",
+        "skanor",
+        "falsterbo",
+        "lomma",
+        "bjarred",
+        "staffanstorp",
+        "svedala",
+        "kavlinge",
+        "loddekopinge"
+    ];
     const cityEntries = cities.map((slug) => ({
         url: `${baseUrl}/vart-finns-vi/${slug}`,
         lastModified: new Date(),

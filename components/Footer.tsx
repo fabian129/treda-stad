@@ -10,10 +10,10 @@ export function Footer() {
             {/* Solid background layer to block any patterns */}
             <div className="absolute inset-0 bg-[#02292E] -z-10"></div>
             <div className="mx-auto max-w-[1240px] px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-20 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16 mb-16">
 
                     {/* Brand Column */}
-                    <div className="md:col-span-2">
+                    <div className="lg:col-span-2">
                         <Link href="/" className="mb-6 block text-white">
                             <Logo className="h-12 w-auto" />
                         </Link>
@@ -31,6 +31,22 @@ export function Footer() {
                                 <Linkedin className="w-5 h-5" />
                             </a>
                         </div>
+                    </div>
+
+                    {/* SEO City Links */}
+                    <div>
+                        <h4 className="font-bold text-lg mb-6 text-primary">Vi finns i</h4>
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-3 text-white/80 text-sm">
+                            <li><Link href="/vart-finns-vi/malmo" className="hover:text-primary transition-colors">Malmö</Link></li>
+                            <li><Link href="/vart-finns-vi/lund" className="hover:text-primary transition-colors">Lund</Link></li>
+                            <li><Link href="/vart-finns-vi/helsingborg" className="hover:text-primary transition-colors">Helsingborg</Link></li>
+                            <li><Link href="/vart-finns-vi/trelleborg" className="hover:text-primary transition-colors">Trelleborg</Link></li>
+                            <li><Link href="/vart-finns-vi/vellinge" className="hover:text-primary transition-colors">Vellinge</Link></li>
+                            <li><Link href="/vart-finns-vi/ystad" className="hover:text-primary transition-colors">Ystad</Link></li>
+                            <li><Link href="/vart-finns-vi/landskrona" className="hover:text-primary transition-colors">Landskrona</Link></li>
+                            <li><Link href="/vart-finns-vi/eslov" className="hover:text-primary transition-colors">Eslöv</Link></li>
+                            <li className="col-span-2 pt-2"><Link href="/vart-finns-vi" className="text-secondary hover:text-primary text-xs font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1">Fler orter &rarr;</Link></li>
+                        </ul>
                     </div>
 
                     {/* Quick Links */}

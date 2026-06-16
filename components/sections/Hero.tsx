@@ -99,7 +99,7 @@ export function Hero({ city }: HeroProps) {
                         className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] text-white mb-6 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
                     >
                         Rent hem,<br />
-                        <span className="text-white/90">utan stress{locationText}.</span>
+                        <span className="text-white/90">utan stress.</span>
                     </motion.h1>
 
                     {/* Subtext */}
@@ -109,7 +109,7 @@ export function Hero({ city }: HeroProps) {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-lg md:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)] will-change-transform transform-gpu"
                     >
-                        Vi ger dig tid tillbaka. Professionell hemstädning skräddarsydd för ditt hem och ditt schema. Njut av känslan av ett nystädat hem{locationText}.
+                        Vi ger dig tid tillbaka. Professionell hemstädning skräddarsydd för ditt hem och ditt schema. Njut av känslan av ett nystädat hem.
                     </motion.p>
 
                     {/* CTAs */}
