@@ -9,11 +9,11 @@ export const services = [
         price: "Från 249 kr/h",
         description: "Med återkommande hemstäd från Treda Städ får du en ren och lugn känsla hemma – utan stress.",
         longDescription: "Vill du komma hem till ett hem som doftar rent och känns i ordning? Treda Städ hjälper dig med hemstäd i Malmö – veckovis, varannan vecka eller exakt när du behöver det. Vi jobbar metodiskt, noggrant och med tydlig kommunikation, så att du alltid vet vad som görs och när.",
-        rutText: "Hemstäd omfattas av RUT – du kan få upp till 50% skattereduktion på arbetskostnaden, och we sköter administrationen så att du ser rabatten direkt på fakturan.",
+        rutText: "Hemstäd omfattas av RUT – du kan få upp till 50% skattereduktion på arbetskostnaden, och vi sköter administrationen så att du ser rabatten direkt på fakturan.",
         image: "/images/joyful-girl-touching-her-father-nose-home.webp",
         perks: [
             "Personligt upplägg (fokus på dina viktigaste ytor)",
-            "Samma rutin – jämn kvalitet over tid",
+            "Samma rutin – jämn kvalitet över tid",
             "Tydlig checklista och enkel bokning",
             "Möjlighet till tillägg (ugn, fönsterputs m.m.)"
         ],

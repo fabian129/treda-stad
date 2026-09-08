@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
         },
         {
             title: "3. VEM DELAR VI DINA PERSONUPPGIFTER MED?",
-            content: "Vi säljer aldrig dina uppgifter. Däremot kan we behöva dela dem med följande kategorier av mottagare:",
+            content: "Vi säljer aldrig dina uppgifter. Däremot kan vi behöva dela dem med följande kategorier av mottagare:",
             subtitle: "Tjänsteleverantörer",
             extra: "För att leverera våra hushållsnära tjänster kan vi behöva dela nödvändiga uppgifter med:",
             extraList: [

@@ -33,11 +33,11 @@ export default function TermsPage() {
             ]
         },
         {
-            title: "5. RUT- OCH ROT-AVDRAG",
+            title: "4. RUT- OCH ROT-AVDRAG",
             content: "Treda sköter ansökan om RUT/ROT enligt gällande regler. Kunden är ansvarig för att ha rätt till avdraget. Om Skatteverket avslår ansökan behöver Kunden betala mellanskillnaden."
         },
         {
-            title: "6. BETALNING",
+            title: "5. BETALNING",
             content: "Fakturering sker i efterskott. Vid utebliven betalning kan Treda:",
             list: [
                 "ta ut dröjsmålsränta,",
@@ -47,24 +47,24 @@ export default function TermsPage() {
             extra: "Invändningar mot faktura ska göras senast på förfallodagen."
         },
         {
-            title: "7. FEL OCH REKLAMATIONER",
+            title: "6. FEL OCH REKLAMATIONER",
             content: "Fel ska reklameras inom 48 timmar efter utförd tjänst. Treda får först försöka rätta till felet. Prisavdrag kan bli aktuellt om avhjälpande inte är möjligt. Kunden ska kunna visa att Treda orsakat eventuell skada."
         },
         {
-            title: "8. ANSVARSBEGRÄNSNING",
+            title: "7. ANSVARSBEGRÄNSNING",
             content: "Treda ansvarar endast för direkta skador orsakade av Treda och högst upp till ett (1) prisbasbelopp per år. Ansvarsbegränsningen gäller inte vid personskador eller vid grov vårdslöshet."
         },
         {
-            title: "9. AVTALSTID OCH UPPSÄGNING",
+            title: "8. AVTALSTID OCH UPPSÄGNING",
             content: "Avtalet gäller tills vidare med en månads uppsägningstid, om inte annat avtalats. Vid uppsägning har Kunden två månader på sig att använda eventuella timmar i timbanken."
         },
         {
-            title: "10. PERSONUPPGIFTER",
+            title: "9. PERSONUPPGIFTER",
             content: "Treda behandlar personuppgifter för att kunna leverera Tjänsterna. Information om detta finns i Tredas integritetspolicy."
         },
         {
-            title: "11. TVIST",
-            content: "Tvister hanteras enligt svensk lag. Kunden kan vända sig till Allmänna Reklamationsnämnden (ARN). Tingsrätten på Kundens hemort är behörig"
+            title: "10. TVIST",
+            content: "Tvister hanteras enligt svensk lag. Kunden kan vända sig till Allmänna Reklamationsnämnden (ARN). Tingsrätten på Kundens hemort är behörig."
         }
     ];
 

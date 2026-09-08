@@ -9,7 +9,7 @@ export default function TimelinePage() {
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-4">Vår resa mot en renare vardag</h1>
                     <p className="text-slate-500 max-w-2xl mx-auto">
-                        se själv här nedan
+                        Se själv här nedan.
                     </p>
                 </div>
 

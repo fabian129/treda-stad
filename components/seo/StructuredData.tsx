@@ -52,8 +52,8 @@ export function StructuredData() {
                     { "@type": "City", "name": "Ystad" },
                     { "@type": "Region", "name": "Skåne län" }
                 ],
-                "telephone": "070-123 45 67", // Needs verification
-                "email": "info@treda.se", // Needs verification
+                "telephone": "040-817 87",
+                "email": "info@treda.se",
                 "priceRange": "$$",
                 "openingHoursSpecification": [
                     {

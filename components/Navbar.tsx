@@ -158,7 +158,7 @@ export function Navbar() {
                             </div>
 
                             <Link href="/vart-finns-vi" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/vart-finns-vi") && "text-primary font-bold")}>
-                                Vart finns vi
+                                Var finns vi
                             </Link>
 
                             <Link href="/foretag" className={cn("hover:text-primary transition-colors py-2 border-b border-border/10", isActive("/foretag") && "text-primary font-bold")}>
