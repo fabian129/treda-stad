@@ -255,7 +255,7 @@ export default function KontaktPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">Telefon</h3>
-                                        <p className="text-secondary text-lg">040-817 87</p>
+                                        <a href="tel:04081787" className="text-secondary text-lg hover:text-primary transition-colors block">040-817 87</a>
                                         <p className="text-sm text-secondary/70">Mån-Fre 08:00 - 17:00</p>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ export default function KontaktPage() {
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-lg mb-1">E-post</h3>
-                                        <p className="text-secondary text-lg">info@treda.se</p>
+                                        <a href="mailto:info@treda.se" className="text-secondary text-lg hover:text-primary transition-colors block">info@treda.se</a>
                                     </div>
                                 </div>
 

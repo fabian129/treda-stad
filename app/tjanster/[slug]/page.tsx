@@ -211,7 +211,7 @@ export default function ServicePage({ params }: PageProps) {
                                 className="absolute left-[-2px] top-[-8px] bottom-[-40px] w-[2px] bg-primary origin-top will-change-transform transform-gpu"
                             />
                             <p className="text-lg md:text-xl text-secondary leading-relaxed max-w-2xl">
-                                Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår {service.title.toLowerCase()} efter dina specifika behov, så att du kan fokusera på det som är viktigt.
+                                Vi på Treda Städ förstår att varje hem och företag är unikt. Därför anpassar vi alltid vår städning efter dina specifika behov, så att du kan fokusera på det som är viktigt.
                             </p>
 
                             {(service as any).longDescription && (

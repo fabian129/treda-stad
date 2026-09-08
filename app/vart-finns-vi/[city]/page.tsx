@@ -51,7 +51,7 @@ export default function LocationPage({ params }: PageProps) {
                         <span className="text-[#50C878]">du älskar.</span>
                     </h2>
                     <p className="text-xl text-white/80 max-w-2xl mx-auto mb-12">
-                        Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbys och återhämtning i din vardag.
+                        Lämna dammsugaren till oss. Vi skapar utrymme för familj, hobbyer och återhämtning i din vardag.
                     </p>
 
                     <div className="p-10 bg-white/[0.03] backdrop-blur-md rounded-[40px] shadow-2xl border border-white/10 inline-block hover:bg-white/[0.06] transition-colors group">
